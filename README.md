@@ -18,7 +18,7 @@
 </p>
 
 <div align=center>
-<a href="https://trendshift.io/repositories/14139" target="_blank" class="trendshift-badge"><img src="https://trendshift.io/api/badge/repositories/14139" alt="TypeWords | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+  <a href="https://trendshift.io/repositories/15226" target="_blank"><img src="https://trendshift.io/api/badge/repositories/15226" alt="zyronon%2FTypeWords | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 </div>
 
 <p align="center">
