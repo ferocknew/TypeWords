@@ -17,12 +17,12 @@ const store = useBaseStore()
 const runtimeStore = useRuntimeStore()
 const settingStore = useSettingStore()
 const userStore = useUserStore()
-const {setTheme} = useTheme()
+const { setTheme } = useTheme()
 
 let lastAudioFileIdList = []
 watch(store.$state, (n: BaseState) => {
   let data = shakeCommonDict(n)
-  set(SAVE_DICT_KEY.key, JSON.stringify({val: data, version: SAVE_DICT_KEY.version}))
+  set(SAVE_DICT_KEY.key, JSON.stringify({ val: data, version: SAVE_DICT_KEY.version }))
 
   //筛选自定义和收藏
   let bookList = data.article.bookList.filter(v => v.custom || [DictId.articleCollect].includes(v.id))
@@ -50,12 +50,12 @@ watch(store.$state, (n: BaseState) => {
   }
 })
 
-watch(settingStore.$state, (n) => {
-  set(SAVE_SETTING_KEY.key, JSON.stringify({val: n, version: SAVE_SETTING_KEY.version}))
+watch(() => settingStore.$state, (n) => {
+  set(SAVE_SETTING_KEY.key, JSON.stringify({ val: n, version: SAVE_SETTING_KEY.version }))
   if (AppEnv.CAN_REQUEST) {
     syncSetting(null, settingStore.$state)
   }
-})
+}, { deep: true })
 
 async function init() {
   await userStore.init()
@@ -72,7 +72,7 @@ async function init() {
       runtimeStore.isNew = r ? (APP_VERSION.version > Number(r)) : true
     })
   }
-  window.umami?.track('host', {host: window.location.host})
+  window.umami?.track('host', { host: window.location.host })
 }
 
 onMounted(init)
@@ -110,7 +110,3 @@ watch(() => route.path, (to, from) => {
   <!--  </router-view>-->
   <router-view></router-view>
 </template>
-
-<style scoped lang="scss">
-
-</style>

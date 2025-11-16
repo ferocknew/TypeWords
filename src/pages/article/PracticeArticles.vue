@@ -42,7 +42,7 @@ const store = useBaseStore()
 const runtimeStore = useRuntimeStore()
 const settingStore = useSettingStore()
 const statStore = usePracticeStore()
-const {toggleTheme} = useTheme()
+const { toggleTheme } = useTheme()
 
 let articleData = $ref({
   list: [],
@@ -53,6 +53,7 @@ let typingArticleRef = $ref<any>()
 let loading = $ref<boolean>(false)
 let allWrongWords = new Set()
 let editArticle = $ref<Article>(getDefaultArticle())
+let audioRef = $ref<HTMLAudioElement>()
 let timer = $ref(0)
 let isFocus = true
 
@@ -131,10 +132,33 @@ async function init() {
     router.push('/articles')
   }
 }
+const initAudio = () => {
+  _nextTick(() => {
+    audioRef.volume = settingStore.articleSoundVolume / 100
+    audioRef.playbackRate = settingStore.articleSoundSpeed
+  })
+}
+
+const handleVolumeUpdate = (volume: number) => {
+  settingStore.setState({
+    articleSoundVolume: volume
+  })
+}
+
+const handleSpeedUpdate = (speed: number) => {
+  settingStore.setState({
+    articleSoundSpeed: speed
+  })
+}
+
 
 watch(() => store.load, (n) => {
   if (n && loading) init()
-}, {immediate: true})
+}, { immediate: true })
+
+watch(() => settingStore.$state, (n) => {
+  initAudio()
+}, { immediate: true, deep: true })
 
 onMounted(() => {
   if (store.sbook?.articles?.length) {
@@ -166,9 +190,9 @@ function savePracticeData(init = true, regenerate = true) {
         let data = obj.val
         //如果全是0，说明未进行练习，直接重置
         if (
-            data.practiceData.sectionIndex === 0 &&
-            data.practiceData.sentenceIndex === 0 &&
-            data.practiceData.wordIndex === 0
+          data.practiceData.sectionIndex === 0 &&
+          data.practiceData.sentenceIndex === 0 &&
+          data.practiceData.wordIndex === 0
         ) {
           throw new Error()
         }
@@ -255,7 +279,7 @@ async function complete() {
   }
 
   if (AppEnv.CAN_REQUEST) {
-    let res = await addStat({...data, type: 'article'})
+    let res = await addStat({ ...data, type: 'article' })
     if (!res.success) {
       Toast.error(res.msg)
     }
@@ -344,6 +368,7 @@ async function changeArticle(val: ArticleItem) {
       }
     }
   }
+  initAudio()
 }
 
 const handlePlayNext = (nextArticle: Article) => {
@@ -372,7 +397,6 @@ function onKeyUp() {
 }
 
 async function onKeyDown(e: KeyboardEvent) {
-  // console.log('e', e)
   switch (e.key) {
     case 'Backspace':
       typingArticleRef.del()
@@ -414,13 +438,13 @@ onUnmounted(() => {
   timer && clearInterval(timer)
 })
 
-let audioRef = $ref<HTMLAudioElement>()
-const {playSentenceAudio} = usePlaySentenceAudio()
-
+const { playSentenceAudio } = usePlaySentenceAudio()
 function play2(e) {
-  if (settingStore.articleSound || e.handle) {
-    playSentenceAudio(e.sentence, audioRef)
-  }
+  _nextTick(() => {
+    if (settingStore.articleSound || e.handle) {
+      playSentenceAudio(e.sentence, audioRef)
+    }
+  })
 }
 
 const currentPractice = computed(() => {
@@ -519,7 +543,10 @@ provide('currentPractice', currentPractice)
                 ref="audioRef"
                 :article="articleData.article"
                 :autoplay="settingStore.articleAutoPlayNext"
-                @ended="settingStore.articleAutoPlayNext && next()"></ArticleAudio>
+                @ended="settingStore.articleAutoPlayNext && next()"
+                @update-speed="handleSpeedUpdate"
+                @update-volume="handleVolumeUpdate"
+            ></ArticleAudio>
             <div class="flex flex-col items-center justify-center gap-1">
               <div class="flex gap-2 center">
                 <VolumeSetting/>

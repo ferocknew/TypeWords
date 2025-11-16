@@ -13,6 +13,7 @@ import loadingDirective from './directives/loading.tsx'
 const pinia = createPinia()
 const app = createApp(App)
 
+
 app.use(VueVirtualScroller)
 app.use(pinia)
 app.use(router)
