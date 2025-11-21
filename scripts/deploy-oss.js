@@ -8,10 +8,9 @@ const {
   OSS_KEY_ID,
   OSS_KEY_SECRET,
   OSS_BUCKET,
-  CDN_DOMAIN
 } = process.env
 
-if (!OSS_REGION || !OSS_KEY_ID || !OSS_KEY_SECRET || !OSS_BUCKET || !CDN_DOMAIN) {
+if (!OSS_REGION || !OSS_KEY_ID || !OSS_KEY_SECRET || !OSS_BUCKET) {
   console.error('❌ 缺少必要的环境变量，请检查 GitHub Secrets 配置')
   process.exit(1)
 }
@@ -116,10 +115,10 @@ async function uploadFilesWithClean(files, localBase = './dist', ignoreDirs = []
 
 
 // 刷新 CDN
-async function refreshCDN() {
-  console.log('🔄 刷新 CDN 缓存...')
+async function refreshCDN(domain) {
+  console.log(`🔄 刷新 ${domain} CDN 缓存...`)
   const params = {
-    ObjectPath: `https://${CDN_DOMAIN}/`,
+    ObjectPath: `https://${domain}/`,
     ObjectType: 'Directory'
   }
   const requestOption = {method: 'POST'}
@@ -132,7 +131,8 @@ async function main() {
   console.log(`📁 共找到 ${files.length} 个文件，开始上传...`)
   await uploadFilesWithClean(files, './dist', ['dicts', 'sound', 'libs'])
   // await uploadFilesWithClean(files, './dist', ['libs'])
-  await refreshCDN()
+  await refreshCDN('2study.top')
+  await refreshCDN('typewords.cc')
 }
 
 main().catch(err => {

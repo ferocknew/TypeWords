@@ -8,13 +8,15 @@ import useTheme from "@/hooks/theme.ts";
 import BaseIcon from "@/components/BaseIcon.vue";
 import {useRuntimeStore} from "@/stores/runtime.ts";
 
-
 const settingStore = useSettingStore()
 const runtimeStore = useRuntimeStore()
 const router = useRouter()
-const {toggleTheme,getTheme} = useTheme()
+const {toggleTheme, getTheme} = useTheme()
 
-
+//首页为了seo被剥离出去了，现在是一个静态页面，用nginx 重定向控制对应的跳转
+function goHome() {
+  window.location.href = '/';
+}
 </script>
 
 <template>
@@ -24,7 +26,7 @@ const {toggleTheme,getTheme} = useTheme()
     <div class="aside anim fixed" :class="{'expand':settingStore.sideExpand}">
       <div class="top">
         <Logo v-if="settingStore.sideExpand"/>
-        <div class="row" @click="router.push('/')">
+        <div class="row" @click="goHome">
           <IconFluentHome20Regular/>
           <span v-if="settingStore.sideExpand">主页</span>
         </div>
@@ -49,14 +51,14 @@ const {toggleTheme,getTheme} = useTheme()
       </div>
       <div class="bottom flex justify-evenly ">
         <BaseIcon
-            @click="settingStore.sideExpand = !settingStore.sideExpand">
+          @click="settingStore.sideExpand = !settingStore.sideExpand">
           <IconFluentChevronLeft20Filled v-if="settingStore.sideExpand"/>
           <IconFluentChevronLeft20Filled class="transform-rotate-180" v-else/>
         </BaseIcon>
         <BaseIcon
-            v-if="settingStore.sideExpand"
-            :title="`切换主题(${settingStore.shortcutKeyMap[ShortcutKey.ToggleTheme]})`"
-            @click="toggleTheme"
+          v-if="settingStore.sideExpand"
+          :title="`切换主题(${settingStore.shortcutKeyMap[ShortcutKey.ToggleTheme]})`"
+          @click="toggleTheme"
         >
           <IconFluentWeatherMoon16Regular v-if="getTheme() === 'light'"/>
           <IconFluentWeatherSunny16Regular v-else/>

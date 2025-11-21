@@ -1,11 +1,10 @@
-import {BaseState, DefaultBaseState, useBaseStore} from "@/stores/base.ts";
+import {BaseState, getDefaultBaseState, useBaseStore} from "@/stores/base.ts";
 import {getDefaultSettingState, SettingState} from "@/stores/setting.ts";
 import {Dict, DictId, DictResource, DictType} from "@/types/types.ts";
 import {useRouter} from "vue-router";
 import {useRuntimeStore} from "@/stores/runtime.ts";
 import dayjs from 'dayjs'
-import axios from "axios";
-import {ENV, IS_OFFICIAL, RESOURCE_PATH, SAVE_DICT_KEY, SAVE_SETTING_KEY} from "@/config/env.ts";
+import {AppEnv, RESOURCE_PATH, SAVE_DICT_KEY, SAVE_SETTING_KEY} from "@/config/env.ts";
 import {nextTick} from "vue";
 import Toast from '@/components/base/toast/Toast.ts'
 import {getDefaultDict, getDefaultWord} from "@/types/func.ts";
@@ -29,7 +28,7 @@ export function checkAndUpgradeSaveDict(val: any) {
   // console.log(configStr)
   // console.log('s', new Blob([val]).size)
   // val = ''
-  let defaultState = DefaultBaseState()
+  let defaultState = getDefaultBaseState()
   if (val) {
     try {
       let data: any
@@ -138,10 +137,10 @@ export function useNav() {
     router.push({path, query})
   }
 
-  return {nav, back: router.back}
+  return {nav, push: nav, back: router.back}
 }
 
-export function _dateFormat(val: any, format?: string): string {
+export function _dateFormat(val: any, format: string = 'YYYY/MM/DD HH:mm'): string {
   if (!val) return
   if (String(val).length === 10) {
     val = val * 1000
@@ -243,7 +242,7 @@ export function convertToWord(raw: any) {
 
   // 1. trans
   const trans = safeSplit(raw.trans, '\n').map(line => {
-    const match = line.match(/^([^\s.]+\.?)\s*(.*)$/);
+    const match = safeString(line).match(/^([^\s.]+\.?)\s*(.*)$/);
     if (match) {
       let pos = safeString(match[1]);
       let cn = safeString(match[2]);
@@ -440,7 +439,7 @@ export function total(arr, key) {
 }
 
 export function resourceWrap(resource: string, version?: number) {
-  if (IS_OFFICIAL) {
+  if (AppEnv.IS_OFFICIAL) {
     if (resource.includes('.json')) resource = resource.replace('.json', '');
     if (!resource.includes('http')) resource = RESOURCE_PATH + resource
     if (version === undefined) {
@@ -450,4 +449,13 @@ export function resourceWrap(resource: string, version?: number) {
     return `${resource}_v${version}.json`
   }
   return resource;
+}
+
+// check if it is a new user
+export async function isNewUser() {
+  let isNew = false
+  let base = useBaseStore()
+  console.log(JSON.stringify(base.$state))
+  console.log(JSON.stringify(getDefaultBaseState()))
+  return JSON.stringify(base.$state) === JSON.stringify({...getDefaultBaseState(), ...{load: true}})
 }

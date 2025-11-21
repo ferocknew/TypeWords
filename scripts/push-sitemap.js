@@ -4,7 +4,7 @@ const dictList = require('../public/list/word.json')
 
 async function pushUrls() {
   // 配置区：改成你的
-  const site = "https://2study.top"; // 必须和百度站长平台注册的域名一致
+  const site = "https://typewords.cc"; // 必须和百度站长平台注册的域名一致
   const token = ""; // 在百度站长平台获取
 
   // 读取 urls.txt，每行一个 URL

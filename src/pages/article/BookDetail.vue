@@ -20,7 +20,7 @@ import ArticleAudio from "@/pages/article/components/ArticleAudio.vue";
 import { MessageBox } from "@/utils/MessageBox.tsx";
 import { useSettingStore } from "@/stores/setting.ts";
 import { useFetch } from "@vueuse/core";
-import { CAN_REQUEST, DICT_LIST } from "@/config/env.ts";
+import { AppEnv, DICT_LIST } from "@/config/env.ts";
 import { detail } from "@/apis";
 
 const runtimeStore = useRuntimeStore()
@@ -93,7 +93,7 @@ async function init() {
       }
 
       if (base.article.bookList.find(book => book.id === runtimeStore.editDict.id)) {
-        if (CAN_REQUEST) {
+        if (AppEnv.CAN_REQUEST) {
           let res = await detail({id: runtimeStore.editDict.id})
           if (res.success) {
             runtimeStore.editDict.statistics = res.data.statistics
@@ -225,7 +225,7 @@ function next() {
               <div
                   class="item border border-item border-solid mt-2 p-2 bg-[var(--bg-history)] rounded-md flex justify-between"
                   v-for="i in currentPractice">
-                <span class="color-gray">{{ _dateFormat(i.startDate, 'YYYY/MM/DD HH:mm') }}</span>
+                <span class="color-gray">{{ _dateFormat(i.startDate) }}</span>
                 <span>{{ msToHourMinute(i.spend) }}</span>
               </div>
             </div>

@@ -1,18 +1,15 @@
 <script setup lang="ts">
 
-import {_getAccomplishDays} from "@/utils";
-import Radio from "@/components/base/radio/Radio.vue";
-import RadioGroup from "@/components/base/radio/RadioGroup.vue";
+import { _getAccomplishDays } from "@/utils";
 import BaseButton from "@/components/BaseButton.vue";
 import Checkbox from "@/components/base/checkbox/Checkbox.vue";
 import Slider from "@/components/base/Slider.vue";
-import {useBaseStore} from "@/stores/base.ts";
-import {defineAsyncComponent, watch} from "vue";
-import {useSettingStore} from "@/stores/setting.ts";
+import { defineAsyncComponent, watch } from "vue";
+import { useSettingStore } from "@/stores/setting.ts";
 import Toast from "@/components/base/toast/Toast.ts";
 import ChangeLastPracticeIndexDialog from "@/pages/word/components/ChangeLastPracticeIndexDialog.vue";
 import Tooltip from "@/components/base/Tooltip.vue";
-import {useRuntimeStore} from "@/stores/runtime.ts";
+import { useRuntimeStore } from "@/stores/runtime.ts";
 
 const Dialog = defineAsyncComponent(() => import('@/components/dialog/Dialog.vue'))
 

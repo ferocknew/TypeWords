@@ -1,4 +1,4 @@
-import {Article, TaskWords, Word, WordPracticeMode} from "@/types/types.ts";
+import { Article, TaskWords, Word, WordPracticeMode } from "@/types/types.ts";
 import { useBaseStore } from "@/stores/base.ts";
 import { useSettingStore } from "@/stores/setting.ts";
 import { getDefaultWord } from "@/types/func.ts";
@@ -87,7 +87,7 @@ export function useArticleOptions() {
 
 export function getCurrentStudyWord(): TaskWords {
   const store = useBaseStore()
-  let data = {new: [], review: [], write: []}
+  let data = {new: [], review: [], write: [], shuffle: []}
   let dict = store.sdict;
   let isTest = false
   let words = dict.words.slice()

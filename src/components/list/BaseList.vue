@@ -5,13 +5,13 @@ import { nextTick, watch } from 'vue'
 const props = withDefaults(defineProps<{
   list?: any[],
   activeIndex?: number,
-  activeId?: number,
+  activeId?: number | string,
   isActive?: boolean
   static?: boolean
 }>(), {
   list: [],
   activeIndex: -1,
-  activeId: null,
+  activeId: '',
   isActive: false,
   static: true
 })
@@ -94,7 +94,7 @@ function scrollToItem(index: number) {
 
 function itemIsActive(item: any, index: number) {
   return props.activeId ?
-      props.activeId === item.id
+      props.activeId == item.id
       : props.activeIndex === index
 }
 

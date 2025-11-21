@@ -5,7 +5,8 @@
 </template>
 
 <script setup lang="ts">
-import {ref, provide, watch, toRef} from 'vue'
+import {provide, ref, toRef} from 'vue'
+import type {FormField, FormModel, FormRules} from './types'
 
 interface Field {
   prop: string
@@ -14,8 +15,8 @@ interface Field {
 }
 
 const props = defineProps({
-  model: Object,
-  rules: Object // { word: [{required:true,...}, ...], name: [...] }
+  model: Object as () => FormModel,
+  rules: Object as () => FormRules
 })
 
 const fields = ref<Field[]>([])
@@ -25,7 +26,7 @@ const registerField = (field: Field) => {
 }
 
 // 校验整个表单
-const validate = (cb): boolean => {
+function validate(cb) {
   let valid = true
   fields.value.forEach(f => {
     const fieldRules = props.rules?.[f.prop] || []
@@ -35,10 +36,23 @@ const validate = (cb): boolean => {
   cb(valid)
 }
 
+// 校验指定字段
+function validateField(fieldName: string, cb?: (valid: boolean) => void): boolean {
+  const field = fields.value.find(f => f.prop === fieldName)
+  if (field) {
+    const fieldRules = props.rules?.[fieldName] || []
+    const valid = field.validate(fieldRules)
+    if (cb) cb(valid)
+    return valid
+  }
+  if (cb) cb(true)
+  return true
+}
+
 provide('registerField', registerField)
 provide('formModel', toRef(props, 'model'))
 provide('formValidate', validate)
 provide('formRules', props.rules)
 
-defineExpose({validate})
+defineExpose({validate, validateField})
 </script>

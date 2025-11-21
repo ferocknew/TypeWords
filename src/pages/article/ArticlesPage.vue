@@ -18,7 +18,7 @@ import dayjs from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
 import isoWeek from 'dayjs/plugin/isoWeek'
 import { useFetch } from "@vueuse/core";
-import { CAN_REQUEST, DICT_LIST, PracticeSaveArticleKey } from "@/config/env.ts";
+import { AppEnv, DICT_LIST, PracticeSaveArticleKey } from "@/config/env.ts";
 import { myDictList } from "@/apis";
 
 dayjs.extend(isoWeek)
@@ -36,7 +36,7 @@ watch(() => store.load, n => {
 }, {immediate: true})
 
 async function init() {
-  if (CAN_REQUEST) {
+  if (AppEnv.CAN_REQUEST) {
     let res = await myDictList({type: "article"})
     if (res.success) {
       store.setState(Object.assign(store.$state, res.data))
@@ -214,7 +214,7 @@ const {data: recommendBookList, isFetching} = useFetch(resourceWrap(DICT_LIST.AR
       </div>
       <div class="flex flex-col justify-between items-end articles-summary__actions">
         <div class="flex gap-4 items-center" v-opacity="base.sbook.id">
-          <div class="color-blue cursor-pointer" @click="router.push('/book-list')">更换</div>
+          <div class="color-link cursor-pointer" @click="router.push('/book-list')">更换</div>
         </div>
         <BaseButton size="large"
                     @click="startStudy"
@@ -237,10 +237,10 @@ const {data: recommendBookList, isFetching} = useFetch(resourceWrap(DICT_LIST.AR
             </BaseIcon>
           </PopConfirm>
 
-          <div class="color-blue cursor-pointer" v-if="base.article.bookList.length > 1"
+          <div class="color-link cursor-pointer" v-if="base.article.bookList.length > 1"
                @click="isMultiple = !isMultiple; selectIds = []">{{ isMultiple ? '取消' : '管理书籍' }}
           </div>
-          <div class="color-blue cursor-pointer" @click="nav('book-detail', { isAdd: true })">创建个人书籍</div>
+          <div class="color-link cursor-pointer" @click="nav('book-detail', { isAdd: true })">创建个人书籍</div>
         </div>
       </div>
       <div class="articles-list__grid mt-4">
@@ -260,8 +260,8 @@ const {data: recommendBookList, isFetching} = useFetch(resourceWrap(DICT_LIST.AR
     <div class="card flex flex-col min-h-50 articles-list" v-loading="isFetching">
       <div class="articles-list__header">
         <div class="title">推荐</div>
-        <div class="articles-list__actions">
-          <div class="color-blue cursor-pointer" @click="router.push('/book-list')">更多</div>
+        <div class="flex gap-4 items-center">
+          <div class="color-link cursor-pointer" @click="router.push('/book-list')">更多</div>
         </div>
       </div>
 
@@ -277,8 +277,7 @@ const {data: recommendBookList, isFetching} = useFetch(resourceWrap(DICT_LIST.AR
 
 <style scoped lang="scss">
 .stat {
-  @apply rounded-xl p-4 box-border relative flex-1;
-  background: white;
+  @apply rounded-xl p-4 box-border relative flex-1 bg-[var(--bg-history)];
   border: 1px solid gainsboro;
 
   .num {

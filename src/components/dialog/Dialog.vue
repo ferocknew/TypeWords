@@ -188,7 +188,7 @@ async function cancel() {
 <style scoped lang="scss">
 
 
-$modal-mask-bg: rgba(#000, .45);
+$modal-mask-bg: rgba(#000, .6);
 $radius: .5rem;
 $time: 0.3s;
 $header-height: 4rem;
@@ -196,11 +196,9 @@ $header-height: 4rem;
 @keyframes bounce-in {
   0% {
     opacity: 0;
-    transform: scale(0);
   }
   100% {
     opacity: 1;
-    transform: scale(1);
   }
 }
 
@@ -259,7 +257,6 @@ $header-height: 4rem;
     animation: bounce-in $time ease-out;
 
     &.bounce-out {
-      transform: scale(0);
       opacity: 0;
     }
   }

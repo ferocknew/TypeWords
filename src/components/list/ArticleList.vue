@@ -4,11 +4,13 @@ import { Article } from "@/types/types.ts";
 import BaseList from "@/components/list/BaseList.vue";
 import BaseInput from "@/components/base/BaseInput.vue";
 
-const props = withDefaults(defineProps<{
-  list: Article[],
-  showTranslate?: boolean
-}>(), {
-  list: [],
+interface IProps {
+  list: Article[];
+  showTranslate?: boolean;
+}
+
+const props = withDefaults(defineProps<IProps>(), {
+  list: () => [] as Article[],
   showTranslate: true,
 })
 
@@ -62,27 +64,23 @@ function scrollToItem(index: number) {
   listRef?.scrollToItem(index)
 }
 
-defineExpose({scrollToBottom, scrollToItem})
+defineExpose({ scrollToBottom, scrollToItem })
 
 </script>
 
 <template>
   <div class="list">
     <div class="search">
-      <BaseInput
-          clearable
-          v-model="searchKey"
-      >
+      <BaseInput clearable v-model="searchKey">
         <template #subfix>
-          <IconFluentSearch24Regular class="text-lg text-gray"/>
+          <IconFluentSearch24Regular class="text-lg text-gray" />
         </template>
       </BaseInput>
     </div>
-    <BaseList
-        ref="listRef"
-        @click="(e:any) => emit('click',e)"
-        :list="localList"
-        v-bind="$attrs">
+    <BaseList ref="listRef"
+              @click="(e: any) => emit('click', e)"
+              :list="localList"
+              v-bind="$attrs">
       <template v-slot:prefix="{ item, index }">
         <slot name="prefix" :item="item" :index="index"></slot>
       </template>
@@ -91,7 +89,7 @@ defineExpose({scrollToBottom, scrollToItem})
           <div class="name"> {{ `${searchKey ? '' : (index + 1) + '. '}${item.title}` }}</div>
         </div>
         <div class="item-sub-title" v-if="item.titleTranslate && showTranslate">
-          <div class="item-translate"> {{ `   ${item.titleTranslate}` }}</div>
+          <div class="item-translate"> {{ ` ${item.titleTranslate}` }}</div>
         </div>
       </template>
       <template v-slot:suffix="{ item, index }">

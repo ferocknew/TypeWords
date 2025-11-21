@@ -7,7 +7,7 @@ interface IProps {
   disabled?: boolean
   loading?: boolean
   size?: 'small' | 'normal' | 'large',
-  type?: 'primary' | 'link' | 'info'
+  type?: 'primary' | 'link' | 'info' | 'orange'
 }
 
 withDefaults(defineProps<IProps>(), {
@@ -62,7 +62,7 @@ defineEmits(['click'])
   color: white;
 
   & + .base-button {
-    margin-left: var(--space);
+    margin-left: 1rem;
   }
 
   .loading {
@@ -76,8 +76,8 @@ defineEmits(['click'])
   }
 
   &.small {
-    border-radius: 0.2rem;
-    padding: 0 0.8rem;
+    border-radius: 0.3rem;
+    padding: 0 0.6rem;
     height: 1.6rem;
     font-size: .8rem;
   }
@@ -86,6 +86,7 @@ defineEmits(['click'])
     padding: 0 1.3rem;
     height: 2.4rem;
     font-size: 0.9rem;
+    border-radius: .5rem;
   }
 
   & > span {
@@ -97,19 +98,19 @@ defineEmits(['click'])
     }
   }
 
-  &:hover {
-    opacity: .8;
-  }
-
   &.primary {
     background: var(--btn-primary);
+
+    &:hover:not(.disabled) {
+      opacity: 0.6;
+    }
   }
 
   &.link {
     border-radius: 0;
     border-bottom: 2px solid transparent;
 
-    &:hover {
+    &:hover:not(.disabled) {
       border-bottom: 2px solid var(--color-font-2);
     }
   }
@@ -118,6 +119,20 @@ defineEmits(['click'])
     background: var(--btn-info);
     border: 1px solid var(--color-main-text);
     color: var(--color-main-text);
+
+    &:hover:not(.disabled) {
+      opacity: 0.6;
+    }
+  }
+
+  &.orange {
+    background: #FACC15;
+    color: black;
+
+    &:hover:not(.disabled) {
+      background: #fbe27e;
+      color: rgba(0, 0, 0, 0.6);
+    }
   }
 
   &.active {

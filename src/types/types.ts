@@ -200,6 +200,7 @@ export interface TaskWords {
   new: Word[],
   review: Word[],
   write: Word[],
+  shuffle: Word[],
 }
 
 export class DictId {
@@ -228,4 +229,13 @@ export enum WordPracticeType {
   Identify,
   Listen,
   Dictation
+}
+
+export enum CodeType {
+  Login = 0,
+  Register = 1,
+  ResetPwd = 2,
+  ChangeEmail = 3,
+  ChangePhoneNew = 4,
+  ChangePhoneOld = 5
 }

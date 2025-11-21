@@ -12,8 +12,8 @@ import { Option, Select } from "@/components/base/select";
 import BaseInput from "@/components/base/BaseInput.vue";
 import Form from "@/components/base/form/Form.vue";
 import FormItem from "@/components/base/form/FormItem.vue";
-import { CAN_REQUEST } from "@/config/env.ts";
 import { addDict } from "@/apis";
+import { AppEnv } from "@/config/env.ts";
 
 const props = defineProps<{
   isAdd: boolean,
@@ -58,7 +58,7 @@ async function onSubmit() {
           Toast.warning('已有相同名称！')
           return
         } else {
-          if (CAN_REQUEST) {
+          if (AppEnv.CAN_REQUEST) {
             loading = true
             let res = await addDict(null, data)
             loading = false

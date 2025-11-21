@@ -1,17 +1,17 @@
 <script setup lang="ts">
-import { nextTick, ref, watch } from "vue";
-import { useSettingStore } from "@/stores/setting.ts";
-import { getAudioFileUrl, usePlayAudio } from "@/hooks/sound.ts";
-import { getShortcutKey, useEventListener } from "@/hooks/event.ts";
-import { checkAndUpgradeSaveDict, checkAndUpgradeSaveSetting, cloneDeep, loadJsLib, shakeCommonDict } from "@/utils";
+import {nextTick, ref, watch} from "vue";
+import {useSettingStore} from "@/stores/setting.ts";
+import {getAudioFileUrl, usePlayAudio} from "@/hooks/sound.ts";
+import {getShortcutKey, useEventListener} from "@/hooks/event.ts";
+import {checkAndUpgradeSaveDict, checkAndUpgradeSaveSetting, cloneDeep, loadJsLib, shakeCommonDict} from "@/utils";
 import {DefaultShortcutKeyMap, ShortcutKey, WordPracticeMode} from "@/types/types.ts";
 import BaseButton from "@/components/BaseButton.vue";
 import VolumeIcon from "@/components/icon/VolumeIcon.vue";
-import { useBaseStore } from "@/stores/base.ts";
-import { saveAs } from "file-saver";
+import {useBaseStore} from "@/stores/base.ts";
+import {saveAs} from "file-saver";
 import {
-  APP_NAME, APP_VERSION,
-  EXPORT_DATA_KEY,
+  APP_NAME, APP_VERSION, EMAIL,
+  EXPORT_DATA_KEY, GITHUB,
   LOCAL_FILE_KEY,
   Origin,
   PracticeSaveArticleKey,
@@ -20,7 +20,7 @@ import {
 import dayjs from "dayjs";
 import BasePage from "@/components/BasePage.vue";
 import Toast from '@/components/base/toast/Toast.ts'
-import { Option, Select } from "@/components/base/select";
+import {Option, Select} from "@/components/base/select";
 import Switch from "@/components/base/Switch.vue";
 import Slider from "@/components/base/Slider.vue";
 import RadioGroup from "@/components/base/radio/RadioGroup.vue";
@@ -29,8 +29,9 @@ import InputNumber from "@/components/base/InputNumber.vue";
 import PopConfirm from "@/components/PopConfirm.vue";
 import Textarea from "@/components/base/Textarea.vue";
 import SettingItem from "@/pages/setting/SettingItem.vue";
-import { get, set } from "idb-keyval";
-import { useRuntimeStore } from "@/stores/runtime.ts";
+import {get, set} from "idb-keyval";
+import {useRuntimeStore} from "@/stores/runtime.ts";
+import {useUserStore} from "@/stores/auth.ts";
 
 const emit = defineEmits<{
   toggleDisabledDialogEscKey: [val: boolean]
@@ -40,6 +41,8 @@ const tabIndex = $ref(0)
 const settingStore = useSettingStore()
 const runtimeStore = useRuntimeStore()
 const store = useBaseStore()
+const userStore = useUserStore()
+
 //@ts-ignore
 const gitLastCommitHash = ref(LATEST_COMMIT_HASH);
 const simpleWords = $computed({
@@ -95,7 +98,7 @@ useEventListener('keydown', (e: KeyboardEvent) => {
     } else {
       // 忽略单独的修饰键
       if (shortcutKey === 'Ctrl+' || shortcutKey === 'Alt+' || shortcutKey === 'Shift+' ||
-          e.key === 'Control' || e.key === 'Alt' || e.key === 'Shift') {
+        e.key === 'Control' || e.key === 'Alt' || e.key === 'Shift') {
         return;
       }
 
@@ -424,8 +427,8 @@ function importOldData() {
                        v-if="settingStore.ignoreSimpleWord"
           >
             <Textarea
-                placeholder="多个单词用英文逗号隔号"
-                v-model="simpleWords" :autosize="{minRows: 6, maxRows: 10}"/>
+              placeholder="多个单词用英文逗号隔号"
+              v-model="simpleWords" :autosize="{minRows: 6, maxRows: 10}"/>
           </SettingItem>
 
           <!--          音效-->
@@ -453,16 +456,16 @@ function importOldData() {
                     class="w-50!"
             >
               <Option
-                  v-for="item in SoundFileOptions"
-                  :key="item.value"
-                  :label="item.label"
-                  :value="item.value"
+                v-for="item in SoundFileOptions"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
               >
                 <div class="flex justify-between items-center w-full">
                   <span>{{ item.label }}</span>
                   <VolumeIcon
-                      :time="100"
-                      @click="usePlayAudio(getAudioFileUrl(item.value)[0])"/>
+                    :time="100"
+                    @click="usePlayAudio(getAudioFileUrl(item.value)[0])"/>
                 </div>
               </Option>
             </Select>
@@ -554,7 +557,7 @@ function importOldData() {
           <div class="line"></div>
           <SettingItem mainTitle="自动切换"/>
           <SettingItem title="自动切换下一个单词"
-                       desc="未开启自动切换时，当输入完成后请使用 **空格键** 切换下一个"
+                       desc="仅在 **跟写** 时生效，听写、辨认、默写均不会自动切换，需要手动按 **空格键** 切换"
           >
             <Switch v-model="settingStore.autoNextWord"/>
           </SettingItem>
@@ -580,16 +583,16 @@ function importOldData() {
           <SettingItem mainTitle="字体设置"/>
           <SettingItem title="外语字体">
             <Slider
-                :min="10"
-                :max="100"
-                v-model="settingStore.fontSize.wordForeignFontSize"/>
+              :min="10"
+              :max="100"
+              v-model="settingStore.fontSize.wordForeignFontSize"/>
             <span class="w-10 pl-5">{{ settingStore.fontSize.wordForeignFontSize }}px</span>
           </SettingItem>
           <SettingItem title="中文字体">
             <Slider
-                :min="10"
-                :max="100"
-                v-model="settingStore.fontSize.wordTranslateFontSize"/>
+              :min="10"
+              :max="100"
+              v-model="settingStore.fontSize.wordTranslateFontSize"/>
             <span class="w-10 pl-5">{{ settingStore.fontSize.wordTranslateFontSize }}px</span>
           </SettingItem>
         </div>
@@ -618,8 +621,12 @@ function importOldData() {
             <Slider v-model="settingStore.articleSoundSpeed" :step="0.1" :min="0.5" :max="3"/>
             <span class="w-10 pl-5">{{ settingStore.articleSoundSpeed }}</span>
           </SettingItem>
-        </div>
 
+          <div class="line"></div>
+          <SettingItem title="输入时忽略符号/数字">
+            <Switch v-model="settingStore.ignoreSymbol"/>
+          </SettingItem>
+        </div>
 
         <div class="body" v-if="tabIndex === 3">
           <div class="row">
@@ -634,7 +641,7 @@ function importOldData() {
                   <input ref="shortcutInput" :value="item[1]?item[1]:'未设置快捷键'" readonly type="text"
                          @blur="handleInputBlur">
                   <span @click.stop="editShortcutKey = ''">按键盘进行设置，<span
-                      class="text-red!">设置完成点击这里</span></span>
+                    class="text-red!">设置完成点击这里</span></span>
                 </div>
                 <div v-else>
                   <div v-if="item[1]">{{ item[1] }}</div>
@@ -671,25 +678,73 @@ function importOldData() {
                      @change="importData">
             </div>
             <PopConfirm
-                title="导入老版本数据前，请先备份当前数据，确定要导入老版本数据吗？"
-                @confirm="importOldData">
+              title="导入老版本数据前，请先备份当前数据，确定要导入老版本数据吗？"
+              @confirm="importOldData">
               <BaseButton>老版本数据导入</BaseButton>
             </PopConfirm>
           </div>
         </div>
 
         <div v-if="tabIndex === 5">
-          <div class="item p-2">
+          <div class="log-item">
             <div class="mb-2">
               <div>
-                <div>更新日期：2025/10/26</div>
-                <div>更新内容：进一步完善单词练习，解决复习数量太多的问题</div>
+                <div>日期：2025/11/16</div>
+                <div>内容：辨认单词时，不认识单词可以直接输入，自动标识为错误单词，无需按2</div>
+              </div>
+            </div>
+          </div>
+          <div class="log-item">
+            <div class="mb-2">
+              <div>
+                <div>日期：2025/11/15</div>
+                <div>内容：练习单词时，底部工具栏新增“跳到下一阶段”按钮</div>
+              </div>
+            </div>
+          </div>
+          <div class="log-item">
+            <div class="mb-2">
+              <div>
+                <div>日期：2025/11/14</div>
+                <div>内容：新增文章练习时可跳过空格：如果在单词的最后一位上，不按空格直接输入下一个字母的话，自动跳下一个单词， 按空格也自动跳下一个单词</div>
+              </div>
+            </div>
+          </div>
+          <div class="log-item">
+            <div class="mb-2">
+              <div>
+                <div>日期：2025/11/13</div>
+                <div>内容：新增文章练习时“输入时忽略符号/数字”选项</div>
+              </div>
+            </div>
+          </div>
+          <div class="log-item">
+            <div class="mb-2">
+              <div>
+                <div>日期：2025/11/6</div>
+                <div>内容：新增随机复习功能</div>
+              </div>
+            </div>
+          </div>
+          <div class="log-item">
+            <div class="mb-2">
+              <div>
+                <div>日期：2025/10/30</div>
+                <div>内容：集成PWA基础配置，支持用户以类App形式打开项目</div>
+              </div>
+            </div>
+          </div>
+          <div class="log-item">
+            <div class="mb-2">
+              <div>
+                <div>日期：2025/10/26</div>
+                <div>内容：进一步完善单词练习，解决复习数量太多的问题</div>
               </div>
               <div class="text-base mt-1">
                 <ol>
                   <li>
                     <div class="title"><b>智能模式优化</b></div>
-                    <div class="desc">练习时新增四种练习模式：学习、复习、听写、默写。</div>
+                    <div class="desc">练习时新增四种练习模式：学习、辨认、听写、默写。</div>
                   </li>
                   <li>
                     <div class="title"><b>学习模式</b></div>
@@ -702,7 +757,7 @@ function importOldData() {
                     </div>
                   </li>
                   <li>
-                    <div class="title"><b>复习模式（新增）</b></div>
+                    <div class="title"><b>辨认模式（新增）</b></div>
                     <div class="desc">
                       <ul>
                         <li>仅在复习已学单词时出现。</li>
@@ -730,13 +785,20 @@ function importOldData() {
                 <div>通过引入「复习」与「默写」两种模式，使复习流程更加灵活、高效。</div>
               </div>
             </div>
-            <div class="line"></div>
           </div>
-          <div class="item p-2">
+          <div class="log-item">
             <div class="mb-2">
               <div>
-                <div>更新日期：2025/9/14</div>
-                <div>更新内容：完善文章编辑、导入、导出等功能</div>
+                <div>日期：2025/10/8</div>
+                <div>内容：文章支持自动播放下一篇</div>
+              </div>
+            </div>
+          </div>
+          <div class="log-item">
+            <div class="mb-2">
+              <div>
+                <div>日期：2025/9/14</div>
+                <div>内容：完善文章编辑、导入、导出等功能</div>
               </div>
               <div class="text-base mt-1">
                 <div>1、文章的音频管理功能，目前已可添加音频、设置句子与音频的对应位置</div>
@@ -744,24 +806,61 @@ function importOldData() {
                 <div>3、单词可导入、导出</div>
               </div>
             </div>
-            <div class="line"></div>
+          </div>
+          <div class="log-item">
+            <div class="mb-2">
+              <div>
+                <div>日期：2025/8/10</div>
+                <div>内容：2.0版本发布，全新UI，全新逻辑，新增短语、例句、近义词等功能</div>
+              </div>
+            </div>
+          </div>
+          <div class="log-item">
+            <div class="mb-2">
+              <div>
+                <div>日期：2025/7/19</div>
+                <div>内容：1.0版本发布</div>
+              </div>
+            </div>
           </div>
         </div>
 
         <div v-if="tabIndex === 6" class="center flex-col">
           <h1>Type Words</h1>
+
+          <!-- 用户信息部分 -->
+          <div v-if="userStore.isLoggedIn && userStore.user" class="user-info-section mb-6">
+            <div class="user-avatar mb-4">
+              <img v-if="userStore.user.avatar" :src="userStore.user.avatar" alt="头像" class="avatar-img"/>
+              <div v-else class="avatar-placeholder">
+                {{ userStore.user.nickname?.charAt(0) || 'U' }}
+              </div>
+            </div>
+            <h3 class="mb-2">{{ userStore.user.nickname || '用户' }}</h3>
+            <p v-if="userStore.user.email" class="text-sm color-gray mb-1">{{ userStore.user.email }}</p>
+            <p v-if="userStore.user.phone" class="text-sm color-gray">{{ userStore.user.phone }}</p>
+
+            <BaseButton
+              @click="userStore.logout"
+              type="info"
+              class="mt-4"
+              :loading="userStore.isLoading"
+            >
+              退出登录
+            </BaseButton>
+          </div>
+
           <p class="w-100 text-xl">
             感谢使用本项目！本项目是开源项目，如果觉得有帮助，请在 GitHub 点个 Star，您的支持是我持续改进的动力。
           </p>
           <p>
-            GitHub地址：<a href="https://github.com/zyronon/TypeWords" target="_blank">https://github.com/zyronon/TypeWords</a>
+            GitHub地址：<a :href="GITHUB" target="_blank">{{ GITHUB }}</a>
           </p>
           <p>
-            反馈：<a
-              href="https://github.com/zyronon/TypeWords/issues" target="_blank">https://github.com/zyronon/TypeWords/issues</a>
+            反馈：<a :href="`${GITHUB}/issues`" target="_blank">{{ GITHUB }}/issues</a>
           </p>
           <p>
-            作者邮箱：<a href="mailto:zyronon@163.com">zyronon@163.com</a>
+            作者邮箱：<a :href="`mailto:${EMAIL}`">{{ EMAIL }}</a>
           </p>
           <div class="text-md color-gray mt-10">
             Build {{ gitLastCommitHash }}
@@ -774,6 +873,80 @@ function importOldData() {
 </template>
 
 <style scoped lang="scss">
+
+.log-item {
+  border-bottom: 1px solid var(--color-input-border);
+  margin-bottom: 1rem;
+}
+
+// 用户信息样式
+.user-info-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  border: 1px solid var(--color-input-border);
+  border-radius: 8px;
+  background: var(--color-bg);
+  width: 100%;
+  max-width: 400px;
+
+  .user-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--color-select-bg);
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .avatar-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  }
+
+  h3 {
+    margin: 0;
+    color: var(--color-font-1);
+  }
+
+  .text-sm {
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+  }
+
+  .color-gray {
+    color: #666;
+  }
+
+  .mb-1 {
+    margin-bottom: 0.25rem;
+  }
+
+  .mb-2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+
+  .mt-4 {
+    margin-top: 1rem;
+  }
+}
 
 .setting {
   @apply text-lg;

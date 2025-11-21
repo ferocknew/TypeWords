@@ -3,12 +3,12 @@
 import { inject, Ref, watch } from "vue"
 import { usePracticeStore } from "@/stores/practice.ts";
 import { useSettingStore } from "@/stores/setting.ts";
-import { PracticeData, WordPracticeType, ShortcutKey } from "@/types/types.ts";
+import { PracticeData, WordPracticeType, ShortcutKey, TaskWords } from "@/types/types.ts";
 import BaseIcon from "@/components/BaseIcon.vue";
 import Tooltip from "@/components/base/Tooltip.vue";
 import Progress from '@/components/base/Progress.vue'
 
-const statisticsStore = usePracticeStore()
+const statStore = usePracticeStore()
 const settingStore = useSettingStore()
 
 defineProps<{
@@ -22,6 +22,7 @@ const emit = defineEmits<{
   toggleSimple: [],
   edit: [],
   skip: [],
+  skipStep:[]
 }>()
 
 let practiceData = inject<PracticeData>('practiceData')
@@ -33,8 +34,12 @@ function format(val: number, suffix: string = '', check: number = -1) {
 
 const status = $computed(() => {
   if (isTypingWrongWord.value) return '复习错词'
+  return getStepStr(statStore.step)
+})
+
+function getStepStr(step: number) {
   let str = ''
-  switch (statisticsStore.step) {
+  switch (step) {
     case 0:
       str += `学习新词`
       break
@@ -45,7 +50,7 @@ const status = $computed(() => {
       str += `默写新词`
       break
     case 3:
-      str += `复习上次学习`
+      str += `辨认上次学习`
       break
     case 4:
       str += '听写上次学习'
@@ -54,7 +59,7 @@ const status = $computed(() => {
       str += '默写上次学习'
       break
     case 6:
-      str += '复习之前学习'
+      str += '辨认之前学习'
       break
     case 7:
       str += '听写之前学习'
@@ -62,9 +67,15 @@ const status = $computed(() => {
     case 8:
       str += '默写之前学习'
       break
+    case 9:
+      str += '学习完成'
+      break
+    case 10:
+      str += '随机复习'
+      break
   }
   return str
-})
+}
 
 const progress = $computed(() => {
   if (!practiceData.words.length) return 0
@@ -96,22 +107,29 @@ const progress = $computed(() => {
             <div class="name">{{ status }}</div>
           </div>
           <div class="row">
-            <div class="num">{{ statisticsStore.total }}</div>
+            <div class="num">{{ statStore.total }}</div>
             <div class="line"></div>
             <div class="name">单词总数</div>
           </div>
           <div class="row">
-            <div class="num">{{ format(statisticsStore.inputWordNumber, '', 0) }}</div>
+            <div class="num">{{ format(statStore.inputWordNumber, '', 0) }}</div>
             <div class="line"></div>
             <div class="name">总输入数</div>
           </div>
           <div class="row">
-            <div class="num">{{ format(statisticsStore.wrong, '', 0) }}</div>
+            <div class="num">{{ format(statStore.wrong, '', 0) }}</div>
             <div class="line"></div>
             <div class="name">总错误数</div>
           </div>
         </div>
-        <div class="flex  gap-2  justify-center items-center">
+        <div class="flex gap-2 justify-center items-center">
+          <BaseIcon
+              v-if="statStore.step < 9"
+              @click="emit('skipStep')"
+              :title="`跳到下一阶段:${getStepStr(statStore.step+1)}`">
+            <IconFluentArrowRight16Regular/>
+          </BaseIcon>
+
           <BaseIcon
               :class="!isSimple?'collect':'fill'"
               @click="$emit('toggleSimple')"
@@ -129,7 +147,7 @@ const progress = $computed(() => {
           </BaseIcon>
           <BaseIcon
               @click="emit('skip')"
-              :title="`跳过(${settingStore.shortcutKeyMap[ShortcutKey.Next]})`">
+              :title="`跳过当前单词(${settingStore.shortcutKeyMap[ShortcutKey.Next]})`">
             <IconFluentArrowBounce20Regular class="transform-rotate-180"/>
           </BaseIcon>
 
@@ -202,7 +220,6 @@ const progress = $computed(() => {
         flex-direction: column;
         align-items: center;
         gap: .3rem;
-        width: 6rem;
         color: gray;
 
         .line {

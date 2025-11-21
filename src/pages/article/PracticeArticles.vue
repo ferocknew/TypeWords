@@ -34,7 +34,7 @@ import { useRoute, useRouter } from "vue-router";
 import PracticeLayout from "@/components/PracticeLayout.vue";
 import ArticleAudio from "@/pages/article/components/ArticleAudio.vue";
 import VolumeSetting from "@/pages/article/components/VolumeSetting.vue";
-import { CAN_REQUEST, DICT_LIST, PracticeSaveArticleKey } from "@/config/env.ts";
+import { AppEnv, DICT_LIST, PracticeSaveArticleKey } from "@/config/env.ts";
 import { addStat, setDictProp } from "@/apis";
 import { useRuntimeStore } from "@/stores/runtime.ts";
 
@@ -53,6 +53,7 @@ let typingArticleRef = $ref<any>()
 let loading = $ref<boolean>(false)
 let allWrongWords = new Set()
 let editArticle = $ref<Article>(getDefaultArticle())
+let audioRef = $ref<HTMLAudioElement>()
 let timer = $ref(0)
 let isFocus = true
 
@@ -132,9 +133,33 @@ async function init() {
   }
 }
 
+const initAudio = () => {
+  _nextTick(() => {
+    audioRef.volume = settingStore.articleSoundVolume / 100
+    audioRef.playbackRate = settingStore.articleSoundSpeed
+  })
+}
+
+const handleVolumeUpdate = (volume: number) => {
+  settingStore.setState({
+    articleSoundVolume: volume
+  })
+}
+
+const handleSpeedUpdate = (speed: number) => {
+  settingStore.setState({
+    articleSoundSpeed: speed
+  })
+}
+
+
 watch(() => store.load, (n) => {
   if (n && loading) init()
 }, {immediate: true})
+
+watch(() => settingStore.$state, (n) => {
+  initAudio()
+}, {immediate: true, deep: true})
 
 onMounted(() => {
   if (store.sbook?.articles?.length) {
@@ -238,6 +263,10 @@ function setArticle(val: Article) {
   })
 }
 
+watch(() => articleData.article.id, n => {
+  console.log('articleData.article.id', n)
+})
+
 async function complete() {
   clearInterval(timer)
   setTimeout(() => {
@@ -254,7 +283,7 @@ async function complete() {
     wrong: statStore.wrong,
   }
 
-  if (CAN_REQUEST) {
+  if (AppEnv.CAN_REQUEST) {
     let res = await addStat({...data, type: 'article'})
     if (!res.success) {
       Toast.error(res.msg)
@@ -337,13 +366,14 @@ async function changeArticle(val: ArticleItem) {
     store.sbook.lastLearnIndex = rIndex
     getCurrentPractice()
 
-    if (CAN_REQUEST) {
+    if (AppEnv.CAN_REQUEST) {
       let res = await setDictProp(null, store.sbook)
       if (!res.success) {
         Toast.error(res.msg)
       }
     }
   }
+  initAudio()
 }
 
 const handlePlayNext = (nextArticle: Article) => {
@@ -372,7 +402,6 @@ function onKeyUp() {
 }
 
 async function onKeyDown(e: KeyboardEvent) {
-  // console.log('e', e)
   switch (e.key) {
     case 'Backspace':
       typingArticleRef.del()
@@ -414,13 +443,14 @@ onUnmounted(() => {
   timer && clearInterval(timer)
 })
 
-let audioRef = $ref<HTMLAudioElement>()
 const {playSentenceAudio} = usePlaySentenceAudio()
 
 function play2(e) {
-  if (settingStore.articleSound || e.handle) {
-    playSentenceAudio(e.sentence, audioRef)
-  }
+  _nextTick(() => {
+    if (settingStore.articleSound || e.handle) {
+      playSentenceAudio(e.sentence, audioRef)
+    }
+  })
 }
 
 const currentPractice = computed(() => {
@@ -461,7 +491,7 @@ provide('currentPractice', currentPractice)
               :static="false"
               :show-translate="settingStore.translate"
               @click="changeArticle"
-              :active-id="articleData.article.id"
+              :active-id="articleData.article.id??''"
               :list="articleData.list ">
             <template v-slot:suffix="{item,index}">
               <BaseIcon
@@ -519,7 +549,10 @@ provide('currentPractice', currentPractice)
                 ref="audioRef"
                 :article="articleData.article"
                 :autoplay="settingStore.articleAutoPlayNext"
-                @ended="settingStore.articleAutoPlayNext && next()"></ArticleAudio>
+                @ended="settingStore.articleAutoPlayNext && next()"
+                @update-speed="handleSpeedUpdate"
+                @update-volume="handleVolumeUpdate"
+            ></ArticleAudio>
             <div class="flex flex-col items-center justify-center gap-1">
               <div class="flex gap-2 center">
                 <VolumeSetting/>

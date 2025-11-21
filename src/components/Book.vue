@@ -94,7 +94,7 @@ const studyProgress = $computed(() => {
   top: 4px;
   right: -22px;
   padding: 1px 20px;
-  background: whitesmoke;
+  background: var(--color-label-bg);
   font-size: 11px;
   transform: rotate(45deg);
 }

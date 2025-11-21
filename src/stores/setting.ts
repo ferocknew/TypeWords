@@ -1,8 +1,8 @@
 import { defineStore } from "pinia"
 import { checkAndUpgradeSaveSetting, cloneDeep } from "@/utils";
-import {DefaultShortcutKeyMap, WordPracticeMode, WordPracticeType} from "@/types/types.ts";
+import { DefaultShortcutKeyMap, WordPracticeMode, WordPracticeType } from "@/types/types.ts";
 import { get } from "idb-keyval";
-import { CAN_REQUEST, SAVE_SETTING_KEY } from "@/config/env.ts";
+import { AppEnv, SAVE_SETTING_KEY } from "@/config/env.ts";
 import { getSetting } from "@/apis";
 
 export interface SettingState {
@@ -54,6 +54,7 @@ export interface SettingState {
   autoNextWord: boolean //自动切换下一个单词
   inputWrongClear: boolean //单词输入错误，清空已输入内容
   mobileNavCollapsed: boolean // 移动端底部导航栏收缩状态
+  ignoreSymbol: boolean //过滤符号
 }
 
 export const getDefaultSettingState = (): SettingState => ({
@@ -70,7 +71,7 @@ export const getDefaultSettingState = (): SettingState => ({
 
   keyboardSound: true,
   keyboardSoundVolume: 100,
-  keyboardSoundFile: '机械键盘2',
+  keyboardSoundFile: '笔记本键盘',
 
   effectSound: true,
   effectSoundVolume: 100,
@@ -105,6 +106,7 @@ export const getDefaultSettingState = (): SettingState => ({
   autoNextWord: true,
   inputWrongClear: false,
   mobileNavCollapsed: false,
+  ignoreSymbol: true
 })
 
 export const useSettingStore = defineStore('setting', {
@@ -117,15 +119,9 @@ export const useSettingStore = defineStore('setting', {
     },
     init() {
       return new Promise(async resolve => {
-        //TODO 后面记得删除了
-        let configStr = localStorage.getItem(SAVE_SETTING_KEY.key)
-        let configStr2 = await get(SAVE_SETTING_KEY.key)
-        if (configStr2) {
-          //兼容localStorage.getItem
-          configStr = configStr2
-        }
+        let configStr = await get(SAVE_SETTING_KEY.key)
         let data = checkAndUpgradeSaveSetting(configStr)
-        if (CAN_REQUEST) {
+        if (AppEnv.CAN_REQUEST) {
           let res = await getSetting()
           if (res.success) {
             Object.assign(data, res.data)

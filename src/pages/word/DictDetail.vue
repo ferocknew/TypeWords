@@ -26,7 +26,7 @@ import { getCurrentStudyWord } from "@/hooks/dict.ts";
 import PracticeSettingDialog from "@/pages/word/components/PracticeSettingDialog.vue";
 import { useSettingStore } from "@/stores/setting.ts";
 import { MessageBox } from "@/utils/MessageBox.tsx";
-import { CAN_REQUEST, Origin, PracticeSaveWordKey } from "@/config/env.ts";
+import { AppEnv, Origin, PracticeSaveWordKey } from "@/config/env.ts";
 import { detail } from "@/apis";
 import useMobile from "@/hooks/useMobile.ts";
 
@@ -202,7 +202,7 @@ onMounted(async () => {
       }
 
       if (base.word.bookList.find(book => book.id === runtimeStore.editDict.id)) {
-        if (CAN_REQUEST) {
+        if (AppEnv.CAN_REQUEST) {
           let res = await detail({id: runtimeStore.editDict.id})
           if (res.success) {
             runtimeStore.editDict.statistics = res.data.statistics
@@ -243,7 +243,7 @@ async function startPractice() {
     wordPracticeMode: settingStore.wordPracticeMode
   })
   let currentStudy = getCurrentStudyWord()
-  nav('practice-words/' + store.sdict.id, {}, currentStudy)
+  nav('practice-words/' + store.sdict.id, {}, {taskWords:currentStudy})
 }
 
 async function addMyStudyList() {

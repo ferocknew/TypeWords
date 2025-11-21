@@ -26,21 +26,21 @@ Practice English, one strike, one step forward
 
 
 <p align="center">
+    <br>
+  <a href="https://skywork.ai/p/GrXQb4"><img src="/public/skywork-ai.png" alt="License" style="width: 650px;"></a>
+    <br>
+ Sponsor: <a href="https://skywork.ai/p/GrXQb4" target="_blank">Skywork.AI: 10 tasks in 1 hour, not 10 hours →Limited free spots: 127 left</a>
   <br/>
-  <a href="https://skywork.ai/p/GrXQb4"><img src="/public/skywork-ai.png" alt="License"></a>
-  Skywork.AI:<a href="https://skywork.ai/p/GrXQb4" target="_blank">10 tasks in 1 hour, not 10 hours →Limited free spots: 127 left</a>
   <br/>
-  <br/>
-  <br/>
-</p>  
+</p>
 
 <img width="1920" height="1440" alt="295shots_so" src="https://github.com/user-attachments/assets/383ed437-856e-48fe-92b0-9619babb49be" />
 <img width="1920" height="1440" alt="922shots_so" src="https://github.com/user-attachments/assets/5b5fa13f-747c-4368-ae21-3c9d7d30fbc7" />
 
 ## Online visit
 
-China:<https://2study.top>  
-other:<https://vercel.2study.top> or <https://tw.2study.top>
+China:<https://typewords.cc>  
+other:<https://vercel.typewords.cc> or <https://tw.typewords.cc>
 
 ## Feature list
 

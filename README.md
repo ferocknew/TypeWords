@@ -18,14 +18,14 @@
 </p>
 
 <div align=center>
-<a href="https://trendshift.io/repositories/14139" target="_blank" class="trendshift-badge"><img src="https://trendshift.io/api/badge/repositories/14139" alt="TypeWords | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
+  <a href="https://trendshift.io/repositories/15226" target="_blank"><img src="https://trendshift.io/api/badge/repositories/15226" alt="zyronon%2FTypeWords | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
 </div>
 
 <p align="center">
-  <br/>
-  <a href="https://skywork.ai/p/GrXQb4"><img src="/public/skywork-ai.png" alt="License"></a>
-  Skywork.AI:<a href="https://skywork.ai/p/GrXQb4" target="_blank">10 tasks in 1 hour, not 10 hours →Limited free spots: 127 left</a>
-  <br/>
+    <br>
+  <a href="https://skywork.ai/p/GrXQb4"><img src="/public/skywork-ai.png" alt="License" style="width: 650px;"></a>
+    <br>
+ 赞助: <a href="https://skywork.ai/p/GrXQb4" target="_blank">Skywork.AI: 10 tasks in 1 hour, not 10 hours →Limited free spots: 127 left</a>
   <br/>
   <br/>
 </p>
@@ -35,14 +35,14 @@
 
 ## 在线访问
 
-中国: [https://2study.top](https://2study.top)   
-其他: [https://vercel.2study.top](https://vercel.2study.top) or [https://tw.2study.top](https://tw.2study.top)
+中国: [https://typewords.cc](https://typewords.cc)   
+其他: [https://vercel.typewords.cc](https://vercel.typewords.cc) or [https://tw.typewords.cc](https://tw.typewords.cc)
 
 ## 功能列表
 
 ### 单词练习
 
-- 三种输入模式：跟打 / 复习 / 默写
+- 四种输入模式：跟打 / 辨认 / 复习 / 默写
 - 智能模式：记忆曲线自动计算学习单词，并通过默写加深记忆
 - 自由模式：不受限制，自行规划
 - 提供音标、发音（美音、英音）、例句、短语、近义词、同根词、词源、错误统计等功能
@@ -87,7 +87,7 @@
 3. 在项目根目录下，打开命令行，运行`npm install`来下载依赖。
 4. 执行`npm run dev`来启动项目，项目默认地址为[`http://localhost:3000`](http://localhost:3000)
 5. 在浏览器中打开[`http://localhost:3000`](http://localhost:3000)  来访问项目。
-6. 执行`npm run build-nocdn`打包项目文件
+6. 执行`npm run build`打包项目文件
 
 ## 功能与建议
 

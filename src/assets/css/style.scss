@@ -15,7 +15,8 @@
   --color-font-2: rgb(46, 46, 46);
   --color-font-3: rgb(75, 85, 99);
   --color-font-active-1: white;
-  --color-scrollbar: rgb(147, 173, 227);
+  --color-scrollbar: #c1c1c1;
+
   --color-sub-gray: #c0bfbf;
 
   --article-width: 50vw;
@@ -69,6 +70,11 @@
 
   //修改的进度条底色
   --color-progress-bar: #d1d5df !important;
+
+  --color-label-bg: whitesmoke;
+  --color-link: #2563EB;
+
+  --color-card-bg: white;
 }
 
 .footer {
@@ -117,6 +123,10 @@ html.dark {
   --color-article: white;
 
   --color-progress-bar: rgb(73, 77, 82) !important;
+
+  --color-label-bg: rgb(10, 10, 10);
+
+  --color-card-bg: rgb(30, 31, 34);
 
   .footer {
     &.hide {
@@ -198,7 +208,7 @@ html, body {
   z-index: 1;
   height: 100%;
   width: 100%;
-  font-size: .9rem;
+  font-size: 1rem;
   display: flex;
   flex-direction: column;
 }
@@ -229,11 +239,18 @@ html, body {
 }
 
 a {
-  $main: rgb(64, 158, 255);
-  color: $main;
+  color: var(--color-link);
   text-decoration: none;
 }
 
+.link {
+  color: var(--color-link);
+  @apply hover:opacity-80;
+}
+
+.cp {
+  @apply cursor-pointer;
+}
 
 @supports selector(::-webkit-scrollbar) {
   ::-webkit-scrollbar {
@@ -406,8 +423,13 @@ a {
 }
 
 .card {
-  @apply rounded-xl p-4 mb-5 box-border relative;
+  @apply rounded-xl p-4 mb-8 shadow-lg box-border relative;
   background: var(--color-second);
+}
+
+.card-white {
+  @extend .card;
+  background: var(--color-card-bg);
 }
 
 .inline-center {
@@ -429,6 +451,8 @@ a {
 .line {
   width: 100%;
   border-bottom: 1px solid var(--color-item-border);
+  @apply hover:text-blue-700;
+
 }
 
 .line-white {

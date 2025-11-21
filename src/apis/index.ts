@@ -48,7 +48,7 @@ export function addDict(params?, data?) {
   return http<Dict>('dict/addDict', remove(data), remove(params), 'post')
 }
 
-export function uploadImportData(data,onUploadProgress) {
+export function uploadImportData(data, onUploadProgress) {
   return axiosInstance({
     url: 'dict/uploadImportData',
     method: 'post',
@@ -58,4 +58,8 @@ export function uploadImportData(data,onUploadProgress) {
     data,
     onUploadProgress
   })
+}
+
+export function getProgress() {
+  return http<{ status: number; reason: string }>('dict/getProgress', null, null, 'get')
 }

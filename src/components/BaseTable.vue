@@ -14,6 +14,7 @@ import Checkbox from "@/components/base/checkbox/Checkbox.vue";
 import DeleteIcon from "@/components/icon/DeleteIcon.vue";
 import Dialog from "@/components/dialog/Dialog.vue";
 import BaseInput from "@/components/base/BaseInput.vue";
+import {Host} from "@/config/env.ts";
 
 let list = defineModel('list')
 
@@ -283,7 +284,7 @@ defineRender(
             <div>短语：一行原文，一行译文；多个请换<span class="color-red">两</span>行</div>
             <div>同义词、同根词、词源：请前往官方字典，然后编辑其中某个单词，参考其格式</div>
             <div class="mt-6">
-              模板下载地址：<a href="https://2study.top/libs/单词导入模板.xlsx">单词导入模板</a>
+              模板下载地址：<a href={`https://${Host}/libs/单词导入模板.xlsx`}>单词导入模板</a>
             </div>
             <div class="mt-4">
               <BaseButton

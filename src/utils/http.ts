@@ -1,6 +1,7 @@
-import axios, { AxiosInstance } from 'axios'
-import { ENV } from "@/config/env.ts";
+import axios, {AxiosInstance} from 'axios'
+import {AppEnv, ENV} from "@/config/env.ts";
 import Toast from "@/components/base/toast/Toast.ts";
+import App from "@/App.vue";
 
 export const axiosInstance: AxiosInstance = axios.create({
   baseURL: ENV.API,
@@ -9,10 +10,7 @@ export const axiosInstance: AxiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   (config) => {
-    // console.log('config', config)
-    // if (config.url === 'https://api.fanyi.baidu.com/api/trans/vip/translate') {
-    //   config.url = '/baidu'
-    // }
+    if (AppEnv.CAN_REQUEST) config.headers.token = AppEnv.TOKEN
     return config
   },
   error => Promise.reject(error),

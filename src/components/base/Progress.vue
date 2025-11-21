@@ -8,14 +8,16 @@ interface IProps {
   strokeWidth?: number;
   color?: string;
   format?: (percentage: number) => string;
+  size?: 'normal' | 'large';
 }
 
 const props = withDefaults(defineProps<IProps>(), {
   showText: true,
   textInside: false,
   strokeWidth: 6,
-  color: '#93ADE3',
+  color: '#409eff',
   format: (percentage) => `${percentage}%`,
+  size: 'normal',
 });
 
 const barStyle = computed(() => {
@@ -26,13 +28,15 @@ const barStyle = computed(() => {
 });
 
 const trackStyle = computed(() => {
+  const height = props.size === 'large' ? props.strokeWidth * 2.5 : props.strokeWidth;
   return {
-    height: `${props.strokeWidth}px`,
+    height: `${height}px`,
   };
 });
 
 const progressTextSize = computed(() => {
-  return props.strokeWidth * 0.83 + 6;
+  const baseSize = props.strokeWidth * 0.83 + 6;
+  return props.size === 'large' ? baseSize * 1.2 : baseSize;
 });
 
 const content = computed(() => {

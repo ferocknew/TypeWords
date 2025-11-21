@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Article } from "@/types/types.ts";
-import { watch } from "vue";
+import { ref, watch, nextTick } from "vue";
 import { get } from "idb-keyval";
 import Audio from "@/components/base/Audio.vue";
 import { LOCAL_FILE_KEY } from "@/config/env.ts";
@@ -10,12 +10,43 @@ const props = defineProps<{
 }>()
 
 const emit = defineEmits<{
-  ended: []
+  (e: 'ended'): [],
+  (e: 'update-volume', volume: number): void,
+  (e: 'update-speed', volume: number): void
 }>();
 
-
 let file = $ref(null)
-let instance = $ref<{ audioRef: HTMLAudioElement }>({audioRef: null})
+let instance = $ref<{ audioRef: HTMLAudioElement }>({ audioRef: null })
+const pendingUpdates = ref({})
+
+const handleVolumeUpdate = (volume: number) => {
+  emit('update-volume', volume)
+}
+
+const handleSpeedUpdate = (speed: number) => {
+  emit('update-speed', speed)
+}
+
+const setAudioRefValue = (key: string, value: any) => {
+  if (instance?.audioRef) {
+    switch (key) {
+      case 'currentTime':
+        instance.audioRef.currentTime = value;
+        break;
+      case 'volume':
+        instance.audioRef.volume = value;
+        break;
+      case 'playbackRate':
+        instance.audioRef.playbackRate = value;
+        break;
+      default:
+        break
+    }
+  } else {
+    // 如果audioRef还未初始化，先存起来，等初始化后再设置 => watch监听instance变化
+    pendingUpdates.value[key] = value
+  }
+}
 
 watch(() => props.article.audioFileId, async () => {
   if (!props.article.audioSrc && props.article.audioFileId) {
@@ -29,7 +60,15 @@ watch(() => props.article.audioFileId, async () => {
   } else {
     file = null
   }
-}, {immediate: true})
+}, { immediate: true })
+
+// 监听instance变化，设置之前pending的值
+watch(() => instance, (newVal) => {
+  Object.entries(pendingUpdates.value).forEach(([key, value]) => {
+    setAudioRefValue(key, value)
+  });
+  pendingUpdates.value = {};
+}, { immediate: true })
 
 //转发一遍，这里Proxy的默认值不能为{}，可能是vue做了什么
 defineExpose(new Proxy({
@@ -52,21 +91,18 @@ defineExpose(new Proxy({
     return target[key]
   },
   set(_, key, value) {
-    if (key === 'currentTime') instance.audioRef.currentTime = value
-    if (key === 'volume') return instance.audioRef.volume = value
+    setAudioRefValue(key as string, value)
     return true
   }
 }))
+
+
+
 </script>
 
 <template>
-  <Audio v-bind="$attrs" ref="instance"
-         v-if="props.article.audioSrc"
-         :src="props.article.audioSrc"
-         @ended="emit('ended')"/>
-  <Audio  v-bind="$attrs" ref="instance"
-          v-else-if="file"
-         :src="file"
-         @ended="emit('ended')"
-  />
+  <Audio v-bind="$attrs" ref="instance" v-if="props.article.audioSrc" :src="props.article.audioSrc"
+    @ended="emit('ended')" @update-volume="handleVolumeUpdate" @update-speed="handleSpeedUpdate" />
+  <Audio v-bind="$attrs" ref="instance" v-else-if="file" :src="file" @ended="emit('ended')"
+    @update-volume="handleVolumeUpdate" @update-speed="handleSpeedUpdate" />
 </template>
