@@ -34,9 +34,10 @@ import { useRoute, useRouter } from "vue-router";
 import PracticeLayout from "@/components/PracticeLayout.vue";
 import ArticleAudio from "@/pages/article/components/ArticleAudio.vue";
 import VolumeSetting from "@/pages/article/components/VolumeSetting.vue";
-import { AppEnv, DICT_LIST, PracticeSaveArticleKey } from "@/config/env.ts";
+import { AppEnv, DICT_LIST, PracticeSaveArticleKey, TourConfig } from "@/config/env.ts";
 import { addStat, setDictProp } from "@/apis";
 import { useRuntimeStore } from "@/stores/runtime.ts";
+import Shepherd from "shepherd.js";
 
 const store = useBaseStore()
 const runtimeStore = useRuntimeStore()
@@ -50,6 +51,7 @@ let articleData = $ref({
 })
 let showEditArticle = $ref(false)
 let typingArticleRef = $ref<any>()
+let showConflictNotice = $ref(false)
 let loading = $ref<boolean>(false)
 let allWrongWords = new Set()
 let editArticle = $ref<Article>(getDefaultArticle())
@@ -152,10 +154,44 @@ const handleSpeedUpdate = (speed: number) => {
   })
 }
 
-
-watch(() => store.load, (n) => {
-  if (n && loading) init()
+watch([() => store.load, () => loading], ([a, b]) => {
+  if (a && b) init()
 }, {immediate: true})
+
+watch(() => articleData?.article?.id, id => {
+  if (id) {
+    _nextTick(() => {
+      const tour = new Shepherd.Tour(TourConfig);
+      tour.on('cancel', () => {
+        localStorage.setItem('tour-guide', '1');
+      });
+      tour.addStep({
+        id: 'step8',
+        text: '这里可以练习文章，只需要按下键盘上对应的按键即可，没有输入框！',
+        attachTo: {
+          element: '#article-content',
+          on: 'auto'
+        },
+        buttons: [
+          {
+            text: `关闭`,
+            action() {
+              settingStore.first = false
+              tour.next()
+              setTimeout(() => {
+                showConflictNotice = true
+              }, 1500)
+            }
+          }
+        ]
+      });
+      const r = localStorage.getItem('tour-guide');
+      if (settingStore.first && !r) {
+        tour.start();
+      }
+    }, 500)
+  }
+})
 
 watch(() => settingStore.$state, (n) => {
   initAudio()
@@ -167,6 +203,12 @@ onMounted(() => {
     getCurrentPractice()
   } else {
     loading = true
+  }
+
+  if (route.query.guide) {
+    showConflictNotice = false
+  } else {
+    showConflictNotice = true
   }
 })
 
@@ -605,7 +647,7 @@ provide('currentPractice', currentPractice)
       @save="saveArticle"
   />
 
-  <ConflictNotice/>
+  <ConflictNotice v-if="showConflictNotice"/>
 </template>
 
 <style scoped lang="scss">
@@ -670,7 +712,7 @@ provide('currentPractice', currentPractice)
   .practice-article {
     padding-top: 3rem; // 为固定标题留出空间
   }
-  
+
   // 优化标题区域
   .typing-article {
     header {
@@ -683,63 +725,63 @@ provide('currentPractice', currentPractice)
       padding: 0.5rem 1rem;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       margin-bottom: 0;
-      
+
       .title {
         font-size: 1rem;
         line-height: 1.4;
         word-break: break-word;
-        
+
         .font-family {
           font-size: 0.9rem;
         }
       }
-      
+
       .titleTranslate {
         font-size: 0.8rem;
         margin-top: 0.2rem;
         opacity: 0.8;
       }
     }
-    
+
     .article-content {
       margin-top: 2rem; // 为固定标题留出空间
     }
   }
-  
+
   .footer {
     width: 100%;
-    
+
     .bottom {
       padding: 0.3rem 0.5rem 0.5rem 0.5rem;
       border-radius: 0.4rem;
-      
+
       .stat {
         margin-top: 0.3rem;
         gap: 0.2rem;
         flex-direction: row;
         overflow-x: auto;
-        
+
         .row {
           min-width: 3.5rem;
           gap: 0.2rem;
-          
+
           .num {
             font-size: 0.8rem;
             font-weight: bold;
           }
-          
+
           .name {
             font-size: 0.7rem;
           }
         }
       }
-      
+
       .flex.flex-col.items-center.justify-center.gap-1 {
         .flex.gap-2.center {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 0.4rem;
-          
+
           .base-icon {
             padding: 0.3rem;
             font-size: 1rem;
@@ -752,7 +794,7 @@ provide('currentPractice', currentPractice)
         }
       }
     }
-    
+
     .arrow {
       font-size: 1rem;
       padding: 0.3rem;

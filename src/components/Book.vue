@@ -33,7 +33,7 @@ const studyProgress = $computed(() => {
 </script>
 
 <template>
-  <div class="book relative overflow-hidden" :id="item?.id">
+  <div class="book relative overflow-hidden" :id="item?.id ?? 'no-book'">
     <template v-if="!isAdd">
       <div>
         <div class="text-base">{{ item?.name }}</div>

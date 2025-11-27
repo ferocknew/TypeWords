@@ -122,7 +122,7 @@ const progress = $computed(() => {
             <div class="name">总错误数</div>
           </div>
         </div>
-        <div class="flex gap-2 justify-center items-center">
+        <div class="flex gap-2 justify-center items-center" id="toolbar-icons">
           <BaseIcon
               v-if="statStore.step < 9"
               @click="emit('skipStep')"

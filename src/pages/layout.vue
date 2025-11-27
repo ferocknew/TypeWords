@@ -35,7 +35,7 @@ function goHome() {
           <IconFluentTextUnderlineDouble20Regular/>
           <span v-if="settingStore.sideExpand">单词</span>
         </div>
-        <div class="row" @click="router.push('/articles')">
+        <div  id="article" class="row" @click="router.push('/articles')">
           <!--          <IconPhArticleNyTimes/>-->
           <IconFluentBookLetter20Regular/>
           <span v-if="settingStore.sideExpand">文章</span>
@@ -49,10 +49,10 @@ function goHome() {
           <IconFluentCommentEdit20Regular/>
           <span v-if="settingStore.sideExpand">建议反馈</span>
         </div>
-        <div class="row" @click="router.push('/user')">
-          <IconFluentPerson20Regular/>
-          <span v-if="settingStore.sideExpand">用户</span>
-        </div>
+<!--        <div class="row" @click="router.push('/user')">-->
+<!--          <IconFluentPerson20Regular/>-->
+<!--          <span v-if="settingStore.sideExpand">用户</span>-->
+<!--        </div>-->
       </div>
       <div class="bottom flex justify-evenly ">
         <BaseIcon

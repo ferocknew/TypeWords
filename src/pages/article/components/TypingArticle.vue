@@ -657,7 +657,7 @@ const currentPractice = inject('currentPractice', [])
       <div class="titleTranslate" v-if="settingStore.translate">{{ props.article.titleTranslate }}</div>
     </header>
 
-    <div class="article-content" ref="articleWrapperRef">
+    <div id="article-content" class="article-content" ref="articleWrapperRef">
       <article :class="[
           settingStore.translate && 'tall',
           settingStore.dictation && 'dictation',

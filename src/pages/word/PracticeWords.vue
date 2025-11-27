@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import {onMounted, provide, ref, toRef, watch} from "vue";
+import { onMounted, provide, ref, toRef, watch } from "vue";
 
 import Statistics from "@/pages/word/Statistics.vue";
-import {emitter, EventKey, useEvents} from "@/utils/eventBus.ts";
-import {useSettingStore} from "@/stores/setting.ts";
-import {useRuntimeStore} from "@/stores/runtime.ts";
-import {Dict, PracticeData, WordPracticeType, ShortcutKey, TaskWords, Word, WordPracticeMode} from "@/types/types.ts";
-import {useDisableEventListener, useOnKeyboardEventListener, useStartKeyboardEventListener} from "@/hooks/event.ts";
+import { emitter, EventKey, useEvents } from "@/utils/eventBus.ts";
+import { useSettingStore } from "@/stores/setting.ts";
+import { useRuntimeStore } from "@/stores/runtime.ts";
+import { Dict, PracticeData, WordPracticeType, ShortcutKey, TaskWords, Word, WordPracticeMode } from "@/types/types.ts";
+import { useDisableEventListener, useOnKeyboardEventListener, useStartKeyboardEventListener } from "@/hooks/event.ts";
 import useTheme from "@/hooks/theme.ts";
-import {getCurrentStudyWord, useWordOptions} from "@/hooks/dict.ts";
-import {_getDictDataByUrl, cloneDeep, resourceWrap, shuffle} from "@/utils";
-import {useRoute, useRouter} from "vue-router";
+import { getCurrentStudyWord, useWordOptions } from "@/hooks/dict.ts";
+import { _getDictDataByUrl, _nextTick, cloneDeep, resourceWrap, shuffle } from "@/utils";
+import { useRoute, useRouter } from "vue-router";
 import Footer from "@/pages/word/components/Footer.vue";
 import Panel from "@/components/Panel.vue";
 import BaseIcon from "@/components/BaseIcon.vue";
@@ -18,15 +18,18 @@ import Tooltip from "@/components/base/Tooltip.vue";
 import WordList from "@/components/list/WordList.vue";
 import TypeWord from "@/pages/word/components/TypeWord.vue";
 import Empty from "@/components/Empty.vue";
-import {useBaseStore} from "@/stores/base.ts";
-import {usePracticeStore} from "@/stores/practice.ts";
+import { useBaseStore } from "@/stores/base.ts";
+import { usePracticeStore } from "@/stores/practice.ts";
 import Toast from '@/components/base/toast/Toast.ts'
-import {getDefaultDict, getDefaultWord} from "@/types/func.ts";
+import { getDefaultDict, getDefaultWord } from "@/types/func.ts";
 import ConflictNotice from "@/components/ConflictNotice.vue";
 import PracticeLayout from "@/components/PracticeLayout.vue";
 
-import {DICT_LIST, PracticeSaveWordKey} from "@/config/env.ts";
-import {ToastInstance} from "@/components/base/toast/type.ts";
+import { DICT_LIST, PracticeSaveWordKey, TourConfig } from "@/config/env.ts";
+import { ToastInstance } from "@/components/base/toast/type.ts";
+import { watchOnce } from "@vueuse/core";
+import Shepherd from "shepherd.js";
+import { offset } from '@floating-ui/dom';
 
 const {
   isWordCollect,
@@ -42,6 +45,7 @@ const route = useRoute()
 const store = useBaseStore()
 const statStore = usePracticeStore()
 const typingRef: any = $ref()
+let showConflictNotice = $ref(false)
 let allWrongWords = new Set()
 let showStatDialog = $ref(false)
 let loading = $ref(false)
@@ -102,6 +106,54 @@ onMounted(() => {
     initData(runtimeStore.routeData.taskWords, true)
   } else {
     loading = true
+  }
+  if (route.query.guide) {
+    showConflictNotice = false
+  } else {
+    showConflictNotice = true
+  }
+})
+
+watchOnce(() => data.words.length, (newVal, oldVal) => {
+  //如果是从无值变有值，代表是开始
+  if (!oldVal && newVal) {
+    _nextTick(() => {
+      const tour = new Shepherd.Tour(TourConfig);
+      tour.on('cancel', () => {
+        localStorage.setItem('tour-guide', '1');
+      });
+      tour.addStep({
+        id: 'step5',
+        text: '这里可以练习拼写单词，只需要按下键盘上对应的按键即可，没有输入框！',
+        attachTo: {element: '#word', on: 'bottom'},
+        buttons: [
+          {
+            text: `下一步（5/${TourConfig.total}）`,
+            action:tour.next
+          }
+        ]
+      });
+
+      tour.addStep({
+        id: 'step6',
+        text: '这里是文章练习',
+        attachTo: {element: '#article', on: 'top'},
+        buttons: [
+          {
+            text: `下一步（6/${TourConfig.total}）`,
+            action(){
+              tour.next()
+              router.push('/articles')
+            }
+          }
+        ]
+      });
+
+      const r = localStorage.getItem('tour-guide');
+      if (settingStore.first && !r) {
+        tour.start();
+      }
+    }, 500)
   }
 })
 
@@ -248,7 +300,7 @@ function goNextStep(originList, mode, msg) {
 }
 
 async function next(isTyping: boolean = true) {
-  if (isTyping)  statStore.inputWordNumber++
+  if (isTyping) statStore.inputWordNumber++
   if (settingStore.wordPracticeMode === WordPracticeMode.Free) {
     if (data.index === data.words.length - 1) {
       data.wrongWords = data.wrongWords.filter(v => (!data.excludeWords.includes(v.word)))
@@ -350,7 +402,7 @@ async function next(isTyping: boolean = true) {
   savePracticeData()
 }
 
-function skipStep(){
+function skipStep() {
   data.index = data.words.length - 1
   settingStore.wordPracticeType = WordPracticeType.Spell
   data.wrongWords = []
@@ -560,8 +612,8 @@ useEvents([
 
 <template>
   <PracticeLayout
-    v-loading="loading"
-    panelLeft="var(--word-panel-margin-left)">
+      v-loading="loading"
+      panelLeft="var(--word-panel-margin-left)">
     <template v-slot:practice>
       <div class="practice-word">
         <div class="absolute z-1 top-4   w-full" v-if="settingStore.showNearWord">
@@ -570,7 +622,7 @@ useEvents([
                v-if="prevWord">
             <IconFluentArrowLeft16Regular class="arrow" width="22"/>
             <Tooltip
-              :title="`上一个(${settingStore.shortcutKeyMap[ShortcutKey.Previous]})`"
+                :title="`上一个(${settingStore.shortcutKeyMap[ShortcutKey.Previous]})`"
             >
               <div class="word">{{ prevWord.word }}</div>
             </Tooltip>
@@ -579,7 +631,7 @@ useEvents([
                @click="next(false)"
                v-if="nextWord">
             <Tooltip
-              :title="`下一个(${settingStore.shortcutKeyMap[ShortcutKey.Next]})`"
+                :title="`下一个(${settingStore.shortcutKeyMap[ShortcutKey.Next]})`"
             >
               <div class="word" :class="settingStore.dictation && 'word-shadow'">{{ nextWord.word }}</div>
             </Tooltip>
@@ -587,11 +639,11 @@ useEvents([
           </div>
         </div>
         <TypeWord
-          ref="typingRef"
-          :word="word"
-          @wrong="onTypeWrong"
-          @complete="next"
-          @know="onWordKnow"
+            ref="typingRef"
+            :word="word"
+            @wrong="onTypeWrong"
+            @complete="next"
+            @know="onWordKnow"
         />
       </div>
     </template>
@@ -603,41 +655,41 @@ useEvents([
             <span>{{ store.sdict.name }} ({{ store.sdict.lastLearnIndex }} / {{ store.sdict.length }})</span>
 
             <BaseIcon
-              @click="continueStudy"
-              :title="`下一组(${settingStore.shortcutKeyMap[ShortcutKey.NextChapter]})`">
+                @click="continueStudy"
+                :title="`下一组(${settingStore.shortcutKeyMap[ShortcutKey.NextChapter]})`">
               <IconFluentArrowRight16Regular class="arrow" width="22"/>
             </BaseIcon>
             <BaseIcon
-              @click="randomWrite"
-              :title="`随机默写(${settingStore.shortcutKeyMap[ShortcutKey.RandomWrite]})`">
+                @click="randomWrite"
+                :title="`随机默写(${settingStore.shortcutKeyMap[ShortcutKey.RandomWrite]})`">
               <IconFluentArrowShuffle16Regular class="arrow" width="22"/>
             </BaseIcon>
           </div>
         </template>
         <div class="panel-page-item pl-4">
           <WordList
-            v-if="data.words.length"
-            :is-active="settingStore.showPanel"
-            :static="false"
-            :show-word="!settingStore.dictation"
-            :show-translate="settingStore.translate"
-            :list="data.words"
-            :activeIndex="data.index"
-            @click="(val:any) => data.index = val.index"
+              v-if="data.words.length"
+              :is-active="settingStore.showPanel"
+              :static="false"
+              :show-word="!settingStore.dictation"
+              :show-translate="settingStore.translate"
+              :list="data.words"
+              :activeIndex="data.index"
+              @click="(val:any) => data.index = val.index"
           >
             <template v-slot:suffix="{item,index}">
               <BaseIcon
-                :class="!isWordCollect(item)?'collect':'fill'"
-                @click.stop="toggleWordCollect(item)"
-                :title="!isWordCollect(item) ? '收藏' : '取消收藏'">
+                  :class="!isWordCollect(item)?'collect':'fill'"
+                  @click.stop="toggleWordCollect(item)"
+                  :title="!isWordCollect(item) ? '收藏' : '取消收藏'">
                 <IconFluentStar16Regular v-if="!isWordCollect(item)"/>
                 <IconFluentStar16Filled v-else/>
               </BaseIcon>
 
               <BaseIcon
-                :class="!isWordSimple(item)?'collect':'fill'"
-                @click.stop="toggleWordSimple(item)"
-                :title="!isWordSimple(item) ? '标记为已掌握' : '取消标记已掌握'">
+                  :class="!isWordSimple(item)?'collect':'fill'"
+                  @click.stop="toggleWordSimple(item)"
+                  :title="!isWordSimple(item) ? '标记为已掌握' : '取消标记已掌握'">
                 <IconFluentCheckmarkCircle16Regular v-if="!isWordSimple(item)"/>
                 <IconFluentCheckmarkCircle16Filled v-else/>
               </BaseIcon>
@@ -649,17 +701,17 @@ useEvents([
     </template>
     <template v-slot:footer>
       <Footer
-        :is-simple="isWordSimple(word)"
-        @toggle-simple="toggleWordSimpleWrapper"
-        :is-collect="isWordCollect(word)"
-        @toggle-collect="toggleWordCollect(word)"
-        @skip="next(false)"
-        @skipStep="skipStep"
+          :is-simple="isWordSimple(word)"
+          @toggle-simple="toggleWordSimpleWrapper"
+          :is-collect="isWordCollect(word)"
+          @toggle-collect="toggleWordCollect(word)"
+          @skip="next(false)"
+          @skipStep="skipStep"
       />
     </template>
   </PracticeLayout>
   <Statistics v-model="showStatDialog"/>
-  <ConflictNotice/>
+  <ConflictNotice v-if="showConflictNotice"/>
 </template>
 
 <style scoped lang="scss">
@@ -686,10 +738,10 @@ useEvents([
 @media (max-width: 768px) {
   .practice-word {
     width: 100%;
-    
+
     .absolute.z-1.top-4 {
       z-index: 100; // 提高层级，确保不被遮挡
-      
+
       .center.gap-2.cursor-pointer {
         min-height: 44px;
         min-width: 44px;
@@ -697,11 +749,11 @@ useEvents([
         display: flex;
         align-items: center;
         justify-content: center;
-        
+
         .word {
           pointer-events: none; // 文字不拦截点击
         }
-        
+
         .arrow {
           pointer-events: none; // 箭头图标不拦截点击
         }

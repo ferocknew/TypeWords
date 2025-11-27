@@ -651,6 +651,14 @@ function transferOk() {
           <div class="log-item">
             <div class="mb-2">
               <div>
+                <div>日期：2025/11/28</div>
+                <div>内容：新增引导框、新增词典测试模式（大佬 hebeihang 开发）</div>
+              </div>
+            </div>
+          </div>
+          <div class="log-item">
+            <div class="mb-2">
+              <div>
                 <div>日期：2025/11/25</div>
                 <div>内容：文章练习新增人名忽略功能（新概念一已全部适配），上传了新概念（一）1-18 音频</div>
               </div>

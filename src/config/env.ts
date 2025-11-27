@@ -1,3 +1,5 @@
+import { offset } from "@floating-ui/dom";
+
 export const GITHUB = 'https://github.com/zyronon/TypeWords'
 export const Host = 'typewords.cc'
 export const EMAIL = 'zyronon@163.com'
@@ -83,6 +85,9 @@ export const TourConfig = {
     cancelIcon: {enabled: true},
     modalOverlayOpeningPadding: 10,
     modalOverlayOpeningRadius: 6,
+    floatingUIOptions: {
+      middleware: [offset({mainAxis:30})]
+    },
   },
-  total: 10
+  total: 7
 }

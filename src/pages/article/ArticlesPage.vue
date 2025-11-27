@@ -2,7 +2,7 @@
 import { useBaseStore } from "@/stores/base.ts";
 import { useRouter } from "vue-router";
 import BasePage from "@/components/BasePage.vue";
-import { _getDictDataByUrl, msToHourMinute, resourceWrap, total, useNav } from "@/utils";
+import { _getDictDataByUrl, _nextTick, msToHourMinute, resourceWrap, total, useNav } from "@/utils";
 import { DictResource, DictType } from "@/types/types.ts";
 import { useRuntimeStore } from "@/stores/runtime.ts";
 import BaseIcon from "@/components/BaseIcon.vue";
@@ -18,8 +18,10 @@ import dayjs from "dayjs";
 import isBetween from "dayjs/plugin/isBetween";
 import isoWeek from 'dayjs/plugin/isoWeek'
 import { useFetch } from "@vueuse/core";
-import {AppEnv, DICT_LIST, Host, PracticeSaveArticleKey} from "@/config/env.ts";
+import { AppEnv, DICT_LIST, Host, PracticeSaveArticleKey, TourConfig } from "@/config/env.ts";
 import { myDictList } from "@/apis";
+import Shepherd from "shepherd.js";
+import { useSettingStore } from "@/stores/setting.ts";
 
 dayjs.extend(isoWeek)
 dayjs.extend(isBetween);
@@ -27,6 +29,7 @@ dayjs.extend(isBetween);
 const {nav} = useNav()
 const base = useBaseStore()
 const store = useBaseStore()
+const settingStore = useSettingStore()
 const router = useRouter()
 const runtimeStore = useRuntimeStore()
 let isSaveData = $ref(false)
@@ -66,6 +69,40 @@ async function init() {
     }
   }
 }
+
+watch(() => store?.sbook?.id, (n) => {
+  console.log('n', n)
+  if (!n) {
+    _nextTick(() => {
+      const tour = new Shepherd.Tour(TourConfig);
+      tour.on('cancel', () => {
+        localStorage.setItem('tour-guide', '1');
+      });
+      tour.addStep({
+        id: 'step7',
+        text: '点击这里选择一本书籍开始学习，步骤前面选词典相同，让我们跳过中间步骤，直接开始练习吧',
+        attachTo: {
+          element: '#no-book',
+          on: 'bottom'
+        },
+        buttons: [
+          {
+            text: `下一步（7/${TourConfig.total}）`,
+            action() {
+              tour.next()
+              nav('/practice-articles/article_nce2', {guide: 1})
+            }
+          }
+        ]
+      });
+
+      const r = localStorage.getItem('tour-guide');
+      if (settingStore.first && !r) {
+        tour.start();
+      }
+    }, 500)
+  }
+}, {immediate: true})
 
 function startStudy() {
   // console.log(store.sbook.articles[1])
@@ -169,7 +206,8 @@ let isNewHost = $ref(window.location.host === Host)
 <template>
   <BasePage>
     <div class="mb-4" v-if="!isNewHost">
-      新域名已启用，后续请访问 <a href="https://typewords.cc/words?from_old_site=1">https://typewords.cc</a>。当前 2study.top 域名将在不久后停止使用
+      新域名已启用，后续请访问 <a href="https://typewords.cc/words?from_old_site=1">https://typewords.cc</a>。当前
+      2study.top 域名将在不久后停止使用
     </div>
 
     <div class="card flex flex-col md:flex-row justify-between gap-space p-4 md:p-6">
@@ -199,15 +237,18 @@ let isNewHost = $ref(window.location.host === Host)
           </div>
         </div>
         <div class="flex flex-col sm:flex-row gap-4 items-center mt-3 gap-space w-full">
-          <div class="w-full sm:flex-1 rounded-xl p-4 box-border relative bg-[var(--bg-history)] border border-gray-200">
+          <div
+              class="w-full sm:flex-1 rounded-xl p-4 box-border relative bg-[var(--bg-history)] border border-gray-200">
             <div class="text-[#409eff] text-xl font-bold">{{ todayTotalSpend }}</div>
             <div class="text-gray-500">今日学习时长</div>
           </div>
-          <div class="w-full sm:flex-1 rounded-xl p-4 box-border relative bg-[var(--bg-history)] border border-gray-200">
+          <div
+              class="w-full sm:flex-1 rounded-xl p-4 box-border relative bg-[var(--bg-history)] border border-gray-200">
             <div class="text-[#409eff] text-xl font-bold">{{ totalDay }}</div>
             <div class="text-gray-500">总学习天数</div>
           </div>
-          <div class="w-full sm:flex-1 rounded-xl p-4 box-border relative bg-[var(--bg-history)] border border-gray-200">
+          <div
+              class="w-full sm:flex-1 rounded-xl p-4 box-border relative bg-[var(--bg-history)] border border-gray-200">
             <div class="text-[#409eff] text-xl font-bold">{{ totalSpend }}</div>
             <div class="text-gray-500">总学习时长</div>
           </div>

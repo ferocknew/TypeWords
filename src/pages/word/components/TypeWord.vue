@@ -423,7 +423,7 @@ useEvents([
           ref="volumeIconRef" :simple="true" :cb="() => playWordAudio(word.word)"/>
       </div>
 
-      <div class="word my-1"
+      <div id="word" class="word my-1"
            :class="wrong && 'is-wrong'"
            :style="{fontSize: settingStore.fontSize.wordForeignFontSize +'px'}"
            @mouseenter="showWord"
