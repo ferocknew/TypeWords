@@ -295,19 +295,7 @@ function setArticle(val: Article) {
   }, 1000)
 
   _nextTick(typingArticleRef?.init)
-
-  window.umami?.track('startStudyArticle', {
-    name: store.sbook.name,
-    index: store.sbook.lastLearnIndex,
-    custom: store.sbook.custom,
-    complete: store.sbook.complete,
-    title: articleData.article.title,
-  })
 }
-
-watch(() => articleData.article.id, n => {
-  console.log('articleData.article.id', n)
-})
 
 async function complete() {
   clearInterval(timer)

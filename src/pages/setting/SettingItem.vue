@@ -33,7 +33,7 @@ defineProps<{
 .setting-item__main {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 2rem;
   width: 100%;
 }
 

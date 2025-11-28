@@ -47,7 +47,7 @@ function goHome() {
         </div>
         <div class="row" @click="jump2Feedback">
           <IconFluentCommentEdit20Regular/>
-          <span v-if="settingStore.sideExpand">建议反馈</span>
+          <span v-if="settingStore.sideExpand">反馈</span>
         </div>
 <!--        <div class="row" @click="router.push('/user')">-->
 <!--          <IconFluentPerson20Regular/>-->

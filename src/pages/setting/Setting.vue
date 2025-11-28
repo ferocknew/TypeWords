@@ -269,36 +269,13 @@ async function importData(e) {
 
       Toast.success("导入成功！");
     } catch (e) {
-      Toast.error("导入失败！");
+      Toast.error(e?.message || e || '导入失败')
     } finally {
       importLoading = false
     }
   } else {
     Toast.error("不支持的文件类型");
   }
-}
-
-function importOldData() {
-  exportData('已为您自动保存当前数据！稍后将进行老数据导入操作')
-  setTimeout(() => {
-    let oldDataStr = localStorage.getItem('type-word-dict-v3')
-    if (oldDataStr) {
-      try {
-        let obj = JSON.parse(oldDataStr)
-        let data = {
-          version: 3,
-          val: obj
-        }
-        let baseState = checkAndUpgradeSaveDict(data)
-        store.setState(baseState)
-        Toast.success('导入成功')
-      } catch (err) {
-        Toast.error('导入失败')
-      }
-    } else {
-      Toast.error('导入失败！原因：本地无老数据备份')
-    }
-  }, 1000)
 }
 
 let isNewHost = $ref(window.location.host === Host)
@@ -630,11 +607,6 @@ function transferOk() {
                      accept="application/json,.zip,application/zip"
                      @change="importData">
             </div>
-            <PopConfirm
-              title="导入老版本数据前，请先备份当前数据，确定要导入老版本数据吗？"
-              @confirm="importOldData">
-              <BaseButton>老版本数据导入</BaseButton>
-            </PopConfirm>
           </div>
 
           <template v-if="isNewHost">
@@ -652,7 +624,7 @@ function transferOk() {
             <div class="mb-2">
               <div>
                 <div>日期：2025/11/28</div>
-                <div>内容：新增引导框、新增词典测试模式（大佬 hebeihang 开发）</div>
+                <div>内容：新增引导框、 新增<a href="https://github.com/zyronon/TypeWords/pull/175" target="_blank">词典测试模式（由大佬 hebeihang 开发）</a></div>
               </div>
             </div>
           </div>
@@ -856,74 +828,6 @@ function transferOk() {
   margin-bottom: 1rem;
 }
 
-// 用户信息样式
-.user-info-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-  border: 1px solid var(--color-input-border);
-  border-radius: 8px;
-  background: var(--color-bg);
-  width: 100%;
-  max-width: 400px;
-
-  .user-avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid var(--color-select-bg);
-
-    .avatar-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .avatar-placeholder {
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 2rem;
-      font-weight: bold;
-    }
-  }
-
-  h3 {
-    margin: 0;
-    color: var(--color-font-1);
-  }
-
-  .text-sm {
-    font-size: 0.9rem;
-    margin: 0.25rem 0;
-  }
-
-  .color-gray {
-    color: #666;
-  }
-
-  .mb-1 {
-    margin-bottom: 0.25rem;
-  }
-
-  .mb-2 {
-    margin-bottom: 0.5rem;
-  }
-
-  .mb-4 {
-    margin-bottom: 1rem;
-  }
-
-  .mt-4 {
-    margin-top: 1rem;
-  }
-}
 
 .setting {
   @apply text-lg;

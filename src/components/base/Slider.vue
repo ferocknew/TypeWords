@@ -9,6 +9,7 @@ const props = defineProps<{
   disabled?: boolean;
   showText?: boolean;
   showValue?: boolean;  // 是否显示当前值
+  unit?: string
 }>();
 
 const emit = defineEmits(['update:modelValue']);
@@ -134,20 +135,21 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="w-full">
-    <div
+  <div class="w-full flex">
+    <div class="flex-1">
+      <div
         ref="sliderRef"
         class="custom-slider"
         :class="{ 'is-disabled': disabled }"
         @mousedown="onClickTrack"
         @touchstart.prevent="onClickTrack"
-    >
-      <div class="custom-slider__track"></div>
-      <div
+      >
+        <div class="custom-slider__track"></div>
+        <div
           class="custom-slider__fill"
           :style="{ width: valueToPercent(currentValue) + '%' }"
-      ></div>
-      <div
+        ></div>
+        <div
           class="custom-slider__thumb"
           :style="{ left: valueToPercent(currentValue) + '%' }"
           @mousedown.stop.prevent="onMouseDown"
@@ -158,13 +160,14 @@ onMounted(() => {
           :aria-valuemax="max"
           :aria-valuenow="currentValue"
           :aria-disabled="disabled"
-      ></div>
-      <div v-if="showValue" class="custom-slider__value">{{ currentValue }}</div>
+        ></div>
+      </div>
+      <div class="text flex justify-between text-sm color-gray" v-if="showText">
+        <span>{{ min }}</span>
+        <span>{{ max }}</span>
+      </div>
     </div>
-    <div class="text flex justify-between text-sm color-gray" v-if="showText">
-      <span>{{ min }}</span>
-      <span>{{ max }}</span>
-    </div>
+    <div v-if="showValue" class="w-10 pl-5 ">{{ currentValue }}{{ unit}}</div>
   </div>
 </template>
 
@@ -221,16 +224,6 @@ onMounted(() => {
     outline: none;
     box-shadow: 0 0 5px #409eff;
     cursor: grabbing;
-  }
-
-  &__value {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translate(-50%, 4px);
-    font-size: 0.75rem;
-    color: #666;
-    user-select: none;
   }
 }
 </style>

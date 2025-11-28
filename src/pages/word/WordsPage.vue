@@ -24,6 +24,7 @@ import { myDictList } from "@/apis";
 import PracticeWordListDialog from "@/pages/word/components/PracticeWordListDialog.vue";
 import ShufflePracticeSettingDialog from "@/pages/word/components/ShufflePracticeSettingDialog.vue";
 import Shepherd from "shepherd.js";
+import SettingDialog from "@/pages/word/components/SettingDialog.vue";
 
 
 const store = useBaseStore()
@@ -42,7 +43,34 @@ let currentStudy = $ref({
 })
 
 watch(() => store.load, n => {
-  if (n) init()
+  if (n) {
+    init()
+    _nextTick(() => {
+      const tour = new Shepherd.Tour(TourConfig);
+      tour.on('cancel', () => {
+        localStorage.setItem('tour-guide', '1');
+      });
+      tour.addStep({
+        id: 'step1',
+        text: '点击这里选择一本词典开始学习',
+        attachTo: {
+          element: '#step1',
+          on: 'bottom'
+        },
+        buttons: [
+          {
+            text: `下一步（1/${TourConfig.total}）`,
+            action() {
+              tour.next()
+              router.push('/dict-list')
+            }
+          }
+        ]
+      });
+      const r = localStorage.getItem('tour-guide');
+      if (settingStore.first && !r && !isMobile()) tour.start();
+    }, 500)
+  }
 }, {immediate: true})
 
 async function init() {
@@ -200,33 +228,6 @@ const {
 
 let isNewHost = $ref(window.location.host === Host)
 
-onMounted(() => {
-  _nextTick(() => {
-    const tour = new Shepherd.Tour(TourConfig);
-    tour.on('cancel', () => {
-      localStorage.setItem('tour-guide', '1');
-    });
-    tour.addStep({
-      id: 'step1',
-      text: '点击这里选择一本词典开始学习',
-      attachTo: {
-        element: '#step1',
-        on: 'bottom'
-      },
-      buttons: [
-        {
-          text: `下一步（1/${TourConfig.total}）`,
-          action() {
-            tour.next()
-            router.push('/dict-list')
-          }
-        }
-      ]
-    });
-    const r = localStorage.getItem('tour-guide');
-    if (settingStore.first && !r && !isMobile()) tour.start();
-  }, 500)
-})
 </script>
 
 <template>
@@ -235,6 +236,8 @@ onMounted(() => {
       新域名已启用，后续请访问 <a href="https://typewords.cc/words?from_old_site=1">https://typewords.cc</a>。当前
       2study.top 域名将在不久后停止使用
     </div>
+
+    <SettingDialog/>
 
     <div class="card flex flex-col md:flex-row gap-8">
       <div class="flex-1 w-full flex flex-col justify-between">

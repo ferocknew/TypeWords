@@ -426,7 +426,7 @@ export async function loadJsLib(key: string, url: string) {
     const script = document.createElement("script");
     script.src = url;
     script.onload = () => resolve(window[key]);
-    script.onerror = reject;
+    script.onerror = () => reject(key + ' 加载失败')
     document.head.appendChild(script);
   });
 }
@@ -460,6 +460,6 @@ export async function isNewUser() {
   return JSON.stringify(base.$state) === JSON.stringify({...getDefaultBaseState(), ...{load: true}})
 }
 
-export function jump2Feedback(){
+export function jump2Feedback() {
   window.open('https://v.wjx.cn/vm/ev0W7fv.aspx#', '_blank');
 }
