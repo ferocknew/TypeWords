@@ -130,7 +130,7 @@ async function main() {
   const files = getAllFiles('./dist')
   console.log(`📁 共找到 ${files.length} 个文件，开始上传...`)
   // await uploadFilesWithClean(files, './dist', ['dicts', 'sound', 'libs','imgs])
-  await uploadFilesWithClean(files, './dist', ['libs'])
+  await uploadFilesWithClean(files, './dist', ['sound','libs','imgs'])
   await refreshCDN('2study.top')
   await refreshCDN('typewords.cc')
 }

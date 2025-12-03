@@ -63,9 +63,9 @@ async function addMyStudyList() {
 
   window.umami?.track('startStudyArticle', {
     name: sbook.name,
-    index: sbook.lastLearnIndex,
     custom: sbook.custom,
     complete: sbook.complete,
+    s:`name:${sbook.name},index:${sbook.lastLearnIndex},title:${sbook.articles[sbook.lastLearnIndex].title}`,
   })
   nav('/practice-articles/' + sbook.id)
 }

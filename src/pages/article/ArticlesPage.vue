@@ -123,10 +123,9 @@ function startStudy() {
     }
     window.umami?.track('startStudyArticle', {
       name: base.sbook.name,
-      index: base.sbook.lastLearnIndex,
       custom: base.sbook.custom,
       complete: base.sbook.complete,
-      title: base.sbook.articles[base.sbook.lastLearnIndex].title
+      s:`name:${base.sbook.name},index:${base.sbook.lastLearnIndex},title:${base.sbook.articles[base.sbook.lastLearnIndex].title}`,
     })
     nav('/practice-articles/' + store.sbook.id)
   } else {

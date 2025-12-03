@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import {useSettingStore} from "@/stores/setting.ts";
 import {getAudioFileUrl, usePlayAudio} from "@/hooks/sound.ts";
-import {ShortcutKey, WordPracticeMode} from "@/types/types.ts";
+import {ShortcutKey} from "@/types/types.ts";
 import VolumeIcon from "@/components/icon/VolumeIcon.vue";
 import {useBaseStore} from "@/stores/base.ts";
 import {SoundFileOptions} from "@/config/env.ts";
-import BasePage from "@/components/BasePage.vue";
 import {Option, Select} from "@/components/base/select";
 import Switch from "@/components/base/Switch.vue";
 import Slider from "@/components/base/Slider.vue";
@@ -14,12 +13,19 @@ import Radio from "@/components/base/radio/Radio.vue";
 import InputNumber from "@/components/base/InputNumber.vue";
 import Textarea from "@/components/base/Textarea.vue";
 import SettingItem from "@/pages/setting/SettingItem.vue";
-import {useRuntimeStore} from "@/stores/runtime.ts";
+import {defineAsyncComponent} from "vue";
+import BaseIcon from "@/components/BaseIcon.vue";
 
-const tabIndex = $ref(1)
+const Dialog = defineAsyncComponent(() => import('@/components/dialog/Dialog.vue'))
+
+const props = defineProps<{
+  type: 'article' | 'word'
+}>()
+
+const tabIndex = $ref(props.type === 'word' ? 1 : 2)
 const settingStore = useSettingStore()
-const runtimeStore = useRuntimeStore()
 const store = useBaseStore()
+let show = $ref(false)
 
 const simpleWords = $computed({
   get: () => store.simpleWords.join(','),
@@ -35,23 +41,22 @@ const simpleWords = $computed({
 </script>
 
 <template>
-  <BasePage>
-    <div class="setting text-lg w-200 h-200 bg-white  text-md flex flex-col">
-      <div class="page-title text-align-center">设置</div>
+  <Dialog v-model="show" title="设置">
+    <div class="setting text-lg w-200 h-[60vh] text-md flex flex-col">
       <div class="flex flex-1 overflow-hidden">
         <div class="left">
           <div class="tabs">
-            <div class="tab" :class="tabIndex === 1 && 'active'" @click="tabIndex = 1">
+            <div class="tab" :class="tabIndex === 1 && 'active'" @click="tabIndex = 1" v-if="type === 'word'">
               <IconFluentTextUnderlineDouble20Regular width="20"/>
-              <span>单词练习设置</span>
+              <span>单词</span>
             </div>
-            <div class="tab" :class="tabIndex === 2 && 'active'" @click="tabIndex = 2">
+            <div class="tab" :class="tabIndex === 2 && 'active'" @click="tabIndex = 2" v-if="type === 'article'">
               <IconFluentBookLetter20Regular width="20"/>
-              <span>文章练习设置</span>
+              <span>文章</span>
             </div>
             <div class="tab" :class="tabIndex === 0 && 'active'" @click="tabIndex = 0">
               <IconFluentSettings20Regular width="20"/>
-              <span>通用练习设置</span>
+              <span>通用</span>
             </div>
           </div>
         </div>
@@ -93,7 +98,9 @@ const simpleWords = $computed({
             <!--          音效-->
             <div class="line"></div>
             <SettingItem main-title="音效"/>
-            <SettingItem title="单词/句子发音口音">
+            <SettingItem title="单词/句子发音口音"
+                         desc="仅单词生效，文章固定美音"
+            >
               <Select v-model="settingStore.soundType"
                       placeholder="请选择"
                       class="w-50!"
@@ -138,12 +145,12 @@ const simpleWords = $computed({
           <!--        单词练习设置-->
           <!--        单词练习设置-->
           <div v-if="tabIndex === 1">
-            <SettingItem title="练习模式">
-              <RadioGroup v-model="settingStore.wordPracticeMode" class="flex-col gap-0!">
-                <Radio :value="WordPracticeMode.System" label="智能模式:自动规划学习、复习、听写、默写"/>
-                <Radio :value="WordPracticeMode.Free" label="自由模式:系统不强制复习与默写"/>
-              </RadioGroup>
-            </SettingItem>
+<!--            <SettingItem title="练习模式">-->
+<!--              <RadioGroup v-model="settingStore.wordPracticeMode" class="flex-col gap-0!">-->
+<!--                <Radio :value="WordPracticeMode.System" label="智能模式:自动规划学习、复习、听写、默写"/>-->
+<!--                <Radio :value="WordPracticeMode.Free" label="自由模式:系统不强制复习与默写"/>-->
+<!--              </RadioGroup>-->
+<!--            </SettingItem>-->
 
             <SettingItem title="显示上一个/下一个单词"
                          desc="开启后，练习中会在上方显示上一个/下一个单词"
@@ -277,7 +284,10 @@ const simpleWords = $computed({
         </div>
       </div>
     </div>
-  </BasePage>
+  </Dialog>
+  <BaseIcon title="设置" @click="show = true;tabIndex = props.type === 'word' ? 1 : 2">
+    <IconFluentSettings20Regular/>
+  </BaseIcon>
 </template>
 
 <style scoped lang="scss">
@@ -289,10 +299,10 @@ const simpleWords = $computed({
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    border-right: 2px solid gainsboro;
+    border-right: 1px solid gainsboro;
 
     .tabs {
-      padding: .6rem 1.6rem;
+      padding: 1rem;
       display: flex;
       flex-direction: column;
       gap: .6rem;
@@ -302,17 +312,18 @@ const simpleWords = $computed({
         @apply cursor-pointer flex items-center relative;
         padding: .6rem .9rem;
         border-radius: .5rem;
+        width: 8rem;
         gap: .6rem;
         transition: all .5s;
 
         &:hover {
-          background: var(--color-select-bg);
-          color: var(--color-select-text);
+          background: var(--btn-primary);
+          color: white;
         }
 
         &.active {
-          background: var(--color-select-bg);
-          color: var(--color-select-text);
+          background: var(--btn-primary);
+          color: white;
         }
       }
     }

@@ -7,6 +7,7 @@ import {User} from "@/apis/user.ts";
 import {computed, onMounted, onUnmounted, ref, watch} from "vue";
 import Header from "@/components/Header.vue";
 import {
+  alipayQuery,
   CouponInfo,
   couponInfo,
   LevelBenefits,
@@ -202,6 +203,8 @@ let orderNo = $ref('')
 let timer: number = $ref()
 let showCouponInput = $ref(false)
 let coupon = $ref<CouponInfo>({code: ''} as CouponInfo)
+let checkLoading = $ref(false)
+let showCheckBtn = $ref(false)
 
 watch(() => startLoop, (n) => {
   if (n) {
@@ -221,8 +224,12 @@ watch(() => startLoop, (n) => {
         }
       })
     }, 1000)
+    setTimeout(() => {
+      showCheckBtn = true
+    }, 3000)
   } else {
     clearInterval(timer)
+    showCheckBtn = false
   }
 })
 
@@ -269,6 +276,16 @@ async function handlePayment() {
   loading = false
 }
 
+async function checkOrderStatus() {
+  if (checkLoading) return
+  checkLoading = true
+  let res = await alipayQuery({orderNo})
+  if (!res.success) {
+    Toast.info(res.msg || '未付款')
+  }
+  checkLoading = false
+}
+
 let couponLoading = $ref(false)
 
 async function getCouponInfo() {
@@ -302,7 +319,7 @@ async function getCouponInfo() {
       <div class="card-white">
         <Header title="会员介绍"></Header>
         <div class="grid grid-cols-3 grid-rows-3 gap-3">
-          <div class="text-lg  items-center" v-for="f in data.benefits" :key="f.name">
+          <div class="text-lg flex items-center" v-for="f in data.benefits" :key="f.name">
             <IconFluentCheckmarkCircle20Regular class="mr-2 text-green-600"/>
             <span>
               <span>{{ f.name }}</span>
@@ -371,7 +388,7 @@ async function getCouponInfo() {
       </div>
     </div>
 
-    <div id="pay" class="mb-50">
+    <div id="pay" class="mb-50" v-if="selectedPlanId">
       <!-- Page Header -->
       <div class="text-center mb-6">
         <h1 class="text-xl font-semibold mb-2">安全支付</h1>
@@ -509,9 +526,15 @@ async function getCouponInfo() {
             </div>
 
             <iframe id="payFrame" class="w-[205px] h-[205px] center border-none"></iframe>
-            <div class="text-center mt-4">
+            <div class="text-center my-4">
               请使用支付宝扫码支付
             </div>
+            <BaseButton size="large"
+                        v-if="showCheckBtn"
+                        :loading="checkLoading"
+                        @click="checkOrderStatus">
+              我已付款
+            </BaseButton>
           </div>
         </div>
       </div>

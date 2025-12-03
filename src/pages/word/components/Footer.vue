@@ -1,12 +1,13 @@
 <script setup lang="ts">
 
-import { inject, Ref, watch } from "vue"
+import { inject, Ref } from "vue"
 import { usePracticeStore } from "@/stores/practice.ts";
 import { useSettingStore } from "@/stores/setting.ts";
-import { PracticeData, WordPracticeType, ShortcutKey, TaskWords } from "@/types/types.ts";
+import { PracticeData, ShortcutKey } from "@/types/types.ts";
 import BaseIcon from "@/components/BaseIcon.vue";
 import Tooltip from "@/components/base/Tooltip.vue";
 import Progress from '@/components/base/Progress.vue'
+import SettingDialog from "@/components/SettingDialog.vue";
 
 const statStore = usePracticeStore()
 const settingStore = useSettingStore()
@@ -95,10 +96,6 @@ const progress = $computed(() => {
     </Tooltip>
 
     <div class="bottom">
-      <Progress
-          :percentage="progress"
-          :stroke-width="8"
-          :show-text="false"/>
       <div class="flex justify-between items-center">
         <div class="stat">
           <div class="row">
@@ -123,6 +120,8 @@ const progress = $computed(() => {
           </div>
         </div>
         <div class="flex gap-2 justify-center items-center" id="toolbar-icons">
+          <SettingDialog type="word"/>
+
           <BaseIcon
               v-if="statStore.step < 9"
               @click="emit('skipStep')"
@@ -174,10 +173,13 @@ const progress = $computed(() => {
         </div>
       </div>
     </div>
-    <div class="progress-wrap">
+    <div class="progress-wrap flex gap-3 items-center color-gray">
+      <span class="shrink-0">{{ status }}</span>
       <Progress :percentage="progress"
                 :stroke-width="8"
+                color="#69b1ff"
                 :show-text="false"/>
+      <div class="num">{{ `${practiceData.index + 1}/${practiceData.words.length}` }}</div>
     </div>
   </div>
 </template>
@@ -244,7 +246,7 @@ const progress = $computed(() => {
 
   .arrow {
     position: absolute;
-    top: -40%;
+    top: -60%;
     left: 50%;
     cursor: pointer;
     transition: all .5s;
@@ -253,7 +255,7 @@ const progress = $computed(() => {
     font-size: 1.2rem;
 
     &.down {
-      top: -90%;
+      top: -120%;
       transform: rotate(90deg);
     }
   }

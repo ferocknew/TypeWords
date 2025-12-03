@@ -295,7 +295,7 @@ enum ImportStep {
 }
 
 const {exportData} = useExport()
-let importStep = $ref<ImportStep>(ImportStep.SUCCESS)
+let importStep = $ref<ImportStep>(ImportStep.CONFIRMATION)
 let isImporting = $ref(false)
 let reason = $ref('')
 let timer = $ref(-1)

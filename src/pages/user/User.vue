@@ -14,7 +14,7 @@ import FormItem from "@/components/base/form/FormItem.vue";
 import Form from "@/components/base/form/Form.vue";
 import {FormInstance} from "@/components/base/form/types.ts";
 import {codeRules, emailRules, passwordRules, phoneRules} from "@/utils/validation.ts";
-import {_dateFormat, cloneDeep} from "@/utils";
+import {_dateFormat, cloneDeep, jump2Feedback} from "@/utils";
 import Toast from "@/components/base/toast/Toast.ts";
 import Code from "@/pages/user/Code.vue";
 import {MessageBox} from "@/utils/MessageBox.tsx";
@@ -35,10 +35,6 @@ const handleLogout = () => {
 
 const contactSupport = () => {
   console.log('Contact support')
-}
-
-const goIssues = () => {
-  window.open(GITHUB + '/issues', '_blank')
 }
 
 onMounted(() => {
@@ -541,7 +537,7 @@ function onFileChange(e) {
 
         <!--        去github issue-->
         <div class="item cp"
-             @click="goIssues">
+             @click="jump2Feedback()">
           <div class="flex-1">
             给 {{ APP_NAME }} 提交意见
           </div>
@@ -554,7 +550,7 @@ function onFileChange(e) {
           <BaseButton
             @click="handleLogout"
             size="large"
-            class="w-[80%]"
+            class="w-[40%]"
           >
             登出
           </BaseButton>

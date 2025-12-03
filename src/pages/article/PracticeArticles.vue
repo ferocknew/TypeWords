@@ -1,9 +1,9 @@
 <script setup lang="ts">
 
-import { computed, onMounted, onUnmounted, provide, watch } from "vue";
-import { useBaseStore } from "@/stores/base.ts";
-import { emitter, EventKey, useEvents } from "@/utils/eventBus.ts";
-import { useSettingStore } from "@/stores/setting.ts";
+import {computed, onMounted, onUnmounted, provide, watch} from "vue";
+import {useBaseStore} from "@/stores/base.ts";
+import {emitter, EventKey, useEvents} from "@/utils/eventBus.ts";
+import {useSettingStore} from "@/stores/setting.ts";
 import {
   Article,
   ArticleItem,
@@ -15,14 +15,14 @@ import {
   Statistics,
   Word
 } from "@/types/types.ts";
-import { useDisableEventListener, useOnKeyboardEventListener, useStartKeyboardEventListener } from "@/hooks/event.ts";
+import {useDisableEventListener, useOnKeyboardEventListener, useStartKeyboardEventListener} from "@/hooks/event.ts";
 import useTheme from "@/hooks/theme.ts";
 import Toast from '@/components/base/toast/Toast.ts'
-import { _getDictDataByUrl, _nextTick, cloneDeep, isMobile, loadJsLib, msToMinute, resourceWrap, total } from "@/utils";
-import { usePracticeStore } from "@/stores/practice.ts";
-import { useArticleOptions } from "@/hooks/dict.ts";
-import { genArticleSectionData, usePlaySentenceAudio } from "@/hooks/article.ts";
-import { getDefaultArticle, getDefaultDict, getDefaultWord } from "@/types/func.ts";
+import {_getDictDataByUrl, _nextTick, cloneDeep, isMobile, loadJsLib, msToMinute, resourceWrap, total} from "@/utils";
+import {usePracticeStore} from "@/stores/practice.ts";
+import {useArticleOptions} from "@/hooks/dict.ts";
+import {genArticleSectionData, usePlaySentenceAudio} from "@/hooks/article.ts";
+import {getDefaultArticle, getDefaultDict, getDefaultWord} from "@/types/func.ts";
 import TypingArticle from "@/pages/article/components/TypingArticle.vue";
 import BaseIcon from "@/components/BaseIcon.vue";
 import Panel from "@/components/Panel.vue";
@@ -30,13 +30,13 @@ import ArticleList from "@/components/list/ArticleList.vue";
 import EditSingleArticleModal from "@/pages/article/components/EditSingleArticleModal.vue";
 import Tooltip from "@/components/base/Tooltip.vue";
 import ConflictNotice from "@/components/ConflictNotice.vue";
-import { useRoute, useRouter } from "vue-router";
+import {useRoute, useRouter} from "vue-router";
 import PracticeLayout from "@/components/PracticeLayout.vue";
 import ArticleAudio from "@/pages/article/components/ArticleAudio.vue";
-import VolumeSetting from "@/pages/article/components/VolumeSetting.vue";
-import { AppEnv, DICT_LIST, LIB_JS_URL, PracticeSaveArticleKey, TourConfig } from "@/config/env.ts";
-import { addStat, setDictProp } from "@/apis";
-import { useRuntimeStore } from "@/stores/runtime.ts";
+import {AppEnv, DICT_LIST, LIB_JS_URL, PracticeSaveArticleKey, TourConfig} from "@/config/env.ts";
+import {addStat, setDictProp} from "@/apis";
+import {useRuntimeStore} from "@/stores/runtime.ts";
+import SettingDialog from "@/components/SettingDialog.vue";
 
 const store = useBaseStore()
 const runtimeStore = useRuntimeStore()
@@ -591,14 +591,15 @@ provide('currentPractice', currentPractice)
             ></ArticleAudio>
             <div class="flex flex-col items-center justify-center gap-1">
               <div class="flex gap-2 center">
-                <VolumeSetting/>
+                <SettingDialog type="article"/>
+
                 <BaseIcon
                     :title="`下一句(${settingStore.shortcutKeyMap[ShortcutKey.Next]})`"
                     @click="skip">
                   <IconFluentArrowBounce20Regular class="transform-rotate-180"/>
                 </BaseIcon>
                 <BaseIcon
-                    :title="`重听(${settingStore.shortcutKeyMap[ShortcutKey.PlayWordPronunciation]})`"
+                    :title="`播放当前句子(${settingStore.shortcutKeyMap[ShortcutKey.PlayWordPronunciation]})`"
                     @click="play">
                   <IconFluentReplay20Regular/>
                 </BaseIcon>

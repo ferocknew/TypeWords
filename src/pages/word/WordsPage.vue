@@ -32,7 +32,6 @@ import { AppEnv, DICT_LIST, Host, LIB_JS_URL, PracticeSaveWordKey, TourConfig } 
 import { myDictList } from "@/apis";
 import PracticeWordListDialog from "@/pages/word/components/PracticeWordListDialog.vue";
 import ShufflePracticeSettingDialog from "@/pages/word/components/ShufflePracticeSettingDialog.vue";
-import SettingDialog from "@/pages/word/components/SettingDialog.vue";
 
 
 const store = useBaseStore()
@@ -246,7 +245,6 @@ let isNewHost = $ref(window.location.host === Host)
       2study.top 域名将在不久后停止使用
     </div>
 
-<!--    <SettingDialog/>-->
 
     <div class="card flex flex-col md:flex-row gap-8">
       <div class="flex-1 w-full flex flex-col justify-between">
