@@ -23,3 +23,4 @@ dist-ssr
 *.sln
 *.sw?
 report.html
+/.augment/rules/main.md

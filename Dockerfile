@@ -1,4 +1,4 @@
-FROM node
+FROM node:22
 COPY . /root/typing-word
 WORKDIR /root/typing-word
 EXPOSE 3000
