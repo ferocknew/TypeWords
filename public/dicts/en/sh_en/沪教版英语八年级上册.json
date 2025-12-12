@@ -1,0 +1,2504 @@
+{
+  "textbook": "义务教育教科书·英语八年级上册",
+  "publisher": "上海教育出版社",
+  "units": [
+    {
+      "unit": 1,
+      "title": "Amazing things",
+      "vocabulary": [
+        {
+          "word": "encyclopaedia",
+          "phonetic": "/In4saIklR3pi:diR/",
+          "type": "n.",
+          "chinese": "百科全书",
+          "page": "p. 1",
+          "marked": true
+        },
+        {
+          "word": "human",
+          "phonetic": "/3hju:mRn/",
+          "type": "adj.",
+          "chinese": "人的",
+          "page": "p. 1",
+          "marked": false
+        },
+        {
+          "word": "dinosaur",
+          "phonetic": "/3daInRsO:(r)/",
+          "type": "n.",
+          "chinese": "恐龙",
+          "page": "p. 1",
+          "marked": false
+        },
+        {
+          "word": "Italian",
+          "phonetic": "/I3tCliRn/",
+          "type": "n.",
+          "chinese": "意大利人",
+          "page": "p. 2",
+          "marked": true
+        },
+        {
+          "word": "inventor",
+          "phonetic": "/In3ventR(r)/",
+          "type": "n.",
+          "chinese": "发明家",
+          "page": "p. 3",
+          "marked": false
+        },
+        {
+          "word": "musician",
+          "phonetic": "/mju3zISn/",
+          "type": "n.",
+          "chinese": "音乐家",
+          "page": "p. 3",
+          "marked": false
+        },
+        {
+          "word": "scientist",
+          "phonetic": "/3saIRntIst/",
+          "type": "n.",
+          "chinese": "科学家",
+          "page": "p. 3",
+          "marked": false
+        },
+        {
+          "word": "born",
+          "phonetic": "/bO:n/",
+          "type": "v.",
+          "chinese": "(be born) 出生",
+          "page": "p. 3",
+          "marked": false
+        },
+        {
+          "word": "countryside",
+          "phonetic": "/3kVntrisaId/",
+          "type": "n.",
+          "chinese": "乡村；农村",
+          "page": "p. 3",
+          "marked": false
+        },
+        {
+          "word": "intelligence",
+          "phonetic": "/In3telIdZRns/",
+          "type": "n.",
+          "chinese": "才智；智慧",
+          "page": "p. 3",
+          "marked": false
+        },
+        {
+          "word": "artistic",
+          "phonetic": "/A:3tIstIk/",
+          "type": "adj.",
+          "chinese": "有艺术天赋的",
+          "page": "p. 3",
+          "marked": true
+        },
+        {
+          "word": "ability",
+          "phonetic": "/R3bIlRti/",
+          "type": "n.",
+          "chinese": "才能；能力",
+          "page": "p. 3",
+          "marked": false
+        },
+        {
+          "word": "perhaps",
+          "phonetic": "/pR3hCps/",
+          "type": "adv.",
+          "chinese": "可能；大概",
+          "page": "p. 3",
+          "marked": false
+        },
+        {
+          "word": "invention",
+          "phonetic": "/In3venSn/",
+          "type": "n.",
+          "chinese": "发明",
+          "page": "p. 3",
+          "marked": false
+        },
+        {
+          "word": "notebook",
+          "phonetic": "/3nRWtbWk/",
+          "type": "n.",
+          "chinese": "笔记本",
+          "page": "p. 3",
+          "marked": false
+        },
+        {
+          "word": "include",
+          "phonetic": "/In3klu:d/",
+          "type": "v.",
+          "chinese": "包括；包含",
+          "page": "p. 3",
+          "marked": false
+        },
+        {
+          "word": "even",
+          "phonetic": "/3i:vn/",
+          "type": "adv.",
+          "chinese": "（强调出乎意料）甚至",
+          "page": "p. 3",
+          "marked": false
+        },
+        {
+          "word": "however",
+          "phonetic": "/haW3evR(r)/",
+          "type": "adv.",
+          "chinese": "然而",
+          "page": "p. 3",
+          "marked": false
+        },
+        {
+          "word": "suddenly",
+          "phonetic": "/3sVdRnli/",
+          "type": "adv.",
+          "chinese": "突然；忽然",
+          "page": "p. 3",
+          "marked": false
+        },
+        {
+          "word": "nobody",
+          "phonetic": "/3nRWbRdi/",
+          "type": "pron.",
+          "chinese": "没有人",
+          "page": "p. 3",
+          "marked": false
+        },
+        {
+          "word": "fossil",
+          "phonetic": "/3fBsl/",
+          "type": "n.",
+          "chinese": "化石",
+          "page": "p. 3",
+          "marked": true
+        },
+        {
+          "word": "win",
+          "phonetic": "/wIn/",
+          "type": "v.",
+          "chinese": "(won, won) （在比赛中）获胜，赢",
+          "page": "p. 6",
+          "marked": false
+        },
+        {
+          "word": "dollar",
+          "phonetic": "/3dBlR(r)/",
+          "type": "n.",
+          "chinese": "元（美国、加拿大等国货币单位）",
+          "page": "p. 12",
+          "marked": false
+        }
+      ],
+      "phrases": [
+        {
+          "phrase": "in the countryside",
+          "chinese": "在乡村；在农村",
+          "page": "p. 3"
+        },
+        {
+          "phrase": "human being",
+          "chinese": "人",
+          "page": "p. 3"
+        },
+        {
+          "phrase": "die out",
+          "chinese": "灭绝；消失",
+          "page": "p. 3"
+        },
+        {
+          "phrase": "find out",
+          "chinese": "了解（到）；弄清",
+          "page": "p. 6"
+        },
+        {
+          "phrase": "go for a walk",
+          "chinese": "去散步",
+          "page": "p. 11"
+        }
+      ]
+    },
+    {
+      "unit": 2,
+      "title": "Numbers",
+      "vocabulary": [
+        {
+          "word": "number",
+          "phonetic": "/3nVmbR(r)/",
+          "type": "n.",
+          "chinese": "数字",
+          "page": "p. 17",
+          "marked": false
+        },
+        {
+          "word": "instructions",
+          "phonetic": "/In3strVkSnz/",
+          "type": "n.",
+          "chinese": "[pl.] 指示；命令",
+          "page": "p. 17",
+          "marked": false
+        },
+        {
+          "word": "check",
+          "phonetic": "/tSek/",
+          "type": "v.",
+          "chinese": "检查；核实",
+          "page": "p. 17",
+          "marked": false
+        },
+        {
+          "word": "gram",
+          "phonetic": "/GrCm/",
+          "type": "n.",
+          "chinese": "克（重量单位）",
+          "page": "p. 18",
+          "marked": false
+        },
+        {
+          "word": "son",
+          "phonetic": "/sVn/",
+          "type": "n.",
+          "chinese": "儿子",
+          "page": "p. 18",
+          "marked": false
+        },
+        {
+          "word": "chess",
+          "phonetic": "/tSes/",
+          "type": "n.",
+          "chinese": "国际象棋",
+          "page": "p. 18",
+          "marked": false
+        },
+        {
+          "word": "India",
+          "phonetic": "/3IndiR/",
+          "type": "n.",
+          "chinese": "印度",
+          "page": "p. 18",
+          "marked": false
+        },
+        {
+          "word": "wise",
+          "phonetic": "/waIz/",
+          "type": "adj.",
+          "chinese": "充满智慧的",
+          "page": "p. 19",
+          "marked": false
+        },
+        {
+          "word": "challenge",
+          "phonetic": "/3tSClIndZ/",
+          "type": "v.",
+          "chinese": "向（某人）挑战",
+          "page": "p. 19",
+          "marked": false
+        },
+        {
+          "word": "promise",
+          "phonetic": "/3prBmIs/",
+          "type": "v.",
+          "chinese": "许诺；承诺",
+          "page": "p. 19",
+          "marked": false
+        },
+        {
+          "word": "prize",
+          "phonetic": "/praIz/",
+          "type": "n.",
+          "chinese": "奖赏；奖品",
+          "page": "p. 19",
+          "marked": false
+        },
+        {
+          "word": "grain",
+          "phonetic": "/GreIn/",
+          "type": "n.",
+          "chinese": "谷粒",
+          "page": "p. 19",
+          "marked": false
+        },
+        {
+          "word": "chessboard",
+          "phonetic": "/3tSesbO:d/",
+          "type": "n.",
+          "chinese": "国际象棋棋盘",
+          "page": "p. 19",
+          "marked": false
+        },
+        {
+          "word": "double",
+          "phonetic": "/3dVbl/",
+          "type": "v.",
+          "chinese": "（使）加倍",
+          "page": "p. 19",
+          "marked": false
+        },
+        {
+          "word": "amount",
+          "phonetic": "/R3maWnt/",
+          "type": "n.",
+          "chinese": "数量；数额",
+          "page": "p. 19",
+          "marked": false
+        },
+        {
+          "word": "rest",
+          "phonetic": "/rest/",
+          "type": "n.",
+          "chinese": "剩余部分",
+          "page": "p. 19",
+          "marked": false
+        },
+        {
+          "word": "gold",
+          "phonetic": "/GRWld/",
+          "type": "n.",
+          "chinese": "金子；黄金",
+          "page": "p. 19",
+          "marked": false
+        },
+        {
+          "word": "instead",
+          "phonetic": "/In3sted/",
+          "type": "adv.",
+          "chinese": "代替；顶替",
+          "page": "p. 19",
+          "marked": false
+        },
+        {
+          "word": "realize",
+          "phonetic": "/3ri:RlaIz/",
+          "type": "v.",
+          "chinese": "认识到；意识到",
+          "page": "p. 19",
+          "marked": false
+        },
+        {
+          "word": "copy",
+          "phonetic": "/3kBpi/",
+          "type": "v.",
+          "chinese": "抄写；誊写",
+          "page": "p. 27",
+          "marked": false
+        },
+        {
+          "word": "correctly",
+          "phonetic": "/kR3rektli/",
+          "type": "adv.",
+          "chinese": "准确无误地；正确地",
+          "page": "p. 27",
+          "marked": false
+        },
+        {
+          "word": "traffic",
+          "phonetic": "/3trCfIk/",
+          "type": "n.",
+          "chinese": "交通",
+          "page": "p. 28",
+          "marked": false
+        },
+        {
+          "word": "accident",
+          "phonetic": "/3CksIdRnt/",
+          "type": "n.",
+          "chinese": "（交通）事故",
+          "page": "p. 28",
+          "marked": false
+        }
+      ],
+      "phrases": [
+        {
+          "phrase": "a long time ago",
+          "chinese": "很早以前",
+          "page": "p. 19"
+        },
+        {
+          "phrase": "challenge ... to ...",
+          "chinese": "向（某人）挑战",
+          "page": "p. 19"
+        },
+        {
+          "phrase": "and so on",
+          "chinese": "⋯⋯等等",
+          "page": "p. 19"
+        },
+        {
+          "phrase": "copy down",
+          "chinese": "抄写；誊写",
+          "page": "p. 27"
+        }
+      ]
+    },
+    {
+      "unit": 3,
+      "title": "Computers",
+      "vocabulary": [
+        {
+          "word": "order",
+          "phonetic": "/3O:dR(r)/",
+          "type": "n.",
+          "chinese": "订货；订购",
+          "page": "p. 33",
+          "marked": false
+        },
+        {
+          "word": "compare",
+          "phonetic": "/kRm3peR(r)/",
+          "type": "v.",
+          "chinese": "比较；对比",
+          "page": "p. 33",
+          "marked": false
+        },
+        {
+          "word": "monitor",
+          "phonetic": "/3mBnItR(r)/",
+          "type": "n.",
+          "chinese": "（计算机）显示器",
+          "page": "p. 33",
+          "marked": false
+        },
+        {
+          "word": "speaker",
+          "phonetic": "/3spi:kR(r)/",
+          "type": "n.",
+          "chinese": "扬声器",
+          "page": "p. 34",
+          "marked": false
+        },
+        {
+          "word": "main unit",
+          "phonetic": "/meIn 3ju:nIt/",
+          "type": "n.",
+          "chinese": "（计算机）主机",
+          "page": "p. 34",
+          "marked": false
+        },
+        {
+          "word": "keyboard",
+          "phonetic": "/3ki:bO:d/",
+          "type": "n.",
+          "chinese": "（计算机或打字机的）键盘",
+          "page": "p. 34",
+          "marked": false
+        },
+        {
+          "word": "mouse",
+          "phonetic": "/maWs/",
+          "type": "n.",
+          "chinese": "（计算机）鼠标",
+          "page": "p. 34",
+          "marked": false
+        },
+        {
+          "word": "type",
+          "phonetic": "/taIp/",
+          "type": "v.",
+          "chinese": "打字",
+          "page": "p. 34",
+          "marked": false
+        },
+        {
+          "word": "brain",
+          "phonetic": "/breIn/",
+          "type": "n.",
+          "chinese": "脑",
+          "page": "p. 34",
+          "marked": false
+        },
+        {
+          "word": "control",
+          "phonetic": "/kRn3trRWl/",
+          "type": "v.",
+          "chinese": "操纵，控制（机器或系统等）",
+          "page": "p. 34",
+          "marked": false
+        },
+        {
+          "word": "expensive",
+          "phonetic": "/Ik3spensIv/",
+          "type": "adj.",
+          "chinese": "昂贵的；价格高的",
+          "page": "p. 34",
+          "marked": false
+        },
+        {
+          "word": "tiny",
+          "phonetic": "/3taIni/",
+          "type": "adj.",
+          "chinese": "极小的；微小的",
+          "page": "p. 35",
+          "marked": false
+        },
+        {
+          "word": "depend",
+          "phonetic": "/dI3pend/",
+          "type": "v.",
+          "chinese": "依靠；依赖",
+          "page": "p. 35",
+          "marked": false
+        },
+        {
+          "word": "calculate",
+          "phonetic": "/3kClkjuleIt/",
+          "type": "v.",
+          "chinese": "计算",
+          "page": "p. 35",
+          "marked": true
+        },
+        {
+          "word": "speed",
+          "phonetic": "/spi:d/",
+          "type": "n.",
+          "chinese": "速度",
+          "page": "p. 35",
+          "marked": false
+        },
+        {
+          "word": "operate",
+          "phonetic": "/3BpRreIt/",
+          "type": "v.",
+          "chinese": "操作；控制",
+          "page": "p. 35",
+          "marked": false
+        },
+        {
+          "word": "railway",
+          "phonetic": "/3reIlweI/",
+          "type": "n.",
+          "chinese": "铁路系统",
+          "page": "p. 35",
+          "marked": false
+        },
+        {
+          "word": "company",
+          "phonetic": "/3kVmpRni/",
+          "type": "n.",
+          "chinese": "公司",
+          "page": "p. 38",
+          "marked": false
+        },
+        {
+          "word": "price",
+          "phonetic": "/praIs/",
+          "type": "n.",
+          "chinese": "价格",
+          "page": "p. 38",
+          "marked": false
+        },
+        {
+          "word": "total",
+          "phonetic": "/3tRWtl/",
+          "type": "n.",
+          "chinese": "总额；合计",
+          "page": "p. 38",
+          "marked": false
+        },
+        {
+          "word": "inch",
+          "phonetic": "/IntS/",
+          "type": "n.",
+          "chinese": "英寸",
+          "page": "p. 44",
+          "marked": false
+        },
+        {
+          "word": "sell",
+          "phonetic": "/sel/",
+          "type": "v.",
+          "chinese": "(sold, sold) 出售；售卖",
+          "page": "p. 44",
+          "marked": false
+        },
+        {
+          "word": "popular",
+          "phonetic": "/3pBpjRlR(r)/",
+          "type": "adj.",
+          "chinese": "受喜爱的；受欢迎的",
+          "page": "p. 44",
+          "marked": false
+        }
+      ],
+      "phrases": [
+        {
+          "phrase": "work as",
+          "chinese": "从事⋯⋯工作",
+          "page": "p. 34"
+        },
+        {
+          "phrase": "(be) unaware of",
+          "chinese": "没意识到；未察觉",
+          "page": "p. 35"
+        },
+        {
+          "phrase": "depend on",
+          "chinese": "依靠",
+          "page": "p. 35"
+        },
+        {
+          "phrase": "in addition",
+          "chinese": "除⋯⋯以外（还）",
+          "page": "p. 35"
+        },
+        {
+          "phrase": "grand total",
+          "chinese": "总计；共计",
+          "page": "p. 38"
+        },
+        {
+          "phrase": "look forward to",
+          "chinese": "盼望；期待",
+          "page": "p. 44"
+        }
+      ]
+    },
+    {
+      "unit": 4,
+      "title": "Inventions",
+      "vocabulary": [
+        {
+          "word": "advertisement",
+          "phonetic": "/Rd3vF:tIsmRnt/",
+          "type": "n.",
+          "chinese": "广告",
+          "page": "p. 49",
+          "marked": false
+        },
+        {
+          "word": "funny",
+          "phonetic": "/3fVni/",
+          "type": "adj.",
+          "chinese": "滑稽的；好笑的",
+          "page": "p. 49",
+          "marked": false
+        },
+        {
+          "word": "create",
+          "phonetic": "/kri3eIt/",
+          "type": "v.",
+          "chinese": "创造；创作",
+          "page": "p. 49",
+          "marked": false
+        },
+        {
+          "word": "telephone",
+          "phonetic": "/3telIfRWn/",
+          "type": "n.",
+          "chinese": "电话；电话机",
+          "page": "p. 50",
+          "marked": false
+        },
+        {
+          "word": "wheel",
+          "phonetic": "/wi:l/",
+          "type": "n.",
+          "chinese": "车轮；轮子",
+          "page": "p. 50",
+          "marked": false
+        },
+        {
+          "word": "comfortable",
+          "phonetic": "/3kVmftRbl/",
+          "type": "adj.",
+          "chinese": "使人舒服的；舒适的",
+          "page": "p. 51",
+          "marked": false
+        },
+        {
+          "word": "carriage",
+          "phonetic": "/3kCrIdZ/",
+          "type": "n.",
+          "chinese": "（旧时载客的）四轮马车",
+          "page": "p. 51",
+          "marked": false
+        },
+        {
+          "word": "century",
+          "phonetic": "/3sentSRri/",
+          "type": "n.",
+          "chinese": "世纪",
+          "page": "p. 51",
+          "marked": false
+        },
+        {
+          "word": "passenger",
+          "phonetic": "/3pCsIndZR(r)/",
+          "type": "n.",
+          "chinese": "乘客；旅客",
+          "page": "p. 51",
+          "marked": false
+        },
+        {
+          "word": "invent",
+          "phonetic": "/In3vent/",
+          "type": "v.",
+          "chinese": "发明；创造",
+          "page": "p. 51",
+          "marked": false
+        },
+        {
+          "word": "practical",
+          "phonetic": "/3prCktIkl/",
+          "type": "adj.",
+          "chinese": "有用的；适用的",
+          "page": "p. 51",
+          "marked": false
+        },
+        {
+          "word": "since",
+          "phonetic": "/sIns/",
+          "type": "prep.",
+          "chinese": "从⋯⋯以后；自⋯⋯以来",
+          "page": "p. 51",
+          "marked": false
+        },
+        {
+          "word": "distance",
+          "phonetic": "/3dIstRns/",
+          "type": "n.",
+          "chinese": "距离；间距",
+          "page": "p. 51",
+          "marked": false
+        },
+        {
+          "word": "mobile phone",
+          "phonetic": "/4mRWbaIl 3fRWn/",
+          "type": "n.",
+          "chinese": "移动电话；手机",
+          "page": "p. 51",
+          "marked": false
+        },
+        {
+          "word": "anytime",
+          "phonetic": "/3enitaIm/",
+          "type": "adv.",
+          "chinese": "在任何时候；随便什么时候",
+          "page": "p. 51",
+          "marked": false
+        },
+        {
+          "word": "develop",
+          "phonetic": "/dI3velRp/",
+          "type": "v.",
+          "chinese": "开发；研制",
+          "page": "p. 51",
+          "marked": false
+        },
+        {
+          "word": "lamp",
+          "phonetic": "/lCmp/",
+          "type": "n.",
+          "chinese": "灯",
+          "page": "p. 51",
+          "marked": false
+        },
+        {
+          "word": "candle",
+          "phonetic": "/3kCndl/",
+          "type": "n.",
+          "chinese": "蜡烛",
+          "page": "p. 51",
+          "marked": false
+        },
+        {
+          "word": "daytime",
+          "phonetic": "/3deItaIm/",
+          "type": "n.",
+          "chinese": "白天；日间",
+          "page": "p. 51",
+          "marked": false
+        },
+        {
+          "word": "dust",
+          "phonetic": "/dVst/",
+          "type": "n.",
+          "chinese": "灰尘；尘土",
+          "page": "p. 54",
+          "marked": false
+        },
+        {
+          "word": "special",
+          "phonetic": "/3speSl/",
+          "type": "adj.",
+          "chinese": "特殊的；特别的",
+          "page": "p. 60",
+          "marked": false
+        },
+        {
+          "word": "wing",
+          "phonetic": "/wIN/",
+          "type": "n.",
+          "chinese": "（飞行器的）翅膀；机翼",
+          "page": "p. 60",
+          "marked": false
+        },
+        {
+          "word": "introduction",
+          "phonetic": "/4IntrR3dVkSn/",
+          "type": "n.",
+          "chinese": "引言",
+          "page": "p. 60",
+          "marked": false
+        },
+        {
+          "word": "petrol",
+          "phonetic": "/3petrRl/",
+          "type": "n.",
+          "chinese": "汽油",
+          "page": "p. 60",
+          "marked": false
+        }
+      ],
+      "phrases": [
+        {
+          "phrase": "since then",
+          "chinese": "自那以来",
+          "page": "p. 51"
+        },
+        {
+          "phrase": "keep in touch with",
+          "chinese": "与⋯⋯保持联系",
+          "page": "p. 51"
+        },
+        {
+          "phrase": "in the daytime",
+          "chinese": "在白天",
+          "page": "p. 51"
+        },
+        {
+          "phrase": "keep … off",
+          "chinese": "使⋯⋯不接近（或不接触、远离）⋯⋯",
+          "page": "p. 54"
+        },
+        {
+          "phrase": "at the same time",
+          "chinese": "同时",
+          "page": "p. 54"
+        },
+        {
+          "phrase": "instead of",
+          "chinese": "代替；作为⋯⋯的替换",
+          "page": "p. 60"
+        }
+      ]
+    },
+    {
+      "unit": 5,
+      "title": "Educational exchanges",
+      "vocabulary": [
+        {
+          "word": "educational",
+          "phonetic": "/4edZu3keISRnl/",
+          "type": "adj.",
+          "chinese": "有关教育的；有教育意义的",
+          "page": "p. 65",
+          "marked": false
+        },
+        {
+          "word": "exchange",
+          "phonetic": "/Iks3tSeIndZ/",
+          "type": "n.",
+          "chinese": "交流；互访",
+          "page": "p. 65",
+          "marked": false
+        },
+        {
+          "word": "culture",
+          "phonetic": "/3kVltSR(r)/",
+          "type": "n.",
+          "chinese": "文化",
+          "page": "p. 66",
+          "marked": false
+        },
+        {
+          "word": "host",
+          "phonetic": "/hRWst/",
+          "type": "n.",
+          "chinese": "主人",
+          "page": "p. 66",
+          "marked": false
+        },
+        {
+          "word": "local",
+          "phonetic": "/3lRWkl/",
+          "type": "adj.",
+          "chinese": "地方的；当地的",
+          "page": "p. 66",
+          "marked": false
+        },
+        {
+          "word": "British",
+          "phonetic": "/3brItIS/",
+          "type": "adj.",
+          "chinese": "英国的",
+          "page": "p. 67",
+          "marked": false
+        },
+        {
+          "word": "glad",
+          "phonetic": "/GlCd/",
+          "type": "adj.",
+          "chinese": "高兴；愉快",
+          "page": "p. 67",
+          "marked": false
+        },
+        {
+          "word": "guest",
+          "phonetic": "/Gest/",
+          "type": "n.",
+          "chinese": "客人；宾客",
+          "page": "p. 67",
+          "marked": false
+        },
+        {
+          "word": "chopstick",
+          "phonetic": "/3tSBpstIk/",
+          "type": "n.",
+          "chinese": "筷子",
+          "page": "p. 67",
+          "marked": false
+        },
+        {
+          "word": "weekday",
+          "phonetic": "/3wi:kdeI/",
+          "type": "n.",
+          "chinese": "工作日（星期一至星期五的某一天）",
+          "page": "p. 67",
+          "marked": false
+        },
+        {
+          "word": "tour",
+          "phonetic": "/tWR(r)/",
+          "type": "v.",
+          "chinese": "在⋯⋯旅游",
+          "page": "p. 67",
+          "marked": false
+        },
+        {
+          "word": "fantastic",
+          "phonetic": "/fCn3tCstIk/",
+          "type": "adj.",
+          "chinese": "极好的；了不起的",
+          "page": "p. 67",
+          "marked": false
+        },
+        {
+          "word": "experience",
+          "phonetic": "/Ik3spIRriRns/",
+          "type": "n.",
+          "chinese": "（一次）经历，体验",
+          "page": "p. 67",
+          "marked": false
+        },
+        {
+          "word": "t'ai chi",
+          "phonetic": "/4taI 3tSi:/",
+          "type": "n.",
+          "chinese": "太极（拳）",
+          "page": "p. 67",
+          "marked": true
+        },
+        {
+          "word": "already",
+          "phonetic": "/O:l3redi/",
+          "type": "adv.",
+          "chinese": "已经；早已",
+          "page": "p. 67",
+          "marked": false
+        },
+        {
+          "word": "introduce",
+          "phonetic": "/4IntrR3dju:s/",
+          "type": "v.",
+          "chinese": "使⋯⋯初次了解⋯⋯；使尝试",
+          "page": "p. 67",
+          "marked": false
+        },
+        {
+          "word": "success",
+          "phonetic": "/sRk3ses/",
+          "type": "n.",
+          "chinese": "成功",
+          "page": "p. 67",
+          "marked": false
+        },
+        {
+          "word": "yet",
+          "phonetic": "/jet/",
+          "type": "adv.",
+          "chinese": "尚未；仍未",
+          "page": "p. 67",
+          "marked": false
+        },
+        {
+          "word": "respect",
+          "phonetic": "/rI3spekt/",
+          "type": "v.",
+          "chinese": "慎重对待；尊重",
+          "page": "p. 70",
+          "marked": false
+        }
+      ],
+      "phrases": [
+        {
+          "phrase": "at first",
+          "chinese": "起初；起先",
+          "page": "p. 67"
+        },
+        {
+          "phrase": "so far",
+          "chinese": "到目前为止；迄今为止",
+          "page": "p. 67"
+        },
+        {
+          "phrase": "a bit of",
+          "chinese": "小量",
+          "page": "p. 67"
+        },
+        {
+          "phrase": "introduce … to …",
+          "chinese": "使⋯⋯初次了解⋯⋯；使尝试",
+          "page": "p. 67"
+        },
+        {
+          "phrase": "come over (to ...)",
+          "chinese": "（通常远距离地）从⋯⋯到⋯⋯",
+          "page": "p. 67"
+        }
+      ]
+    },
+    {
+      "unit": 6,
+      "title": "Ancient stories",
+      "vocabulary": [
+        {
+          "word": "ancient",
+          "phonetic": "/3eInSRnt/",
+          "type": "adj.",
+          "chinese": "古代的",
+          "page": "p. 81",
+          "marked": false
+        },
+        {
+          "word": "Trojan",
+          "phonetic": "/3trRWdZRn/",
+          "type": "adj.",
+          "chinese": "特洛伊的",
+          "page": "p. 81",
+          "marked": true
+        },
+        {
+          "word": "war",
+          "phonetic": "/wO:(r)/",
+          "type": "n.",
+          "chinese": "战争",
+          "page": "p. 81",
+          "marked": false
+        },
+        {
+          "word": "understand",
+          "phonetic": "/4VndR3stCnd/",
+          "type": "v.",
+          "chinese": "(understood, understood) 懂；理解",
+          "page": "p. 81",
+          "marked": false
+        },
+        {
+          "word": "difference",
+          "phonetic": "/3dIfrRns/",
+          "type": "n.",
+          "chinese": "差别；不同（之处）",
+          "page": "p. 81",
+          "marked": false
+        },
+        {
+          "word": "pyramid",
+          "phonetic": "/3pIrRmId/",
+          "type": "n.",
+          "chinese": "（古埃及的）金字塔",
+          "page": "p. 82",
+          "marked": true
+        },
+        {
+          "word": "captain",
+          "phonetic": "/3kCptIn/",
+          "type": "n.",
+          "chinese": "首领",
+          "page": "p. 83",
+          "marked": false
+        },
+        {
+          "word": "Greek",
+          "phonetic": "/Gri:k/",
+          "type": "n.",
+          "chinese": "希腊人",
+          "page": "p. 83",
+          "marked": true
+        },
+        {
+          "word": "capture",
+          "phonetic": "/3kCptSR(r)/",
+          "type": "v.",
+          "chinese": "用武力夺取；攻占",
+          "page": "p. 83",
+          "marked": true
+        },
+        {
+          "word": "soldier",
+          "phonetic": "/3sRWldZR(r)/",
+          "type": "n.",
+          "chinese": "士兵",
+          "page": "p. 83",
+          "marked": false
+        },
+        {
+          "word": "huge",
+          "phonetic": "/hju:dZ/",
+          "type": "adj.",
+          "chinese": "巨大的",
+          "page": "p. 83",
+          "marked": false
+        },
+        {
+          "word": "pull",
+          "phonetic": "/pWl/",
+          "type": "v.",
+          "chinese": "（向某方向）拖，拉动",
+          "page": "p. 83",
+          "marked": false
+        },
+        {
+          "word": "main",
+          "phonetic": "/meIn/",
+          "type": "adj.",
+          "chinese": "主要的",
+          "page": "p. 83",
+          "marked": false
+        },
+        {
+          "word": "celebrate",
+          "phonetic": "/3selIbreIt/",
+          "type": "v.",
+          "chinese": "庆祝；庆贺",
+          "page": "p. 83",
+          "marked": false
+        },
+        {
+          "word": "stupid",
+          "phonetic": "/3stju:pId/",
+          "type": "adj.",
+          "chinese": "笨的；傻的",
+          "page": "p. 83",
+          "marked": false
+        },
+        {
+          "word": "midnight",
+          "phonetic": "/3mIdnaIt/",
+          "type": "n.",
+          "chinese": "午夜；子夜",
+          "page": "p. 83",
+          "marked": false
+        },
+        {
+          "word": "empty",
+          "phonetic": "/3empti/",
+          "type": "adj.",
+          "chinese": "空的",
+          "page": "p. 83",
+          "marked": false
+        },
+        {
+          "word": "except",
+          "phonetic": "/Ik3sept/",
+          "type": "prep.",
+          "chinese": "除⋯⋯之外",
+          "page": "p. 83",
+          "marked": false
+        },
+        {
+          "word": "secret",
+          "phonetic": "/3si:krRt/",
+          "type": "adj.",
+          "chinese": "秘密的",
+          "page": "p. 83",
+          "marked": false
+        },
+        {
+          "word": "side",
+          "phonetic": "/saId/",
+          "type": "n.",
+          "chinese": "侧面",
+          "page": "p. 83",
+          "marked": false
+        },
+        {
+          "word": "quietly",
+          "phonetic": "/3kwaIRtli/",
+          "type": "adv.",
+          "chinese": "安静地",
+          "page": "p. 83",
+          "marked": false
+        },
+        {
+          "word": "army",
+          "phonetic": "/3A:mi/",
+          "type": "n.",
+          "chinese": "陆军部队",
+          "page": "p. 83",
+          "marked": false
+        },
+        {
+          "word": "enter",
+          "phonetic": "/3entR(r)/",
+          "type": "v.",
+          "chinese": "进来；进入",
+          "page": "p. 83",
+          "marked": false
+        },
+        {
+          "word": "succeed",
+          "phonetic": "/sRk3si:d/",
+          "type": "v.",
+          "chinese": "达到目的；实现目标",
+          "page": "p. 83",
+          "marked": false
+        },
+        {
+          "word": "prince",
+          "phonetic": "/prIns/",
+          "type": "n.",
+          "chinese": "王子",
+          "page": "p. 86",
+          "marked": false
+        },
+        {
+          "word": "queen",
+          "phonetic": "/kwi:n/",
+          "type": "n.",
+          "chinese": "王后",
+          "page": "p. 86",
+          "marked": false
+        },
+        {
+          "word": "steal",
+          "phonetic": "/sti:l/",
+          "type": "v.",
+          "chinese": "(stole, stolen) 偷；窃取",
+          "page": "p. 86",
+          "marked": false
+        },
+        {
+          "word": "punish",
+          "phonetic": "/3pVnIS/",
+          "type": "v.",
+          "chinese": "处罚；惩罚",
+          "page": "p. 86",
+          "marked": false
+        },
+        {
+          "word": "scene",
+          "phonetic": "/si:n/",
+          "type": "n.",
+          "chinese": "（戏剧或歌剧的）场",
+          "page": "p. 91",
+          "marked": false
+        },
+        {
+          "word": "sir",
+          "phonetic": "/sF:(r)/",
+          "type": "n.",
+          "chinese": "先生",
+          "page": "p. 91",
+          "marked": false
+        },
+        {
+          "word": "trick",
+          "phonetic": "/trIk/",
+          "type": "n.",
+          "chinese": "计谋",
+          "page": "p. 83",
+          "marked": false
+        }
+      ],
+      "phrases": [
+        {
+          "phrase": "act out",
+          "chinese": "将⋯⋯表演出来",
+          "page": "p. 81"
+        },
+        {
+          "phrase": "make jokes about",
+          "chinese": "拿⋯⋯开玩笑；以⋯⋯为笑柄",
+          "page": "p. 83"
+        },
+        {
+          "phrase": "except for",
+          "chinese": "除⋯⋯之外",
+          "page": "p. 83"
+        },
+        {
+          "phrase": "(be) full of",
+          "chinese": "(有)大量的；（有）许多的",
+          "page": "p. 83"
+        },
+        {
+          "phrase": "in the end",
+          "chinese": "最后",
+          "page": "p. 86"
+        },
+        {
+          "phrase": "come on",
+          "chinese": "（用于命令）快；加油；加把劲",
+          "page": "p. 91"
+        }
+      ]
+    },
+    {
+      "unit": 7,
+      "title": "Memory",
+      "vocabulary": [
+        {
+          "word": "memory",
+          "phonetic": "/3memRri/",
+          "type": "n.",
+          "chinese": "记忆力；记性<br>n. 回忆；记忆",
+          "page": "p. 97",
+          "marked": false
+        },
+        {
+          "word": "corner",
+          "phonetic": "/3kO:nR(r)/",
+          "type": "n.",
+          "chinese": "角",
+          "page": "p. 97",
+          "marked": false
+        },
+        {
+          "word": "lose",
+          "phonetic": "/lu:z/",
+          "type": "v.",
+          "chinese": "(lost, lost) 丧失；失去",
+          "page": "p. 98",
+          "marked": false
+        },
+        {
+          "word": "improve",
+          "phonetic": "/Im3pru:v/",
+          "type": "v.",
+          "chinese": "改进；改善",
+          "page": "p. 98",
+          "marked": false
+        },
+        {
+          "word": "mention",
+          "phonetic": "/3menSn/",
+          "type": "v.",
+          "chinese": "提到；说到",
+          "page": "p. 98",
+          "marked": false
+        },
+        {
+          "word": "method",
+          "phonetic": "/3mePRd/",
+          "type": "n.",
+          "chinese": "方法；办法",
+          "page": "p. 98",
+          "marked": false
+        },
+        {
+          "word": "spelling",
+          "phonetic": "/3spelIN/",
+          "type": "n.",
+          "chinese": "拼写；拼法",
+          "page": "p. 98",
+          "marked": false
+        },
+        {
+          "word": "mind",
+          "phonetic": "/maInd/",
+          "type": "n.",
+          "chinese": "头脑；大脑",
+          "page": "p. 99",
+          "marked": false
+        },
+        {
+          "word": "silly",
+          "phonetic": "/3sIli/",
+          "type": "adj.",
+          "chinese": "可笑的",
+          "page": "p. 99",
+          "marked": false
+        },
+        {
+          "word": "mile",
+          "phonetic": "/maIl/",
+          "type": "n.",
+          "chinese": "英里",
+          "page": "p. 99",
+          "marked": false
+        },
+        {
+          "word": "letter",
+          "phonetic": "/3letR(r)/",
+          "type": "n.",
+          "chinese": "字母",
+          "page": "p. 99",
+          "marked": false
+        },
+        {
+          "word": "worth",
+          "phonetic": "/wF:P/",
+          "type": "adj.",
+          "chinese": "值得；有价值",
+          "page": "p. 99",
+          "marked": false
+        },
+        {
+          "word": "spell",
+          "phonetic": "/spel/",
+          "type": "v.",
+          "chinese": "(spelt, spelt) 用字母拼；拼写",
+          "page": "p. 99",
+          "marked": false
+        },
+        {
+          "word": "unless",
+          "phonetic": "/Rn3les/",
+          "type": "conj.",
+          "chinese": "除非",
+          "page": "p. 99",
+          "marked": false
+        },
+        {
+          "word": "trouble",
+          "phonetic": "/3trVbl/",
+          "type": "n.",
+          "chinese": "困难",
+          "page": "p. 99",
+          "marked": false
+        },
+        {
+          "word": "list",
+          "phonetic": "/lIst/",
+          "type": "n.",
+          "chinese": "清单",
+          "page": "p. 99",
+          "marked": false
+        },
+        {
+          "word": "step",
+          "phonetic": "/step/",
+          "type": "n.",
+          "chinese": "步骤",
+          "page": "p. 99",
+          "marked": false
+        },
+        {
+          "word": "cycle",
+          "phonetic": "/3saIkl/",
+          "type": "n.",
+          "chinese": "循环",
+          "page": "p. 99",
+          "marked": false
+        },
+        {
+          "word": "similar",
+          "phonetic": "/3sImRlR(r)/",
+          "type": "adj.",
+          "chinese": "相像的；类似的",
+          "page": "p. 102",
+          "marked": false
+        },
+        {
+          "word": "note",
+          "phonetic": "/nRWt/",
+          "type": "n.",
+          "chinese": "纸币",
+          "page": "p. 107",
+          "marked": false
+        },
+        {
+          "word": "wallet",
+          "phonetic": "/3wBlItR/",
+          "type": "n.",
+          "chinese": "钱包；皮夹子",
+          "page": "p. 107",
+          "marked": false
+        },
+        {
+          "word": "basket",
+          "phonetic": "/3bA:skIt/",
+          "type": "n.",
+          "chinese": "篮；筐",
+          "page": "p. 108",
+          "marked": false
+        },
+        {
+          "word": "manager",
+          "phonetic": "/3mCnIdZR(r)/",
+          "type": "n.",
+          "chinese": "（企业的）经理",
+          "page": "p. 108",
+          "marked": false
+        }
+      ],
+      "phrases": [
+        {
+          "phrase": "take out",
+          "chinese": "（从银行账户中）提取（款）",
+          "page": "p. 107"
+        },
+        {
+          "phrase": "pour out",
+          "chinese": "涌出",
+          "page": "p. 107"
+        }
+      ]
+    },
+    {
+      "unit": 8,
+      "title": "English Week",
+      "vocabulary": [
+        {
+          "word": "speech",
+          "phonetic": "/spi:tS/",
+          "type": "n.",
+          "chinese": "演说；发言",
+          "page": "p. 113",
+          "marked": false
+        },
+        {
+          "word": "notice",
+          "phonetic": "/3nRWtIs/",
+          "type": "n.",
+          "chinese": "通告；布告",
+          "page": "p. 113",
+          "marked": false
+        },
+        {
+          "word": "competition",
+          "phonetic": "/4kBmpR3tISn/",
+          "type": "n.",
+          "chinese": "比赛；竞赛",
+          "page": "p. 114",
+          "marked": false
+        },
+        {
+          "word": "treasure",
+          "phonetic": "/3treZR(r)/",
+          "type": "n.",
+          "chinese": "珍宝；宝物",
+          "page": "p. 114",
+          "marked": false
+        },
+        {
+          "word": "text",
+          "phonetic": "/tekst/",
+          "type": "n.",
+          "chinese": "文本",
+          "page": "p. 114",
+          "marked": false
+        },
+        {
+          "word": "chance",
+          "phonetic": "/tSA:ns/",
+          "type": "n.",
+          "chinese": "机会；机遇",
+          "page": "p. 114",
+          "marked": false
+        },
+        {
+          "word": "confidently",
+          "phonetic": "/3kBnfIdRntli/",
+          "type": "adv.",
+          "chinese": "自信地",
+          "page": "p. 114",
+          "marked": false
+        },
+        {
+          "word": "topic",
+          "phonetic": "/3tBpIk/",
+          "type": "n.",
+          "chinese": "话题",
+          "page": "p. 115",
+          "marked": false
+        },
+        {
+          "word": "winner",
+          "phonetic": "/3wInR(r)/",
+          "type": "n.",
+          "chinese": "优胜者",
+          "page": "p. 115",
+          "marked": false
+        },
+        {
+          "word": "advise",
+          "phonetic": "/Rd3vaIz/",
+          "type": "v.",
+          "chinese": "建议",
+          "page": "p. 115",
+          "marked": false
+        },
+        {
+          "word": "several",
+          "phonetic": "/3sevrRl/",
+          "type": "det.",
+          "chinese": "几个；一些",
+          "page": "p. 115",
+          "marked": false
+        },
+        {
+          "word": "opinion",
+          "phonetic": "/R3pInjRn/",
+          "type": "n.",
+          "chinese": "意见；想法",
+          "page": "p. 115",
+          "marked": false
+        },
+        {
+          "word": "whole",
+          "phonetic": "/hRWl/",
+          "type": "adj.",
+          "chinese": "整个的；全部的",
+          "page": "p. 115",
+          "marked": false
+        },
+        {
+          "word": "suggestion",
+          "phonetic": "/sR3dZestSRn/",
+          "type": "n.",
+          "chinese": "建议；提议",
+          "page": "p. 115",
+          "marked": false
+        },
+        {
+          "word": "communicate",
+          "phonetic": "/kR3mju:nIkeIt/",
+          "type": "v.",
+          "chinese": "（与某人）交流信息；沟通",
+          "page": "p. 115",
+          "marked": false
+        },
+        {
+          "word": "whenever",
+          "phonetic": "/wen3evR(r)/",
+          "type": "conj.",
+          "chinese": "在任何⋯⋯的时候；在任何⋯⋯的情况下",
+          "page": "p. 115",
+          "marked": false
+        },
+        {
+          "word": "rich",
+          "phonetic": "/rItS/",
+          "type": "adj.",
+          "chinese": "富有的；富裕的",
+          "page": "p. 118",
+          "marked": false
+        },
+        {
+          "word": "poor",
+          "phonetic": "/pO:(r)/",
+          "type": "adj.",
+          "chinese": "贫穷的；贫寒的",
+          "page": "p. 118",
+          "marked": false
+        },
+        {
+          "word": "hide",
+          "phonetic": "/haId/",
+          "type": "v.",
+          "chinese": "(hid, hidden) 藏；隐蔽",
+          "page": "p. 118",
+          "marked": false
+        },
+        {
+          "word": "attack",
+          "phonetic": "/R3tCk/",
+          "type": "v.",
+          "chinese": "袭击；攻击",
+          "page": "p. 118",
+          "marked": false
+        },
+        {
+          "word": "shy",
+          "phonetic": "/SaI/",
+          "type": "adj.",
+          "chinese": "羞怯的；腼腆的",
+          "page": "p. 122",
+          "marked": false
+        },
+        {
+          "word": "else",
+          "phonetic": "/els/",
+          "type": "adv.",
+          "chinese": "其他的；别的",
+          "page": "p. 123",
+          "marked": false
+        },
+        {
+          "word": "choose",
+          "phonetic": "/tSu:z/",
+          "type": "v.",
+          "chinese": "(chose, chosen) 选择；挑选",
+          "page": "p. 124",
+          "marked": false
+        }
+      ],
+      "phrases": [
+        {
+          "phrase": "treasure hunt",
+          "chinese": "寻宝游戏",
+          "page": "p. 114"
+        },
+        {
+          "phrase": "in public",
+          "chinese": "公开地；在别人（尤指生人）面前",
+          "page": "p. 114"
+        },
+        {
+          "phrase": "put on",
+          "chinese": "上演",
+          "page": "p. 115"
+        },
+        {
+          "phrase": "in my opinion",
+          "chinese": "依我看",
+          "page": "p. 115"
+        },
+        {
+          "phrase": "above all",
+          "chinese": "最重要的是；尤其是",
+          "page": "p. 115"
+        },
+        {
+          "phrase": "look out",
+          "chinese": "小心；当心",
+          "page": "p. 118"
+        }
+      ]
+    }
+  ],
+  "proper_nouns": {
+    "names": [
+      {
+        "english": "Alexander Graham Bell",
+        "chinese": "亚历山大·格雷姆·贝尔",
+        "page": "p. 51"
+      },
+      {
+        "english": "Dickinson",
+        "chinese": "狄更生（姓）",
+        "page": "p. 6"
+      },
+      {
+        "english": "Dudley",
+        "chinese": "达德利（男名）",
+        "page": "p. 11"
+      },
+      {
+        "english": "Eric",
+        "chinese": "埃里克（男名）",
+        "page": "p. 67"
+      },
+      {
+        "english": "George",
+        "chinese": "乔治（男名）",
+        "page": "p. 70"
+      },
+      {
+        "english": "Henry",
+        "chinese": "亨利（男名）",
+        "page": "p. 98"
+      },
+      {
+        "english": "Leonardo da Vinci",
+        "chinese": "列奥纳多·达·芬奇",
+        "page": "p. 2"
+      },
+      {
+        "english": "Little John",
+        "chinese": "小约翰",
+        "page": "p. 118"
+      },
+      {
+        "english": "Mabel",
+        "chinese": "梅布尔（女名）",
+        "page": "p. 38"
+      },
+      {
+        "english": "May",
+        "chinese": "梅（女名）",
+        "page": "p. 28"
+      },
+      {
+        "english": "Merry Men",
+        "chinese": "快乐的伙伴们（指跟随罗宾汉的人）",
+        "page": "p. 118"
+      },
+      {
+        "english": "Millie",
+        "chinese": "米利（女名）",
+        "page": "p. 98"
+      },
+      {
+        "english": "Paris",
+        "chinese": "帕里斯（特洛伊王子）",
+        "page": "p. 86"
+      },
+      {
+        "english": "Paula",
+        "chinese": "葆拉（女名）",
+        "page": "p. 98"
+      },
+      {
+        "english": "Robin Hood",
+        "chinese": "罗宾汉（英国民间传说中侠盗式的英雄人物）",
+        "page": "p. 118"
+      },
+      {
+        "english": "Sammy",
+        "chinese": "萨米（男名）",
+        "page": "p. 11"
+      },
+      {
+        "english": "Thomas Edison",
+        "chinese": "托马斯·爱迪生",
+        "page": "p. 51"
+      }
+    ],
+    "places": [
+      {
+        "english": "British Museum",
+        "chinese": "大英博物馆",
+        "page": "p. 76"
+      },
+      {
+        "english": "China",
+        "chinese": "中国",
+        "page": "p. 18"
+      },
+      {
+        "english": "Egypt",
+        "chinese": "埃及",
+        "page": "p. 82"
+      },
+      {
+        "english": "Greece",
+        "chinese": "希腊",
+        "page": "p. 82"
+      },
+      {
+        "english": "India",
+        "chinese": "印度",
+        "page": "p. 18"
+      },
+      {
+        "english": "Italy",
+        "chinese": "意大利",
+        "page": "p. 10"
+      },
+      {
+        "english": "London",
+        "chinese": "伦敦",
+        "page": "p. 67"
+      },
+      {
+        "english": "London Eye",
+        "chinese": "伦敦眼",
+        "page": "p. 75"
+      },
+      {
+        "english": "Sparta",
+        "chinese": "斯巴达（古希腊南部的城邦）",
+        "page": "p. 86"
+      },
+      {
+        "english": "Stonehenge",
+        "chinese": "巨石阵",
+        "page": "p. 82"
+      },
+      {
+        "english": "the Parthenon",
+        "chinese": "帕提农神庙",
+        "page": "p. 82"
+      },
+      {
+        "english": "Tower Bridge",
+        "chinese": "伦敦塔桥",
+        "page": "p. 75"
+      },
+      {
+        "english": "Troy",
+        "chinese": "特洛伊（古希腊西北部的城邦）",
+        "page": "p. 83"
+      }
+    ],
+    "others": [
+      {
+        "english": "ATM",
+        "chinese": "自动提款机",
+        "page": "p. 33"
+      },
+      {
+        "english": "Impression, Sunrise",
+        "chinese": "《印象·日出》",
+        "page": "p. 2"
+      },
+      {
+        "english": "Mona Lisa",
+        "chinese": "《蒙娜丽莎》",
+        "page": "p. 3"
+      },
+      {
+        "english": "Sunflowers",
+        "chinese": "《向日葵》",
+        "page": "p. 2"
+      },
+      {
+        "english": "The Last Supper",
+        "chinese": "《最后的晚餐》",
+        "page": "p. 2"
+      },
+      {
+        "english": "Trojan horse",
+        "chinese": "特洛伊木马",
+        "page": "p. 83"
+      },
+      {
+        "english": "Trojan War",
+        "chinese": "特洛伊战争",
+        "page": "p. 81"
+      }
+    ]
+  },
+  "grammar_terms": [
+    {
+      "english": "cardinal number",
+      "chinese": "基数词",
+      "page": "p. 17"
+    },
+    {
+      "english": "falling intonation",
+      "chinese": "降调",
+      "page": "p. 65"
+    },
+    {
+      "english": "intonation",
+      "chinese": "语调",
+      "page": "p. 49"
+    },
+    {
+      "english": "irregular verb",
+      "chinese": "不规则动词",
+      "page": "p. 71"
+    },
+    {
+      "english": "loss of plosion",
+      "chinese": "失去爆破",
+      "page": "p. 97"
+    },
+    {
+      "english": "number",
+      "chinese": "数词",
+      "page": "p. 17"
+    },
+    {
+      "english": "ordinal number",
+      "chinese": "序数词",
+      "page": "p. 17"
+    },
+    {
+      "english": "past participle",
+      "chinese": "过去分词",
+      "page": "p. 71"
+    },
+    {
+      "english": "plosive consonant",
+      "chinese": "爆破音",
+      "page": "p. 106"
+    },
+    {
+      "english": "pronunciation",
+      "chinese": "发音",
+      "page": "p. 90"
+    },
+    {
+      "english": "regular verb",
+      "chinese": "规则动词",
+      "page": "p. 71"
+    },
+    {
+      "english": "rhythm",
+      "chinese": "节奏",
+      "page": "p. 81"
+    },
+    {
+      "english": "rising intonation",
+      "chinese": "升调",
+      "page": "p. 49"
+    },
+    {
+      "english": "skimming",
+      "chinese": "略读",
+      "page": "p. 53"
+    },
+    {
+      "english": "stressed syllable",
+      "chinese": "重读音节",
+      "page": "p. 90"
+    },
+    {
+      "english": "strong form",
+      "chinese": "强读",
+      "page": "p. 17"
+    },
+    {
+      "english": "sub-heading",
+      "chinese": "小标题",
+      "page": "p. 36"
+    },
+    {
+      "english": "the comparative of adjectives",
+      "chinese": "形容词比较级",
+      "page": "p. 33"
+    },
+    {
+      "english": "the present perfect tense",
+      "chinese": "现在完成时",
+      "page": "p. 65"
+    },
+    {
+      "english": "the superlative of adjectives",
+      "chinese": "形容词最高级",
+      "page": "p. 33"
+    },
+    {
+      "english": "unstressed syllable",
+      "chinese": "非重读音节",
+      "page": "p. 90"
+    },
+    {
+      "english": "weak form",
+      "chinese": "弱读",
+      "page": "p. 17"
+    },
+    {
+      "english": "word linking",
+      "chinese": "连读",
+      "page": "p. 113"
+    }
+  ],
+  "irregular_verbs": [
+    {
+      "base": "be (am, is, are)",
+      "past": "was, were",
+      "past_participle": "been"
+    },
+    {
+      "base": "become",
+      "past": "became",
+      "past_participle": "become"
+    },
+    {
+      "base": "begin",
+      "past": "began",
+      "past_participle": "begun"
+    },
+    {
+      "base": "blow",
+      "past": "blew",
+      "past_participle": "blown"
+    },
+    {
+      "base": "break",
+      "past": "broke",
+      "past_participle": "broken"
+    },
+    {
+      "base": "bring",
+      "past": "brought",
+      "past_participle": "brought"
+    },
+    {
+      "base": "build",
+      "past": "built",
+      "past_participle": "built"
+    },
+    {
+      "base": "burn",
+      "past": "burnt, burned",
+      "past_participle": "burnt, burned"
+    },
+    {
+      "base": "buy",
+      "past": "bought",
+      "past_participle": "bought"
+    },
+    {
+      "base": "catch",
+      "past": "caught",
+      "past_participle": "caught"
+    },
+    {
+      "base": "choose",
+      "past": "chose",
+      "past_participle": "chosen"
+    },
+    {
+      "base": "come",
+      "past": "came",
+      "past_participle": "come"
+    },
+    {
+      "base": "cost",
+      "past": "cost",
+      "past_participle": "cost"
+    },
+    {
+      "base": "cut",
+      "past": "cut",
+      "past_participle": "cut"
+    },
+    {
+      "base": "dig",
+      "past": "dug",
+      "past_participle": "dug"
+    },
+    {
+      "base": "do",
+      "past": "did",
+      "past_participle": "done"
+    },
+    {
+      "base": "draw",
+      "past": "drew",
+      "past_participle": "drawn"
+    },
+    {
+      "base": "drink",
+      "past": "drank",
+      "past_participle": "drunk"
+    },
+    {
+      "base": "drive",
+      "past": "drove",
+      "past_participle": "driven"
+    },
+    {
+      "base": "eat",
+      "past": "ate",
+      "past_participle": "eaten"
+    },
+    {
+      "base": "fall",
+      "past": "fell",
+      "past_participle": "fallen"
+    },
+    {
+      "base": "feel",
+      "past": "felt",
+      "past_participle": "felt"
+    },
+    {
+      "base": "fight",
+      "past": "fought",
+      "past_participle": "fought"
+    },
+    {
+      "base": "find",
+      "past": "found",
+      "past_participle": "found"
+    },
+    {
+      "base": "fly",
+      "past": "flew",
+      "past_participle": "flown"
+    },
+    {
+      "base": "forget",
+      "past": "forgot",
+      "past_participle": "forgotten"
+    },
+    {
+      "base": "get",
+      "past": "got",
+      "past_participle": "got"
+    },
+    {
+      "base": "give",
+      "past": "gave",
+      "past_participle": "given"
+    },
+    {
+      "base": "go",
+      "past": "went",
+      "past_participle": "gone"
+    },
+    {
+      "base": "grow",
+      "past": "grew",
+      "past_participle": "grown"
+    },
+    {
+      "base": "hang",
+      "past": "hung",
+      "past_participle": "hung"
+    },
+    {
+      "base": "have",
+      "past": "had",
+      "past_participle": "had"
+    },
+    {
+      "base": "hear",
+      "past": "heard",
+      "past_participle": "heard"
+    },
+    {
+      "base": "hide",
+      "past": "hid",
+      "past_participle": "hidden"
+    },
+    {
+      "base": "hold",
+      "past": "held",
+      "past_participle": "held"
+    },
+    {
+      "base": "hurt",
+      "past": "hurt",
+      "past_participle": "hurt"
+    },
+    {
+      "base": "keep",
+      "past": "kept",
+      "past_participle": "kept"
+    },
+    {
+      "base": "know",
+      "past": "knew",
+      "past_participle": "known"
+    },
+    {
+      "base": "learn",
+      "past": "learnt, learned",
+      "past_participle": "learnt, learned"
+    },
+    {
+      "base": "leave",
+      "past": "left",
+      "past_participle": "left"
+    },
+    {
+      "base": "lend",
+      "past": "lent",
+      "past_participle": "lent"
+    },
+    {
+      "base": "let",
+      "past": "let",
+      "past_participle": "let"
+    },
+    {
+      "base": "lie",
+      "past": "lay",
+      "past_participle": "lain"
+    },
+    {
+      "base": "light",
+      "past": "lit, lighted",
+      "past_participle": "lit, lighted"
+    },
+    {
+      "base": "lose",
+      "past": "lost",
+      "past_participle": "lost"
+    },
+    {
+      "base": "make",
+      "past": "made",
+      "past_participle": "made"
+    },
+    {
+      "base": "mean",
+      "past": "meant",
+      "past_participle": "meant"
+    },
+    {
+      "base": "meet",
+      "past": "met",
+      "past_participle": "met"
+    },
+    {
+      "base": "pay",
+      "past": "paid",
+      "past_participle": "paid"
+    },
+    {
+      "base": "put",
+      "past": "put",
+      "past_participle": "put"
+    },
+    {
+      "base": "read",
+      "past": "read",
+      "past_participle": "read"
+    },
+    {
+      "base": "ride",
+      "past": "rode",
+      "past_participle": "ridden"
+    },
+    {
+      "base": "ring",
+      "past": "rang",
+      "past_participle": "rung"
+    },
+    {
+      "base": "rise",
+      "past": "rose",
+      "past_participle": "risen"
+    },
+    {
+      "base": "run",
+      "past": "ran",
+      "past_participle": "run"
+    },
+    {
+      "base": "say",
+      "past": "said",
+      "past_participle": "said"
+    },
+    {
+      "base": "see",
+      "past": "saw",
+      "past_participle": "seen"
+    },
+    {
+      "base": "sell",
+      "past": "sold",
+      "past_participle": "sold"
+    },
+    {
+      "base": "send",
+      "past": "sent",
+      "past_participle": "sent"
+    },
+    {
+      "base": "shine",
+      "past": "shone",
+      "past_participle": "shone"
+    },
+    {
+      "base": "shoot",
+      "past": "shot",
+      "past_participle": "shot"
+    },
+    {
+      "base": "show",
+      "past": "showed",
+      "past_participle": "shown"
+    },
+    {
+      "base": "sing",
+      "past": "sang",
+      "past_participle": "sung"
+    },
+    {
+      "base": "sit",
+      "past": "sat",
+      "past_participle": "sat"
+    },
+    {
+      "base": "sleep",
+      "past": "slept",
+      "past_participle": "slept"
+    },
+    {
+      "base": "smell",
+      "past": "smelt, smelled",
+      "past_participle": "smelt, smelled"
+    },
+    {
+      "base": "speak",
+      "past": "spoke",
+      "past_participle": "spoken"
+    },
+    {
+      "base": "spend",
+      "past": "spent",
+      "past_participle": "spent"
+    },
+    {
+      "base": "stand",
+      "past": "stood",
+      "past_participle": "stood"
+    },
+    {
+      "base": "steal",
+      "past": "stole",
+      "past_participle": "stolen"
+    },
+    {
+      "base": "stick",
+      "past": "stuck",
+      "past_participle": "stuck"
+    },
+    {
+      "base": "swim",
+      "past": "swam",
+      "past_participle": "swum"
+    },
+    {
+      "base": "take",
+      "past": "took",
+      "past_participle": "taken"
+    },
+    {
+      "base": "teach",
+      "past": "taught",
+      "past_participle": "taught"
+    },
+    {
+      "base": "tell",
+      "past": "told",
+      "past_participle": "told"
+    },
+    {
+      "base": "think",
+      "past": "thought",
+      "past_participle": "thought"
+    },
+    {
+      "base": "throw",
+      "past": "threw",
+      "past_participle": "thrown"
+    },
+    {
+      "base": "understand",
+      "past": "understood",
+      "past_participle": "understood"
+    },
+    {
+      "base": "wake",
+      "past": "woke",
+      "past_participle": "woken"
+    },
+    {
+      "base": "wear",
+      "past": "wore",
+      "past_participle": "worn"
+    },
+    {
+      "base": "win",
+      "past": "won",
+      "past_participle": "won"
+    },
+    {
+      "base": "write",
+      "past": "wrote",
+      "past_participle": "written"
+    }
+  ]
+}
