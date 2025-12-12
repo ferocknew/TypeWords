@@ -1,0 +1,3777 @@
+[
+  {
+    "id": 1,
+    "word": "encyclopaedia",
+    "phonetic0": "InsaIklpi:diR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "百科全书"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 2,
+    "word": "human",
+    "phonetic0": "hju:mRn",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "人的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 3,
+    "word": "dinosaur",
+    "phonetic0": "daInRsO:",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "恐龙"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 4,
+    "word": "Italian",
+    "phonetic0": "I3tCliRn",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "意大利人"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 5,
+    "word": "inventor",
+    "phonetic0": "InventR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "发明家"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 6,
+    "word": "musician",
+    "phonetic0": "mju3zISn",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "音乐家"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 7,
+    "word": "scientist",
+    "phonetic0": "saIRntIst",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "科学家"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 8,
+    "word": "born",
+    "phonetic0": "bO:n",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "(be born) 出生"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 9,
+    "word": "countryside",
+    "phonetic0": "kVntrisaId",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "乡村；农村"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 10,
+    "word": "intelligence",
+    "phonetic0": "IntelIdZRns",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "才智；智慧"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 11,
+    "word": "artistic",
+    "phonetic0": "A:3tIstIk",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "有艺术天赋的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 12,
+    "word": "ability",
+    "phonetic0": "R3bIlRti",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "才能；能力"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 13,
+    "word": "perhaps",
+    "phonetic0": "pR3hCps",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adv.",
+        "cn": "可能；大概"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 14,
+    "word": "invention",
+    "phonetic0": "In3venSn",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "发明"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 15,
+    "word": "notebook",
+    "phonetic0": "nRWtbWk",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "笔记本"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 16,
+    "word": "include",
+    "phonetic0": "In3klu:d",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "包括；包含"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 17,
+    "word": "even",
+    "phonetic0": "3i:vn",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adv.",
+        "cn": "（强调出乎意料）甚至"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 18,
+    "word": "however",
+    "phonetic0": "haW3evR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adv.",
+        "cn": "然而"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 19,
+    "word": "suddenly",
+    "phonetic0": "3sVdRnli",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adv.",
+        "cn": "突然；忽然"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 20,
+    "word": "nobody",
+    "phonetic0": "3nRWbRdi",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "pron.",
+        "cn": "没有人"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 21,
+    "word": "fossil",
+    "phonetic0": "3fBsl",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "化石"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 22,
+    "word": "win",
+    "phonetic0": "wIn",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "(won"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 23,
+    "word": "dollar",
+    "phonetic0": "3dBlR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "元（美国、加拿大等国货币单位）"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 24,
+    "word": "number",
+    "phonetic0": "3nVmbR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "数字"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 25,
+    "word": "instructions",
+    "phonetic0": "In3strVkSnz",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.[pl.]",
+        "cn": "指示；命令"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 26,
+    "word": "check",
+    "phonetic0": "tSek",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "检查；核实"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 27,
+    "word": "gram",
+    "phonetic0": "GrCm",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "克（重量单位）"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 28,
+    "word": "son",
+    "phonetic0": "sVn",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "儿子"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 29,
+    "word": "chess",
+    "phonetic0": "tSes",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "国际象棋"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 30,
+    "word": "India",
+    "phonetic0": "3IndiR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "印度"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 31,
+    "word": "wise",
+    "phonetic0": "waIz",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "充满智慧的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 32,
+    "word": "challenge",
+    "phonetic0": "3tSClIndZ",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "向（某人）挑战"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 33,
+    "word": "promise",
+    "phonetic0": "3prBmIs",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "许诺；承诺"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 34,
+    "word": "prize",
+    "phonetic0": "praIz",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "奖赏；奖品"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 35,
+    "word": "grain",
+    "phonetic0": "GreIn",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "谷粒"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 36,
+    "word": "chessboard",
+    "phonetic0": "3tSesbO:d",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "国际象棋棋盘"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 37,
+    "word": "double",
+    "phonetic0": "3dVbl",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "（使）加倍"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 38,
+    "word": "amount",
+    "phonetic0": "R3maWnt",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "数量；数额"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 39,
+    "word": "rest",
+    "phonetic0": "rest",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "剩余部分"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 40,
+    "word": "gold",
+    "phonetic0": "GRWld",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "金子；黄金"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 41,
+    "word": "instead",
+    "phonetic0": "In3sted",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adv.",
+        "cn": "代替；顶替"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 42,
+    "word": "realize",
+    "phonetic0": "3ri:RlaIz",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "认识到；意识到"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 43,
+    "word": "copy",
+    "phonetic0": "3kBpi",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "抄写；誊写"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 44,
+    "word": "correctly",
+    "phonetic0": "kR3rektli",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adv.",
+        "cn": "准确无误地；正确地"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 45,
+    "word": "traffic",
+    "phonetic0": "3trCfIk",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "交通"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 46,
+    "word": "accident",
+    "phonetic0": "3CksIdRnt",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "（交通）事故"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 47,
+    "word": "order",
+    "phonetic0": "3O:dR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "订货；订购"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 48,
+    "word": "compare",
+    "phonetic0": "kRm3peR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "比较；对比"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 49,
+    "word": "monitor",
+    "phonetic0": "3mBnItR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "（计算机）显示器"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 50,
+    "word": "speaker",
+    "phonetic0": "3spi:kR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "扬声器"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 51,
+    "word": "main unit",
+    "phonetic0": "meIn 3ju:nIt",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "（计算机）主机"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 52,
+    "word": "keyboard",
+    "phonetic0": "3ki:bO:d",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "（计算机或打字机的）键盘"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 53,
+    "word": "mouse",
+    "phonetic0": "maWs",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "（计算机）鼠标"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 54,
+    "word": "type",
+    "phonetic0": "taIp",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "打字"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 55,
+    "word": "brain",
+    "phonetic0": "breIn",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "脑"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 56,
+    "word": "control",
+    "phonetic0": "kRn3trRWl",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "操纵，控制（机器或系统等）"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 57,
+    "word": "expensive",
+    "phonetic0": "Ik3spensIv",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "昂贵的；价格高的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 58,
+    "word": "tiny",
+    "phonetic0": "3taIni",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "极小的；微小的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 59,
+    "word": "depend",
+    "phonetic0": "dI3pend",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "依靠；依赖"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 60,
+    "word": "calculate",
+    "phonetic0": "3kClkjuleIt",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "计算"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 61,
+    "word": "speed",
+    "phonetic0": "spi:d",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "速度"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 62,
+    "word": "operate",
+    "phonetic0": "3BpRreIt",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "操作；控制"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 63,
+    "word": "railway",
+    "phonetic0": "3reIlweI",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "铁路系统"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 64,
+    "word": "company",
+    "phonetic0": "3kVmpRni",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "公司"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 65,
+    "word": "price",
+    "phonetic0": "praIs",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "价格"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 66,
+    "word": "total",
+    "phonetic0": "3tRWtl",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "总额；合计"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 67,
+    "word": "inch",
+    "phonetic0": "IntS",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "英寸"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 68,
+    "word": "sell",
+    "phonetic0": "sel",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "(sold"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 69,
+    "word": "popular",
+    "phonetic0": "3pBpjRlR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "受喜爱的；受欢迎的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 70,
+    "word": "advertisement",
+    "phonetic0": "Rd3vF:tIsmRnt",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "广告"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 71,
+    "word": "funny",
+    "phonetic0": "3fVni",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "滑稽的；好笑的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 72,
+    "word": "create",
+    "phonetic0": "kri3eIt",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "创造；创作"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 73,
+    "word": "telephone",
+    "phonetic0": "3telIfRWn",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "电话；电话机"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 74,
+    "word": "wheel",
+    "phonetic0": "wi:l",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "车轮；轮子"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 75,
+    "word": "comfortable",
+    "phonetic0": "3kVmftRbl",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "使人舒服的；舒适的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 76,
+    "word": "carriage",
+    "phonetic0": "3kCrIdZ",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "（旧时载客的）四轮马车"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 77,
+    "word": "century",
+    "phonetic0": "3sentSRri",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "世纪"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 78,
+    "word": "passenger",
+    "phonetic0": "3pCsIndZR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "乘客；旅客"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 79,
+    "word": "invent",
+    "phonetic0": "In3vent",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "发明；创造"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 80,
+    "word": "practical",
+    "phonetic0": "3prCktIkl",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "有用的；适用的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 81,
+    "word": "since",
+    "phonetic0": "sIns",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "prep.",
+        "cn": "从??以后；自??以来"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 82,
+    "word": "distance",
+    "phonetic0": "3dIstRns",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "距离；间距"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 83,
+    "word": "mobile phone",
+    "phonetic0": "mRWbaIl 3fRWn",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "移动电话；手机"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 84,
+    "word": "anytime",
+    "phonetic0": "3enitaIm",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adv.",
+        "cn": "在什么时候；随便什么时候"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 85,
+    "word": "develop",
+    "phonetic0": "dI3velRp",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "开发；研制"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 86,
+    "word": "lamp",
+    "phonetic0": "lCmp",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "灯"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 87,
+    "word": "candle",
+    "phonetic0": "3kCndl",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "蜡烛"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 88,
+    "word": "daytime",
+    "phonetic0": "3deItaIm",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "白天；日间"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 89,
+    "word": "dust",
+    "phonetic0": "dVst",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "灰尘；尘土"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 90,
+    "word": "special",
+    "phonetic0": "3speSl",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "特殊的；特别的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 91,
+    "word": "wing",
+    "phonetic0": "wIN",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "（飞行器的）翅膀；机翼"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 92,
+    "word": "introduction",
+    "phonetic0": "4IntrR3dVkSn",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "引言"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 93,
+    "word": "petrol",
+    "phonetic0": "3petrRl",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "汽油"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 94,
+    "word": "educational",
+    "phonetic0": "4edZu3keISRnl",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "有关教育的；有教育意义的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 95,
+    "word": "exchange",
+    "phonetic0": "Iks3tSeIndZ",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "交流；互访"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 96,
+    "word": "culture",
+    "phonetic0": "3kVltSR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "文化"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 97,
+    "word": "host",
+    "phonetic0": "hRWst",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "主人"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 98,
+    "word": "local",
+    "phonetic0": "3lRWkl",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "地方的；当地的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 99,
+    "word": "British",
+    "phonetic0": "3brItIS",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "英国的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 100,
+    "word": "glad",
+    "phonetic0": "GlCd",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "高兴；愉快"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 101,
+    "word": "guest",
+    "phonetic0": "Gest",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "客人；宾客"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 102,
+    "word": "chopstick",
+    "phonetic0": "3tSBpstIk",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "筷子"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 103,
+    "word": "weekday",
+    "phonetic0": "3wi:kdeI",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "工作日（星期一至星期五的某一天）"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 104,
+    "word": "tour",
+    "phonetic0": "tWR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "在??旅游"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 105,
+    "word": "fantastic",
+    "phonetic0": "fCn3tCstIk",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "极好的；了不起的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 106,
+    "word": "experience",
+    "phonetic0": "Ik3spIRriRns",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "（一次）经历，体验"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 107,
+    "word": "t'ai chi",
+    "phonetic0": "4taI 3tSi:",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "太极（拳）"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 108,
+    "word": "already",
+    "phonetic0": "O:l3redi",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adv.",
+        "cn": "已经；早已"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 109,
+    "word": "introduce",
+    "phonetic0": "4IntrR3dju:s",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "使??初次了解??；使尝试"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 110,
+    "word": "success",
+    "phonetic0": "sRk3ses",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "成功"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 111,
+    "word": "yet",
+    "phonetic0": "jet",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adv.",
+        "cn": "尚未；仍未"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 112,
+    "word": "respect",
+    "phonetic0": "rI3spekt",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "慎重对待；尊重"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 113,
+    "word": "ancient",
+    "phonetic0": "3eInSRnt",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "古代的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 114,
+    "word": "Trojan",
+    "phonetic0": "3trRWdZRn",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "特洛伊的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 115,
+    "word": "war",
+    "phonetic0": "wO:",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "战争"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 116,
+    "word": "understand",
+    "phonetic0": "4VndR3stCnd",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "(understood"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 117,
+    "word": "difference",
+    "phonetic0": "3dIfrRns",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "差别；不同（之处）"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 118,
+    "word": "pyramid",
+    "phonetic0": "3pIrRmId",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "（古埃及的）金字塔"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 119,
+    "word": "captain",
+    "phonetic0": "3kCptIn",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "首领"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 120,
+    "word": "Greek",
+    "phonetic0": "Gri:k",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "希腊人"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 121,
+    "word": "capture",
+    "phonetic0": "3kCptSR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "用武力夺取；攻占"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 122,
+    "word": "soldier",
+    "phonetic0": "3sRWldZR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "士兵"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 123,
+    "word": "huge",
+    "phonetic0": "hju:dZ",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "巨大的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 124,
+    "word": "pull",
+    "phonetic0": "pWl",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "（向某方向）拖，拉动"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 125,
+    "word": "main",
+    "phonetic0": "meIn",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "主要的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 126,
+    "word": "celebrate",
+    "phonetic0": "3selIbreIt",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "庆祝；庆贺"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 127,
+    "word": "stupid",
+    "phonetic0": "3stju:pId",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "笨的；傻的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 128,
+    "word": "midnight",
+    "phonetic0": "3mIdnaIt",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "午夜；子夜"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 129,
+    "word": "empty",
+    "phonetic0": "3empti",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "空的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 130,
+    "word": "except",
+    "phonetic0": "Ik3sept",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "prep.",
+        "cn": "除??之外"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 131,
+    "word": "secret",
+    "phonetic0": "3si:krRt",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "秘密的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 132,
+    "word": "side",
+    "phonetic0": "saId",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "侧面"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 133,
+    "word": "quietly",
+    "phonetic0": "3kwaIRtli",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adv.",
+        "cn": "安静地"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 134,
+    "word": "army",
+    "phonetic0": "3A:mi",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "陆军部队"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 135,
+    "word": "enter",
+    "phonetic0": "3entR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "进来；进入"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 136,
+    "word": "succeed",
+    "phonetic0": "sRk3si:d",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "达到目的；实现目标"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 137,
+    "word": "prince",
+    "phonetic0": "prIns",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "王子"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 138,
+    "word": "queen",
+    "phonetic0": "kwi:n",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "王后"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 139,
+    "word": "steal",
+    "phonetic0": "sti:l",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "(stole"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 140,
+    "word": "punish",
+    "phonetic0": "3pVnIS",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "处罚；惩罚"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 141,
+    "word": "scene",
+    "phonetic0": "si:n",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "（戏剧或歌剧的）场"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 142,
+    "word": "sir",
+    "phonetic0": "sF:",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "先生"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 143,
+    "word": "trick",
+    "phonetic0": "trIk",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "计谋"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 144,
+    "word": "memory",
+    "phonetic0": "3memRri",
+    "phonetic1": "n.记忆力；记性\nn.回忆；记忆",
+    "trans": [],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 145,
+    "word": "corner",
+    "phonetic0": "3kO:nR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "角"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 146,
+    "word": "lose",
+    "phonetic0": "lu:z",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "(lost"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 147,
+    "word": "improve",
+    "phonetic0": "Im3pru:v",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "改进；改善"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 148,
+    "word": "mention",
+    "phonetic0": "3menSn",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "提到；说到"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 149,
+    "word": "method",
+    "phonetic0": "3mePRd",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "方法；办法"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 150,
+    "word": "spelling",
+    "phonetic0": "3spelIN",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "拼写；拼法"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 151,
+    "word": "mind",
+    "phonetic0": "maInd",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "头脑；大脑"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 152,
+    "word": "silly",
+    "phonetic0": "3sIli",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "可笑的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 153,
+    "word": "mile",
+    "phonetic0": "maIl",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "英里"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 154,
+    "word": "letter",
+    "phonetic0": "3letR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "字母"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 155,
+    "word": "worth",
+    "phonetic0": "wF:P",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "值得；有价值"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 156,
+    "word": "spell",
+    "phonetic0": "spel",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "(spelt"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 157,
+    "word": "unless",
+    "phonetic0": "Rn3les",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "conj.",
+        "cn": "除非"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 158,
+    "word": "trouble",
+    "phonetic0": "3trVbl",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "困难"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 159,
+    "word": "list",
+    "phonetic0": "lIst",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "清单"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 160,
+    "word": "step",
+    "phonetic0": "step",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "步骤"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 161,
+    "word": "cycle",
+    "phonetic0": "3saIkl",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "循环"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 162,
+    "word": "similar",
+    "phonetic0": "3sImRlR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "相像的；类似的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 163,
+    "word": "note",
+    "phonetic0": "nRWt",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "纸币"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 164,
+    "word": "wallet",
+    "phonetic0": "3wBlItR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "钱包；皮夹子"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 165,
+    "word": "basket",
+    "phonetic0": "3bA:skIt",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "篮；筐"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 166,
+    "word": "manager",
+    "phonetic0": "3mCnIdZR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "（企业的）经理"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 167,
+    "word": "speech",
+    "phonetic0": "spi:tS",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "演说；发言"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 168,
+    "word": "notice",
+    "phonetic0": "3nRWtIs",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "通告；布告"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 169,
+    "word": "competition",
+    "phonetic0": "4kBmpR3tISn",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "比赛；竞赛"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 170,
+    "word": "treasure",
+    "phonetic0": "3treZR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "珍宝；宝物"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 171,
+    "word": "text",
+    "phonetic0": "tekst",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "文本"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 172,
+    "word": "chance",
+    "phonetic0": "tSA:ns",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "机会；机遇"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 173,
+    "word": "confidently",
+    "phonetic0": "3kBnfIdRntli",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adv.",
+        "cn": "自信地"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 174,
+    "word": "topic",
+    "phonetic0": "3tBpIk",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "话题"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 175,
+    "word": "winner",
+    "phonetic0": "3wInR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "优胜者"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 176,
+    "word": "advise",
+    "phonetic0": "Rd3vaIz",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "建议"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 177,
+    "word": "several",
+    "phonetic0": "3sevrRl",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "det.",
+        "cn": "几个；一些"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 178,
+    "word": "opinion",
+    "phonetic0": "R3pInjRn",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "意见；想法"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 179,
+    "word": "whole",
+    "phonetic0": "hRWl",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "整个的；全部的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 180,
+    "word": "suggestion",
+    "phonetic0": "sR3dZestSRn",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "n.",
+        "cn": "建议；提议"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 181,
+    "word": "communicate",
+    "phonetic0": "kR3mju:nIkeIt",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "（与某人）交流信息；沟通"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 182,
+    "word": "whenever",
+    "phonetic0": "wen3evR",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "conj.",
+        "cn": "在任何??的时候；在任何??的情况下"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 183,
+    "word": "rich",
+    "phonetic0": "rItS",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "富有的；富裕的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 184,
+    "word": "poor",
+    "phonetic0": "pO:",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "贫穷的；贫寒的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 185,
+    "word": "hide",
+    "phonetic0": "haId",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "(hid"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 186,
+    "word": "attack",
+    "phonetic0": "R3tCk",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "袭击；攻击"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 187,
+    "word": "shy",
+    "phonetic0": "SaI",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adj.",
+        "cn": "羞怯的；腼腆的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 188,
+    "word": "else",
+    "phonetic0": "els",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "adv.",
+        "cn": "其他的；别的"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  },
+  {
+    "id": 189,
+    "word": "choose",
+    "phonetic0": "tSu:z",
+    "phonetic1": "",
+    "trans": [
+      {
+        "pos": "v.",
+        "cn": "(chose"
+      }
+    ],
+    "sentences": [],
+    "phrases": [],
+    "synos": [],
+    "relWords": {
+      "root": "",
+      "rels": []
+    },
+    "etymology": []
+  }
+]
