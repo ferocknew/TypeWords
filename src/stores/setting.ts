@@ -11,6 +11,7 @@ export interface SettingState {
   wordSound: boolean,
   wordSoundVolume: number,
   wordSoundSpeed: number,
+  wordReviewRatio:number //单词复习比例
 
   articleSound: boolean,
   articleAutoPlayNext: boolean,
@@ -63,6 +64,7 @@ export const getDefaultSettingState = (): SettingState => ({
   wordSound: true,
   wordSoundVolume: 100,
   wordSoundSpeed: 1,
+  wordReviewRatio: 4,
 
   articleSound: true,
   articleAutoPlayNext: false,

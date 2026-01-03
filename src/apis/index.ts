@@ -21,7 +21,7 @@ export function myDictList(params?) {
 }
 
 export function add2MyDict(data) {
-  return http('dict/add2MyDict', remove(data), null, 'post')
+  return http<number>('dict/add2MyDict', remove(data), null, 'post')
 }
 
 export function addStat(data) {
@@ -32,8 +32,8 @@ export function detail(params?, data?) {
   return http<Dict>('dict/detail', data, params, 'get')
 }
 
-export function setDictProp(params?, data?) {
-  return http<Dict>('dict/setDictProp', remove(data), remove(params), 'post')
+export function setUserDictProp(params?, data?) {
+  return http<Dict>('dict/setUserDictProp', remove(data), remove(params), 'post')
 }
 
 export function syncSetting(params?, data?) {

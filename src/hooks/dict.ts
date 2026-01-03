@@ -87,13 +87,13 @@ export function useArticleOptions() {
 
 export function getCurrentStudyWord(): TaskWords {
   const store = useBaseStore()
-  let data = {new: [], review: [], write: [], shuffle: []}
+  let data = { new: [], review: [], write: [], shuffle: [] }
   let dict = store.sdict;
   let isTest = false
   let words = dict.words.slice()
   if (isTest) {
-    words = Array.from({length: 10}).map((v, i) => {
-      return getDefaultWord({word: String(i)})
+    words = Array.from({ length: 10 }).map((v, i) => {
+      return getDefaultWord({ word: String(i) })
     })
   }
   if (words?.length) {
@@ -119,7 +119,6 @@ export function getCurrentStudyWord(): TaskWords {
         }
         end++
       }
-
     } else {
       //从start往后取perDay个单词，作为当前练习单词
       for (let item of list) {
@@ -131,15 +130,17 @@ export function getCurrentStudyWord(): TaskWords {
         end++
       }
 
-      //从start往前取perDay个单词，作为当前复习单词，取到0为止
-      list = dict.words.slice(0, start).reverse()
-      for (let item of list) {
-        if (!ignoreList.includes(item.word.toLowerCase())) {
-          if (data.review.length < perDay) {
-            data.review.push(item)
-          } else break
+      if (settingStore.wordReviewRatio >= 1) {
+        //从start往前取perDay个单词，作为当前复习单词，取到0为止
+        list = dict.words.slice(0, start).reverse()
+        for (let item of list) {
+          if (!ignoreList.includes(item.word.toLowerCase())) {
+            if (data.review.length < perDay) {
+              data.review.push(item)
+            } else break
+          }
+          start--
         }
-        start--
       }
     }
 
@@ -152,35 +153,37 @@ export function getCurrentStudyWord(): TaskWords {
 
     // 上上次更早的单词
     //默认只取start之前的单词
-    let candidateWords = dict.words.slice(0, start).reverse()
-    //但如果已完成，则滚动取值
-    if (complete) candidateWords = candidateWords.concat(dict.words.slice(end).reverse())
-    candidateWords = candidateWords.filter(w => !ignoreList.includes(w.word.toLowerCase()));
-    // console.log(candidateWords.map(v => v.word))
-    //最终要获取的单词数量
-    const totalNeed = perDay * 3;
-    if (candidateWords.length <= totalNeed) {
-      data.write = candidateWords
-    } else {
-      //write数组放的是上上次之前的单词，总的数量为perDayStudyNumber * 3，取单词的规则为：从后往前取6个perDayStudyNumber的，越靠前的取的单词越多。
-      let days = 6
-      // 分6组，每组最多 perDay 个
-      const groups: Word[][] = splitIntoN(candidateWords.slice(0, days * perDay), 6)
-      // console.log('groups', groups)
+    if (settingStore.wordReviewRatio >= 2) {
+      let candidateWords = dict.words.slice(0, start).reverse()
+      //但如果已完成，则滚动取值
+      if (complete) candidateWords = candidateWords.concat(dict.words.slice(end).reverse())
+      candidateWords = candidateWords.filter(w => !ignoreList.includes(w.word.toLowerCase()));
+      // console.log(candidateWords.map(v => v.word))
+      //最终要获取的单词数量
+      const totalNeed = perDay * (settingStore.wordReviewRatio - 1);
+      if (candidateWords.length <= totalNeed) {
+        data.write = candidateWords
+      } else {
+        //write数组放的是上上次之前的单词，总的数量为perDayStudyNumber * 3，取单词的规则为：从后往前取6个perDayStudyNumber的，越靠前的取的单词越多。
+        let days = 6
+        // 分6组，每组最多 perDay 个
+        const groups: Word[][] = splitIntoN(candidateWords.slice(0, days * perDay), 6)
+        // console.log('groups', groups)
 
-      // 分配数量，靠前组多，靠后组少，例如分配比例 [6,5,4,3,2,1]
-      const ratio = Array.from({length: days}, (_, i) => i + 1).reverse();
-      const ratioSum = ratio.reduce((a, b) => a + b, 0);
-      const realRatio = ratio.map(r => Math.round(r / ratioSum * totalNeed));
-      // console.log(ratio, ratioSum, realRatio, realRatio.reduce((a, b) => a + b, 0))
+        // 分配数量，靠前组多，靠后组少，例如分配比例 [6,5,4,3,2,1]
+        const ratio = Array.from({ length: days }, (_, i) => i + 1).reverse();
+        const ratioSum = ratio.reduce((a, b) => a + b, 0);
+        const realRatio = ratio.map(r => Math.round(r / ratioSum * totalNeed));
+        // console.log(ratio, ratioSum, realRatio, realRatio.reduce((a, b) => a + b, 0))
 
-      // 按比例从每组随机取单词
-      let writeWords: Word[] = [];
-      groups.map((v, i) => {
-        writeWords = writeWords.concat(getRandomN(v, realRatio[i]))
-      })
-      // console.log('writeWords', writeWords)
-      data.write = writeWords;
+        // 按比例从每组随机取单词
+        let writeWords: Word[] = [];
+        groups.map((v, i) => {
+          writeWords = writeWords.concat(getRandomN(v, realRatio[i]))
+        })
+        // console.log('writeWords', writeWords)
+        data.write = writeWords;
+      }
     }
   }
   // console.log('data-new', data.new.map(v => v.word))

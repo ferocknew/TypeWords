@@ -10,10 +10,12 @@ interface IProps {
   showCheckbox?: boolean
   checked?: boolean
   showProgress?: boolean
+  isUser?: boolean //是否是用户的词典
 }
 
 const props = withDefaults(defineProps<IProps>(), {
-  showProgress: true
+  showProgress: true,
+  isUser: false
 })
 
 defineEmits<{
@@ -49,6 +51,7 @@ const studyProgress = $computed(() => {
                 class="absolute left-3 bottom-3 z-2"/>
       <div class="custom z-1" v-if="item.custom">自定义</div>
       <div class="custom bg-red! color-white z-1" v-else-if="item.update">更新中</div>
+<!--      <div class="sync bg-red! color-white z-1" v-if="!item.sync && isUser && !showCheckbox">未同步</div>-->
     </div>
     <div class="text-base mt-1" v-if="item?.cover">{{ item?.name }}</div>
   </div>
@@ -68,5 +71,13 @@ const studyProgress = $computed(() => {
   background: var(--color-label-bg);
   font-size: 11px;
   transform: rotate(45deg);
+}
+
+.sync {
+  @extend .custom;
+  bottom: 4px;
+  left: -22px;
+  top: unset;
+  right: unset;
 }
 </style>

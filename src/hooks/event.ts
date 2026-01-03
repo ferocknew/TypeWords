@@ -1,8 +1,8 @@
-import { onDeactivated, onMounted, onUnmounted, watch } from "vue";
-import { emitter, EventKey } from "@/utils/eventBus.ts";
-import { useRuntimeStore } from "@/stores/runtime.ts";
-import { useSettingStore } from "@/stores/setting.ts";
-import { isMobile } from "@/utils";
+import {onDeactivated, onMounted, onUnmounted, watch} from "vue";
+import {emitter, EventKey} from "@/utils/eventBus.ts";
+import {useRuntimeStore} from "@/stores/runtime.ts";
+import {useSettingStore} from "@/stores/setting.ts";
+import {isMobile} from "@/utils";
 
 export function useWindowClick(cb: (e: PointerEvent) => void) {
   onMounted(() => {
@@ -92,9 +92,12 @@ export function useEventListener(type: string, listener: EventListenerOrEventLis
           repeat: false,
           isComposing: false,
           type,
-          preventDefault() {},
-          stopPropagation() {},
-          stopImmediatePropagation() {},
+          preventDefault() {
+          },
+          stopPropagation() {
+          },
+          stopImmediatePropagation() {
+          },
         }
         return base as unknown as KeyboardEvent
       }
@@ -131,7 +134,7 @@ export function useEventListener(type: string, listener: EventListenerOrEventLis
         const value = target?.value ?? ''
 
         if (event.inputType === 'deleteContentBackward') {
-          dispatchSyntheticKey({ key: 'Backspace', code: 'Backspace', keyCode: 8 })
+          dispatchSyntheticKey({key: 'Backspace', code: 'Backspace', keyCode: 8})
           if (target) target.value = ''
           return
         }
@@ -252,6 +255,8 @@ export function useStartKeyboardEventListener() {
   const settingStore = useSettingStore()
 
   useEventListener('keydown', (e: KeyboardEvent) => {
+    //解决无法复制、全选的问题
+    if ((e.ctrlKey || e.metaKey) && ['KeyC', 'KeyA'].includes(e.code)) return
     if (!runtimeStore.disableEventListener) {
 
       // 检查当前单词是否包含空格，如果包含，则空格键应该被视为输入

@@ -238,17 +238,22 @@ let isNewHost = $ref(window.location.host === Host)
               :is-add="true"
               @click="router.push('/book-list')"/>
       </div>
-      <div class="flex-1 md:px-4 min-w-0">
-        <div class="flex items-center min-w-0">
-          <div class="title mr-4 truncate">本周学习记录</div>
-          <div class="flex gap-4 color-gray">
-            <div
-              class="w-6 h-6 md:w-8 md:h-8 rounded-md center text-sm md:text-base"
-              :class="item ? 'bg-[#409eff] color-white' : 'bg-gray-200'"
-              v-for="(item, i) in weekList"
-              :key="i"
-            >{{ i + 1 }}
+      <div class="flex-1">
+        <div class="flex justify-between items-start">
+          <div class="flex items-center min-w-0">
+            <div class="title mr-4 truncate">本周学习记录</div>
+            <div class="flex gap-4 color-gray">
+              <div
+                class="w-6 h-6 md:w-8 md:h-8 rounded-md center text-sm md:text-base"
+                :class="item ? 'bg-[#409eff] color-white' : 'bg-gray-200'"
+                v-for="(item, i) in weekList"
+                :key="i"
+              >{{ i + 1 }}
+              </div>
             </div>
+          </div>
+          <div class="flex gap-4 items-center" v-opacity="base.sbook.id">
+            <div class="color-link cursor-pointer" @click="router.push('/book-list')">更换</div>
           </div>
         </div>
         <div class="flex flex-col sm:flex-row gap-3 items-center mt-3 gap-space w-full">
@@ -268,24 +273,22 @@ let isNewHost = $ref(window.location.host === Host)
             <div class="text-gray-500">总学习时长</div>
           </div>
         </div>
-        <Progress class="mt-3 w-full md:w-auto"
-                  size="large"
-                  :percentage="base.currentBookProgress"
-                  :format="()=> `${ base.sbook?.lastLearnIndex || 0 }/${base.sbook?.length || 0}篇`"
-                  :show-text="true"></Progress>
-      </div>
-      <div class="flex flex-row md:flex-col justify-between items-center md:items-end gap-3 mt-4 md:mt-0 min-w-0">
-        <div class="flex gap-4 items-center" v-opacity="base.sbook.id">
-          <div class="color-link cursor-pointer" @click="router.push('/book-list')">更换</div>
+        <div class="flex gap-3 mt-3">
+          <Progress class="w-full md:w-auto"
+                    size="large"
+                    :percentage="base.currentBookProgress"
+                    :format="()=> `${ base.sbook?.lastLearnIndex || 0 }/${base.sbook?.length || 0}篇`"
+                    :show-text="true"></Progress>
+
+          <BaseButton size="large" class="w-full md:w-auto"
+                      @click="startStudy"
+                      :disabled="!base.sbook.name">
+            <div class="flex items-center gap-2 justify-center w-full">
+              <span class="line-height-[2]">{{ isSaveData ? '继续学习' : '开始学习' }}</span>
+              <IconFluentArrowCircleRight16Regular class="text-xl"/>
+            </div>
+          </BaseButton>
         </div>
-        <BaseButton size="large" class="w-full md:w-auto"
-                    @click="startStudy"
-                    :disabled="!base.currentBook.name">
-          <div class="flex items-center gap-2 justify-center w-full">
-            <span class="line-height-[2]">{{ isSaveData ? '继续学习' : '开始学习' }}</span>
-            <IconFluentArrowCircleRight16Regular class="text-xl"/>
-          </div>
-        </BaseButton>
       </div>
     </div>
 
@@ -307,6 +310,7 @@ let isNewHost = $ref(window.location.host === Host)
       </div>
       <div class="flex gap-4 flex-wrap mt-4">
         <Book :is-add="false"
+              :is-user="true"
               quantifier="篇"
               :item="item"
               :checked="selectIds.includes(item.id)"

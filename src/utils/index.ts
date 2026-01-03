@@ -37,9 +37,15 @@ export function checkAndUpgradeSaveDict(val: any) {
       } else {
         data = val
       }
-      if (!data.version) return defaultState
+      if (!data.version) {
+        console.warn('数据缺少版本号，返回默认状态')
+        return defaultState
+      }
       let state: any = data.val
-      if (typeof state !== 'object') return defaultState
+      if (typeof state !== 'object') {
+        console.warn('数据格式无效，返回默认状态')
+        return defaultState
+      }
       state.load = false
       let version = Number(data.version)
       // console.log('state', state)
@@ -53,10 +59,29 @@ export function checkAndUpgradeSaveDict(val: any) {
         })
         return defaultState
       } else {
-        checkRiskKey(defaultState, state)
-        return defaultState
+        // 版本不匹配时，尽量保留数据而不是直接返回默认状态
+        console.warn(`数据版本不匹配: 当前版本 ${version}, 期望版本 ${SAVE_DICT_KEY.version}，尝试保留数据`)
+        try {
+          checkRiskKey(defaultState, state)
+          // 尝试保留 bookList 数据
+          if (state.word && state.word.bookList && Array.isArray(state.word.bookList)) {
+            defaultState.word.bookList = state.word.bookList.map((v: any) => {
+              return getDefaultDict(checkRiskKey(getDefaultDict(), v))
+            })
+          }
+          if (state.article && state.article.bookList && Array.isArray(state.article.bookList)) {
+            defaultState.article.bookList = state.article.bookList.map((v: any) => {
+              return getDefaultDict(checkRiskKey(getDefaultDict(), v))
+            })
+          }
+          return defaultState
+        } catch (upgradeError) {
+          console.error('数据升级失败，返回默认状态', upgradeError)
+          return defaultState
+        }
       }
     } catch (e) {
+      console.error('数据解析异常，返回默认状态', e)
       return defaultState
     }
   }
@@ -153,8 +178,10 @@ export function msToHourMinute(ms) {
   const d = dayjs.duration(ms);
   const hours = d.hours();
   const minutes = d.minutes();
+  const seconds = d.seconds();
   if (hours) return `${hours}小时${minutes}分钟`;
-  return `${minutes}分钟`;
+  if (minutes) return `${minutes}分钟`;
+  return `${seconds}秒`;
 }
 
 export function msToMinute(ms) {
@@ -444,23 +471,6 @@ export async function loadJsLib(key: string, url: string) {
       script.onload = () => resolve(window[key]);
     }
     script.onerror = () => reject(key + " 加载失败");
-    document.head.appendChild(script);
-  });
-}
-
-export async function loadJsLib2(key: string, url: string, module: boolean = false) {
-  if (window[key]) return window[key];
-  return new Promise((resolve, reject) => {
-    const script = document.createElement("script");
-    if (module) {
-      script.type = 'module'
-    }
-    script.src = url;
-    script.onload = () => {
-      console.log('key', key)
-      resolve(window[key])
-    };
-    script.onerror = () => reject(key + ' 加载失败')
     document.head.appendChild(script);
   });
 }

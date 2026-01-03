@@ -21,7 +21,10 @@ const userStore = useUserStore()
 const {setTheme} = useTheme()
 
 let lastAudioFileIdList = []
+let isInitializing = true // 标记是否正在初始化
 watch(store.$state, (n: BaseState) => {
+  // 如果正在初始化，不保存数据，避免覆盖
+  if (isInitializing) return
   let data = shakeCommonDict(n)
   set(SAVE_DICT_KEY.key, JSON.stringify({val: data, version: SAVE_DICT_KEY.version}))
 
@@ -52,6 +55,7 @@ watch(store.$state, (n: BaseState) => {
 })
 
 watch(() => settingStore.$state, (n) => {
+  if (isInitializing) return
   set(SAVE_SETTING_KEY.key, JSON.stringify({val: n, version: SAVE_SETTING_KEY.version}))
   if (AppEnv.CAN_REQUEST) {
     syncSetting(null, settingStore.$state)
@@ -59,10 +63,12 @@ watch(() => settingStore.$state, (n) => {
 }, {deep: true})
 
 async function init() {
+  isInitializing = true // 开始初始化
   await userStore.init()
   await store.init()
   await settingStore.init()
   store.load = true
+  isInitializing = false // 初始化完成，允许保存数据
 
   setTheme(settingStore.theme)
 

@@ -2,7 +2,7 @@ import {loadJsLib, shakeCommonDict} from "@/utils";
 import {
   APP_NAME,
   APP_VERSION,
-  EXPORT_DATA_KEY,
+  EXPORT_DATA_KEY, LIB_JS_URL,
   LOCAL_FILE_KEY,
   Origin,
   PracticeSaveArticleKey,
@@ -28,7 +28,7 @@ export function useExport() {
     if (loading.value) return
     loading.value = true
     try {
-      const JSZip = await loadJsLib('JSZip', `${Origin}/libs/jszip.min.js`);
+      const JSZip = await loadJsLib('JSZip', LIB_JS_URL.JSZIP);
       let data = {
         version: EXPORT_DATA_KEY.version,
         val: {

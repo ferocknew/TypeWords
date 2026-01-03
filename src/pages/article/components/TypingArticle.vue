@@ -648,9 +648,9 @@ const currentPractice = inject('currentPractice', [])
       @input="handleMobileInput"
     />
     <header class="mb-4">
-      <div class="title word"><span class="font-family text-3xl">{{
+      <div class="title"><span class="font-family text-3xl">{{
           store.sbook.lastLearnIndex + 1
-        }}.</span>{{ props.article.title }}
+        }}. </span>{{ props.article?.title ?? '' }}
       </div>
       <div class="titleTranslate" v-if="settingStore.translate">{{ props.article.titleTranslate }}</div>
     </header>
@@ -739,7 +739,7 @@ const currentPractice = inject('currentPractice', [])
         @click="emit('replay')">重新练习
       </BaseButton>
       <BaseButton
-        v-if="store.currentBook.lastLearnIndex < store.currentBook.articles.length - 1"
+        v-if="store.sbook.lastLearnIndex < store.sbook.articles.length - 1"
         @click="emit('next')">下一篇
       </BaseButton>
     </div>
@@ -826,7 +826,7 @@ $article-lh: 2.4;
       display: inline-block !important;
     }
     .translate{
-      color:black;
+      color: var(--color-reverse-black);
     }
   }
 

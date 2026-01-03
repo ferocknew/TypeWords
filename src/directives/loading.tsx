@@ -42,21 +42,21 @@ export default {
     el.__loadingInstance = instance
 
     if (binding.value) {
-      el.appendChild(instance.$el)
+      el.appendChild(instance?.$el)
     }
   },
   updated(el, binding) {
     const instance = el.__loadingInstance
-    if (binding.value && !el.contains(instance.$el)) {
-      el.appendChild(instance.$el)
-    } else if (!binding.value && el.contains(instance.$el)) {
-      el.removeChild(instance.$el)
+    if (binding.value && !el.contains(instance?.$el)) {
+      el.appendChild(instance?.$el)
+    } else if (!binding.value && el.contains(instance?.$el)) {
+      el.removeChild(instance?.$el)
     }
   },
   unmounted(el) {
     const instance = el.__loadingInstance
-    if (instance && instance.$el.parentNode) {
-      instance.$el.parentNode.removeChild(instance.$el)
+    if (instance && instance?.$el.parentNode) {
+      instance?.$el.parentNode.removeChild(instance?.$el)
     }
     delete el.__loadingInstance
   }

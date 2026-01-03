@@ -69,6 +69,7 @@
     "git-last-commit": "^1.0.1",
     "gulp": "^4.0.2",
     "husky": "^8.0.3",
+    "prettier": "^3.7.4",
     "rollup-plugin-visualizer": "^5.14.0",
     "sass": "^1.89.2",
     "sitemap": "^8.0.0",

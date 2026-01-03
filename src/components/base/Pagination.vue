@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import {computed, onMounted, onUnmounted, ref} from 'vue';
+import { computed, onMounted, onUnmounted, ref } from 'vue';
+import BaseInput from "@/components/base/BaseInput.vue";
 
 interface IProps {
   currentPage?: number;
@@ -8,7 +9,6 @@ interface IProps {
   layout?: string;
   total: number;
   hideOnSinglePage?: boolean;
-  // background property removed as per requirements
 }
 
 const props = withDefaults(defineProps<IProps>(), {
@@ -37,59 +37,18 @@ const pageCount = computed(() => {
 // 可用于显示的页码数量，会根据容器宽度动态计算
 const availablePagerCount = ref(5); // 默认值
 
-// 计算显示的页码
-const pagers = computed(() => {
-  const pagerCount = availablePagerCount.value; // 动态计算的页码数量
-  const halfPagerCount = Math.floor(pagerCount / 2);
-  const currentPage = internalCurrentPage.value;
-  const pageCountValue = pageCount.value;
-
-  let showPrevMore = false;
-  let showNextMore = false;
-
-  if (pageCountValue > pagerCount) {
-    if (currentPage > pagerCount - halfPagerCount) {
-      showPrevMore = true;
-    }
-    if (currentPage < pageCountValue - halfPagerCount) {
-      showNextMore = true;
-    }
-  }
-
-  const array = [];
-  if (showPrevMore && !showNextMore) {
-    const startPage = pageCountValue - (pagerCount - 2);
-    for (let i = startPage; i < pageCountValue; i++) {
-      array.push(i);
-    }
-  } else if (!showPrevMore && showNextMore) {
-    for (let i = 2; i < pagerCount; i++) {
-      array.push(i);
-    }
-  } else if (showPrevMore && showNextMore) {
-    const offset = Math.floor(pagerCount / 2) - 1;
-    for (let i = currentPage - offset; i <= currentPage + offset; i++) {
-      array.push(i);
-    }
-  } else {
-    for (let i = 2; i < pageCountValue; i++) {
-      array.push(i);
-    }
-  }
-
-  return array;
-});
-
 // 是否显示分页
 const shouldShow = computed(() => {
   return props.hideOnSinglePage ? pageCount.value > 1 : true;
 });
 
 // 处理页码变化
-function handleCurrentChange(val: number) {
+function jumpPage(val: number) {
+  if (Number(val) > pageCount.value) val = pageCount.value;
+  if (Number(val) <= 0) val = 1;
   internalCurrentPage.value = val;
-  emit('update:currentPage', val);
-  emit('current-change', val);
+  emit('update:currentPage', Number(val));
+  emit('current-change', Number(val));
 }
 
 // 处理每页条数变化
@@ -143,7 +102,7 @@ onUnmounted(() => {
 function prev() {
   const newPage = internalCurrentPage.value - 1;
   if (newPage >= 1) {
-    handleCurrentChange(newPage);
+    jumpPage(newPage);
   }
 }
 
@@ -151,32 +110,10 @@ function prev() {
 function next() {
   const newPage = internalCurrentPage.value + 1;
   if (newPage <= pageCount.value) {
-    handleCurrentChange(newPage);
+    jumpPage(newPage);
   }
 }
 
-// 跳转到指定页
-function jumpPage(page: number) {
-  if (page !== internalCurrentPage.value) {
-    handleCurrentChange(page);
-  }
-}
-
-// 快速向前跳转
-function quickPrevPage() {
-  const newPage = Math.max(1, internalCurrentPage.value - 5);
-  if (newPage !== internalCurrentPage.value) {
-    handleCurrentChange(newPage);
-  }
-}
-
-// 快速向后跳转
-function quickNextPage() {
-  const newPage = Math.min(pageCount.value, internalCurrentPage.value + 5);
-  if (newPage !== internalCurrentPage.value) {
-    handleCurrentChange(newPage);
-  }
-}
 </script>
 
 <template>
@@ -184,71 +121,29 @@ function quickNextPage() {
     <div class="pagination-container">
       <!-- 上一页 -->
       <button
-          v-if="layout.includes('prev')"
-          class="btn-prev"
-          :disabled="internalCurrentPage <= 1"
-          @click="prev"
+        class="btn-prev"
+        :disabled="internalCurrentPage <= 1"
+        @click="prev"
       >
         <IconFluentChevronLeft20Filled/>
       </button>
 
       <!-- 页码 -->
-      <ul v-if="layout.includes('pager')" class="pager">
-        <!-- 第一页 -->
-        <li
-            class="number"
-            :class="{ active: internalCurrentPage === 1 }"
-            @click="jumpPage(1)"
-        >
-          1
-        </li>
-
-        <!-- 快速向前 -->
-        <li
-            v-if="pageCount > availablePagerCount && internalCurrentPage > (availablePagerCount - Math.floor(availablePagerCount / 2))"
-            class="more btn-quickprev"
-            @click="quickPrevPage"
-        >
-          ...
-        </li>
-
-        <!-- 中间页码 -->
-        <li
-            v-for="pager in pagers"
-            :key="pager"
-            class="number"
-            :class="{ active: internalCurrentPage === pager }"
-            @click="jumpPage(pager)"
-        >
-          {{ pager }}
-        </li>
-
-        <!-- 快速向后 -->
-        <li
-            v-if="pageCount > availablePagerCount && internalCurrentPage < pageCount - Math.floor(availablePagerCount / 2)"
-            class="more btn-quicknext"
-            @click="quickNextPage"
-        >
-          ...
-        </li>
-
-        <!-- 最后一页 -->
-        <li
-            v-if="pageCount > 1"
-            class="number"
-            :class="{ active: internalCurrentPage === pageCount }"
-            @click="jumpPage(pageCount)"
-        >
-          {{ pageCount }}
-        </li>
-      </ul>
+      <div class="flex items-center">
+        <div class="w-12">
+          <BaseInput v-model="internalCurrentPage"
+                     @enter="jumpPage(internalCurrentPage)"
+                     class="text-center"/>
+        </div>
+        <span class="mx-2">/</span>
+        <span class="text-base">{{ pageCount }}</span>
+      </div>
 
       <!-- 下一页 -->
       <button
-          v-if="layout.includes('next')"
-          class="btn-next"
-          :disabled="internalCurrentPage >= pageCount"
-          @click="next"
+        class="btn-next"
+        :disabled="internalCurrentPage >= pageCount"
+        @click="next"
       >
         <IconFluentChevronLeft20Filled class="transform-rotate-180"/>
       </button>
@@ -256,18 +151,18 @@ function quickNextPage() {
       <!-- 每页条数选择器 -->
       <div v-if="layout.includes('sizes')" class="sizes">
         <select
-            :value="internalPageSize"
-            @change="handleSizeChange(Number($event.target.value))"
+          :value="internalPageSize"
+          @change="handleSizeChange(Number($event.target.value))"
         >
           <option v-for="item in pageSizes" :key="item" :value="item">
-            {{ item }} 条/页
+            {{ item }}条/页
           </option>
         </select>
       </div>
 
       <!-- 总数 -->
-      <span v-if="layout.includes('total')" class="total">
-        共 {{ total }} 条
+      <span v-if="layout.includes('total')" class="total text-base">
+        共{{ total }}条
       </span>
     </div>
   </div>
@@ -298,69 +193,40 @@ function quickNextPage() {
     font-size: 1rem;
     min-width: 1.9375rem;
     height: 1.9375rem;
-    border-radius: 0.125rem;
+    border-radius: 0.2rem;
     cursor: pointer;
-    background-color: var(--color-third);
     color: #606266;
     border: none;
     padding: 0 0.375rem;
     margin: 0.25rem 0.25rem;
+    background-color: transparent;
+    transition: all .3s;
 
     &:disabled {
+      opacity: 0.3;
       cursor: not-allowed;
     }
 
     &:hover:not(:disabled) {
+      background-color: var(--color-third);
       color: var(--color-select-bg);
     }
   }
 
-  .pager {
-    display: inline-flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    flex-wrap: wrap;
-
-    li {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 0.875rem;
-      min-width: 1.9375rem;
-      height: 1.9375rem;
-      line-height: 1.9375rem;
-      border-radius: 0.125rem;
-      margin: 0.25rem 0.25rem;
-      cursor: pointer;
-      background-color: var(--color-third);
-      border: none;
-
-      &.active {
-        background-color: var(--el-color-primary, #409eff);
-        color: #fff;
-      }
-
-      &.more {
-        color: #606266;
-      }
-
-      &:hover:not(.active) {
-        color: var(--el-color-primary, #409eff);
-      }
-    }
-  }
-
   .sizes {
-    margin: 0.25rem 0.5rem;
+    border: 1px solid var(--color-input-border);
+    border-radius: 0.25rem;
+    padding-right: .2rem;
+    background-color: var(--color-bg);
+    overflow: hidden;
 
     select {
       height: 1.9375rem;
       padding: 0 0.5rem;
       font-size: 0.875rem;
-      border-radius: 0.125rem;
-      border: 1px solid #dcdfe6;
-      background-color: #fff;
+      border: none;
+      background-color: transparent;
+      color: var(--color-main-text);
 
       &:focus {
         outline: none;
@@ -377,8 +243,7 @@ function quickNextPage() {
 
   .total {
     margin: 0.25rem 0.5rem;
-    font-weight: normal;
-    color: #606266;
+    color: var(--color-main-text);
   }
 }
 </style>

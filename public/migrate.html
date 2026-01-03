@@ -5,7 +5,7 @@
     <title>TypeWords 数据迁移（旧域名）</title>
 </head>
 <body>
-<h2>等待新域名发送迁移指令...</h2>
+<h2 id="title">等待新域名发送迁移指令...</h2>
 <pre id="log"></pre>
 
 <script>
@@ -78,6 +78,7 @@
     log("已发送迁移数据");
     // 自动关闭窗口（延迟 500ms）
     setTimeout(() => {
+      document.getElementById('title').textContent = '迁移完成，请手动关闭页面'
       window.close();
     }, 500);
   });

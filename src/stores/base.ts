@@ -34,15 +34,20 @@ export const getDefaultBaseState = (): BaseState => ({
   load: false,
   word: {
     bookList: [
-      getDefaultDict({id: DictId.wordCollect, name: '收藏'}),
-      getDefaultDict({id: DictId.wordWrong, name: '错词'}),
-      getDefaultDict({id: DictId.wordKnown, name: '已掌握', description: '已掌握后的单词不会出现在练习中'}),
+      getDefaultDict({ id: DictId.wordCollect, en_name: DictId.wordCollect, name: '收藏' }),
+      getDefaultDict({ id: DictId.wordWrong, en_name: DictId.wordCollect, name: '错词' }),
+      getDefaultDict({
+        id: DictId.wordKnown,
+        en_name: DictId.wordCollect,
+        name: '已掌握',
+        description: '已掌握后的单词不会出现在练习中'
+      }),
     ],
     studyIndex: -1,
   },
   article: {
     bookList: [
-      getDefaultDict({id: DictId.articleCollect, name: '收藏'})
+      getDefaultDict({ id: DictId.articleCollect, en_name: DictId.articleCollect, name: '收藏' })
     ],
     studyIndex: -1,
   },
@@ -72,12 +77,6 @@ export const useBaseStore = defineStore('base', {
     allIgnoreWords() {
       return this.known.words.map((v: Word) => v.word.toLowerCase()).concat(this.simpleWords.map((v: string) => v.toLowerCase()))
     },
-    currentStudyWordDict(): Dict {
-      if (this.word.studyIndex >= 0) {
-        return this.word.bookList[this.word.studyIndex] ?? getDefaultDict()
-      }
-      return getDefaultDict()
-    },
     sdict(): Dict {
       if (this.word.studyIndex >= 0) {
         return this.word.bookList[this.word.studyIndex] ?? getDefaultDict()
@@ -92,9 +91,6 @@ export const useBaseStore = defineStore('base', {
       if (!this.sdict.length) return 0
       if (!this.sdict.perDayStudyNumber) return 0
       return Math.ceil((this.sdict.length - this.sdict.lastLearnIndex) / this.sdict.perDayStudyNumber)
-    },
-    currentBook(): Dict {
-      return this.article.bookList[this.article.studyIndex] ?? {}
     },
     sbook(): Dict {
       return this.article.bookList[this.article.studyIndex] ?? {}
@@ -130,15 +126,18 @@ export const useBaseStore = defineStore('base', {
               data.dictListVersion = r.data
             }
           }
-          console.log('data',data)
           if (AppEnv.CAN_REQUEST) {
             let res = await myDictList()
             if (res.success) {
+              //只保留未同步的
+              data.word.bookList = data.word.bookList.filter(v => !v.sync)
+              data.article.bookList = data.article.bookList.filter(v => !v.sync)
+              //这里看看是否要 shallowReactive
               Object.assign(data, res.data)
             }
           }
+          console.log('data', data)
           this.setState(data)
-          set(SAVE_DICT_KEY.key, JSON.stringify({val: shakeCommonDict(this.$state), version: SAVE_DICT_KEY.version}))
         } catch (e) {
           console.error('读取本地dict数据失败', e)
         }
@@ -148,10 +147,14 @@ export const useBaseStore = defineStore('base', {
     //改变词典
     async changeDict(val: Dict) {
       if (AppEnv.CAN_REQUEST) {
-        let r = await add2MyDict(val)
-        if (!r.success) {
-          return Toast.error(r.msg)
-        }
+        let r = await add2MyDict({
+          id: val.id,
+          perDayStudyNumber: val.perDayStudyNumber,
+          lastLearnIndex: val.lastLearnIndex,
+          complete: val.complete,
+        })
+        if (!r.success) return Toast.error(r.msg)
+        else val.userDictId = r.data
       }
       //把其他的词典的单词数据都删掉，全保存在内存里太卡了
       this.word.bookList.slice(3).map(v => {
@@ -168,6 +171,7 @@ export const useBaseStore = defineStore('base', {
         this.word.bookList[this.word.studyIndex].words = shallowReactive(val.words)
         this.word.bookList[this.word.studyIndex].perDayStudyNumber = val.perDayStudyNumber
         this.word.bookList[this.word.studyIndex].lastLearnIndex = val.lastLearnIndex
+        this.word.bookList[this.word.studyIndex].userDictId = val.userDictId
       } else {
         this.word.bookList.push(getDefaultDict(val))
         this.word.studyIndex = this.word.bookList.length - 1
@@ -176,7 +180,12 @@ export const useBaseStore = defineStore('base', {
     //改变书籍
     async changeBook(val: Dict) {
       if (AppEnv.CAN_REQUEST) {
-        let r = await add2MyDict(val)
+        let r = await add2MyDict({
+          id: val.id,
+          perDayStudyNumber: val.perDayStudyNumber,
+          lastLearnIndex: val.lastLearnIndex,
+          complete: val.complete,
+        })
         if (!r.success) {
           return Toast.error(r.msg)
         }

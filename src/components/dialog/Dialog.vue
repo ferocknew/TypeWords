@@ -89,7 +89,7 @@ watch(() => props.modelValue, n => {
   // console.log('n', n)
   if (n) {
     id = Date.now()
-    runtimeStore.modalList.push({id, close})
+    runtimeStore.modalList.push({ id, close })
     zIndex = 999 + runtimeStore.modalList.length
     visible = true
   } else {
@@ -101,7 +101,7 @@ onMounted(() => {
   if (props.modelValue === undefined) {
     visible = true
     id = Date.now()
-    runtimeStore.modalList.push({id, close})
+    runtimeStore.modalList.push({ id, close })
     zIndex = 999 + runtimeStore.modalList.length
   }
 })
@@ -175,7 +175,7 @@ async function cancel() {
           <div class="right">
             <BaseButton type="info" @click="cancel">{{ cancelButtonText }}</BaseButton>
             <BaseButton
-              id="dialog-ok"
+                id="dialog-ok"
                 :loading="confirmButtonLoading"
                 @click="ok">{{ confirmButtonText }}
             </BaseButton>
@@ -292,7 +292,8 @@ $header-height: 4rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.3rem 1.3rem 1rem;
+      padding: var(--modal-padding);
+      padding-bottom: 0;
       border-radius: $radius $radius 0 0;
 
       .title {
@@ -315,7 +316,7 @@ $header-height: 4rem;
       display: flex;
 
       &.padding {
-        padding: .2rem 1.6rem 1.6rem;
+        padding: .2rem var(--modal-padding);
       }
 
       .content {
@@ -327,7 +328,7 @@ $header-height: 4rem;
     .modal-footer {
       display: flex;
       justify-content: space-between;
-      padding: var(--space);
+      padding: var(--modal-padding);
     }
   }
 }

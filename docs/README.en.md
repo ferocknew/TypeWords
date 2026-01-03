@@ -39,8 +39,7 @@ Practice English, one strike, one step forward
 
 ## Online visit
 
-China:<https://typewords.cc>  
-other:<https://vercel.typewords.cc> or <https://tw.typewords.cc>
+<https://typewords.cc>  
 
 ## Feature list
 

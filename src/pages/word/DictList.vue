@@ -145,7 +145,7 @@ watch(dict_list, (val) => {
       <div class="w-full" v-else>
         <DictGroup
             v-for="item in groupedByCategoryAndTag"
-            :select-id="store.currentStudyWordDict.id"
+            :select-id="store.sdict.id"
             @selectDict="selectDict"
             quantifier="个词"
             :groupByTag="item[1]"

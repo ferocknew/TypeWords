@@ -1,32 +1,31 @@
 <script setup lang="ts">
-import { APP_NAME, GITHUB, LIB_JS_URL, Origin } from "@/config/env.ts";
+
+import { APP_NAME, LIB_JS_URL, Origin } from "@/config/env.ts";
 import BaseIcon from "@/components/BaseIcon.vue";
-import { defineAsyncComponent, watch } from "vue";
+
+const Dialog = defineAsyncComponent(() => import('@/components/dialog/Dialog.vue'))
+
 import { usePracticeStore } from "@/stores/practice.ts";
 import { useBaseStore } from "@/stores/base.ts";
 import { loadJsLib, msToHourMinute } from "@/utils";
 import dayjs from "dayjs";
-import Toast from "@/components/base/toast/Toast.ts";
+import Toass from "../base/toast/Toast.ts";
 import { useUserStore } from "@/stores/user.ts";
 import Progress from "@/components/base/Progress.vue";
-
-const Dialog = defineAsyncComponent(() => import('@/components/dialog/Dialog.vue'))
+import { defineAsyncComponent } from "vue";
 
 const practiceStore = usePracticeStore()
 const baseStore = useBaseStore()
 const userStore = useUserStore()
 
-let showWechatDialog = $ref(false)
-let showXhsDialog = $ref(false)
-let showQQDialog = $ref(false)
 let showShareDialog = $ref(false)
 let loading1 = $ref(false)
 let loading2 = $ref(false)
 let posterEl = $ref<HTMLDivElement | null>(null)
+let imgIndex = $ref(Math.floor(Math.random() * 10))
 
 // 计算学习统计数据
 const studyStats = $computed(() => {
-
   return {
     total: practiceStore.total,
     newWords: practiceStore.newWordNumber,
@@ -39,28 +38,22 @@ const studyStats = $computed(() => {
   }
 })
 
-// 监听对话框打开事件，自动生成图片
-watch(() => showShareDialog, (newVal) => {
-  if (newVal) {
-  }
-})
-
 // 复制图片到剪贴板
 async function copyImageToClipboard() {
   try {
     loading1 = true
-    const snapdom = await loadJsLib('snapdom',LIB_JS_URL.SNAPDOM);
-    const blob = await snapdom.toBlob(posterEl, {scale: 2, type: 'png'})
+    const snapdom = await loadJsLib('snapdom', LIB_JS_URL.SNAPDOM);
+    const blob = await snapdom.toBlob(posterEl, { scale: 2, type: 'png' })
     if (!blob) throw new Error('capture failed')
 
     if (navigator.clipboard && (window as any).ClipboardItem) {
-      await navigator.clipboard.write([new (window as any).ClipboardItem({[blob.type || 'image/png']: blob})])
-      Toast.success('图片已复制到剪贴板！')
+      await navigator.clipboard.write([new (window as any).ClipboardItem({ [blob.type || 'image/png']: blob })])
+      Toass.success('图片已复制到剪贴板！')
     } else {
       await downloadImage()
     }
   } catch (error) {
-    Toast.error('复制失败！')
+    Toass.error('复制失败！')
     await downloadImage()
   } finally {
     loading1 = false
@@ -70,12 +63,10 @@ async function copyImageToClipboard() {
 // 下载图片
 async function downloadImage() {
   loading2 = true
-  const snapdom = await loadJsLib('snapdom',LIB_JS_URL.SNAPDOM);
-  snapdom.download(posterEl, {scale: 2})
+  const snapdom = await loadJsLib('snapdom', LIB_JS_URL.SNAPDOM);
+  snapdom.download(posterEl, { scale: 2 })
   loading2 = false
 }
-
-let imgIndex = $ref(Math.floor(Math.random() * 10))
 
 // 切换背景
 function changeBackground() {
@@ -91,79 +82,47 @@ const studyProgress = $computed(() => {
 
 const sentence = $computed(() => {
   let list = [
-    {en: 'Actions speak louder than words.', cn: '行动胜于言语'},
-    {en: 'Keep going, never give up!', cn: '坚持就是胜利'},
-    {en: 'Where there\'s a will, there\'s a way.', cn: '有志者事竟成'},
-    {en: 'Every cloud has a silver lining.', cn: '黑暗中总有一线光明'},
-    {en: 'Time heals all wounds.', cn: '时间能治愈一切创伤'},
-    {en: 'Never say die.', cn: '永不言败'},
-    {en: 'The best is yet to come.', cn: '最好的尚未到来'},
-    {en: 'Believe you can and you\'re halfway there.', cn: '相信你自己，你已经成功了一半'},
-    {en: 'No pain, no gain.', cn: '没有付出就没有收获'},
-    {en: 'Dream big and dare to fail.', cn: '大胆梦想，勇于失败'},
-    {en: 'Home is where the heart is.', cn: '心在哪里，家就在哪里'},
-    {en: 'Knowledge is power.', cn: '知识就是力量'},
-    {en: 'Practice makes perfect.', cn: '熟能生巧'},
-    {en: 'When in Rome, do as the Romans do.', cn: '入乡随俗'},
-    {en: 'Just do it.', cn: '只管去做'},
-    {en: 'So far, so good.', cn: '到目前为止，一切还好'},
-    {en: 'The early bird catches the worm.', cn: '早起的鸟儿有虫吃'},
-    {en: 'Every day is a new beginning.', cn: '每一天都是新的开始'},
-    {en: 'Success is a journey, not a destination.', cn: '成功是旅程，不是终点'},
-    {en: 'Your only limit is your mind.', cn: '你唯一的限制是你的思维'},
-    {en: 'A friend in need is a friend indeed.', cn: '患难见真情'},
-    {en: 'Silence is golden.', cn: '沉默是金'},
-    {en: 'Let bygones be bygones.', cn: '让过去的成为过去'},
-    {en: 'Keep calm and carry on.', cn: '保持冷静，继续前进'},
-    {en: 'Live and learn.', cn: '活到老，学到老'},
-    {en: 'Mistakes are proof that you are trying.', cn: '错误证明你在努力尝试'},
-    {en: 'Better late than never.', cn: '迟做总比不做好'},
-    {en: 'Be the change you wish to see in the world.', cn: '成为你希望在世界上看到的改变'},
-    {en: 'The journey of a thousand miles begins with a single step.', cn: '千里之行，始于足下'},
-    {en: 'When one door closes, another opens.', cn: '当一扇门关闭时，另一扇会打开'},
+    { en: 'Actions speak louder than words.', cn: '行动胜于言语' },
+    { en: 'Keep going, never give up!', cn: '坚持就是胜利' },
+    { en: 'Where there\'s a will, there\'s a way.', cn: '有志者事竟成' },
+    { en: 'Every cloud has a silver lining.', cn: '黑暗中总有一线光明' },
+    { en: 'Time heals all wounds.', cn: '时间能治愈一切创伤' },
+    { en: 'Never say die.', cn: '永不言败' },
+    { en: 'The best is yet to come.', cn: '最好的尚未到来' },
+    { en: 'Believe you can and you\'re halfway there.', cn: '相信你自己，你已经成功了一半' },
+    { en: 'No pain, no gain.', cn: '没有付出就没有收获' },
+    { en: 'Dream big and dare to fail.', cn: '大胆梦想，勇于失败' },
+    { en: 'Home is where the heart is.', cn: '心在哪里，家就在哪里' },
+    { en: 'Knowledge is power.', cn: '知识就是力量' },
+    { en: 'Practice makes perfect.', cn: '熟能生巧' },
+    { en: 'When in Rome, do as the Romans do.', cn: '入乡随俗' },
+    { en: 'Just do it.', cn: '只管去做' },
+    { en: 'So far, so good.', cn: '到目前为止，一切还好' },
+    { en: 'The early bird catches the worm.', cn: '早起的鸟儿有虫吃' },
+    { en: 'Every day is a new beginning.', cn: '每一天都是新的开始' },
+    { en: 'Success is a journey, not a destination.', cn: '成功是旅程，不是终点' },
+    { en: 'Your only limit is your mind.', cn: '你唯一的限制是你的思维' },
+    { en: 'A friend in need is a friend indeed.', cn: '患难见真情' },
+    { en: 'Silence is golden.', cn: '沉默是金' },
+    { en: 'Let bygones be bygones.', cn: '让过去的成为过去' },
+    { en: 'Keep calm and carry on.', cn: '保持冷静，继续前进' },
+    { en: 'Live and learn.', cn: '活到老，学到老' },
+    { en: 'Mistakes are proof that you are trying.', cn: '错误证明你在努力尝试' },
+    { en: 'Better late than never.', cn: '迟做总比不做好' },
+    { en: 'Be the change you wish to see in the world.', cn: '成为你希望在世界上看到的改变' },
+    { en: 'The journey of a thousand miles begins with a single step.', cn: '千里之行，始于足下' },
+    { en: 'When one door closes, another opens.', cn: '当一扇门关闭时，另一扇会打开' },
   ]
   return list[Math.floor(Math.random() * list.length)]
 })
-
 </script>
 
 <template>
-  <div class="flex-col center gap-1">
-    <!-- 分享学习总结按钮 -->
-    <BaseIcon @click="showShareDialog = true"
-              class="bounce">
-      <IconFluentShare20Regular class="text-blue-500 hover:text-blue-600"/>
-    </BaseIcon>
-
-    <a :href="GITHUB" target="_blank" rel="noreferrer" aria-label="GITHUB 项目地址"
-       class="color-[--color-reverse-black]">
-      <BaseIcon>
-        <IconSimpleIconsGithub/>
-      </BaseIcon>
-    </a>
-
-    <BaseIcon @click="showWechatDialog = true">
-      <IconSimpleIconsWechat class="color-green-500"/>
-    </BaseIcon>
-    <BaseIcon @click="showQQDialog = true">
-      <IconUiwQq class="color-red"/>
-    </BaseIcon>
-    <BaseIcon @click="showXhsDialog = true">
-      <IconSimpleIconsXiaohongshu class="color-red-500"/>
-    </BaseIcon>
-
-    <a href="https://x.com/typewords2" target="_blank" rel="noreferrer" aria-label="关注我的 X 账户 typewords2">
-      <BaseIcon>
-        <IconRiTwitterFill class="color-blue"/>
-      </BaseIcon>
-    </a>
-
-    <a href="mailto:zyronon@163.com" target="_blank" rel="noreferrer" aria-label="发送邮件到 zyronon@163.com">
-      <BaseIcon>
-        <IconMaterialSymbolsMail class="color-blue"/>
-      </BaseIcon>
-    </a>
-  </div>
+  <!-- 分享学习总结按钮 -->
+  <BaseIcon @click="showShareDialog = true"
+            class="bounce">
+    <IconFluentShare20Regular class="text-blue-500 hover:text-blue-600"/>
+  </BaseIcon>
 
   <!-- 学习总结分享图片生成对话框 -->
   <Dialog v-model="showShareDialog" title="分享">
@@ -229,7 +188,7 @@ const sentence = $computed(() => {
                 <div class="text-base  ">{{ Origin }}</div>
                 <div class="text-xs  ">一次敲击，一点进步，开源单词学习工具</div>
               </div>
-              <img src="/imgs/qr.png" class="w-20 w-20 rounded-md overflow-hidden" alt="">
+              <img :src="`/imgs/qr.png`" class="w-20 w-20 rounded-md overflow-hidden" alt="">
             </div>
           </div>
         </div>
@@ -288,41 +247,8 @@ const sentence = $computed(() => {
       </div>
     </div>
   </Dialog>
-
-  <Dialog v-model="showWechatDialog" title="Type Words 交流群">
-    <div class="w-120 p-6 pt-0">
-      <div class="mb-4">
-        加入我们的用户社群后，您可以与我们的开发团队进行沟通，分享您的使用体验和建议，帮助我们改进产品，同时也能够及时了解我们的最新动态和更新内容。
-      </div>
-      <div class="text-center">
-        <img src="/wechat.png" alt="微信群二维码" class="w-60 rounded-lg">
-      </div>
-    </div>
-  </Dialog>
-
-  <Dialog v-model="showXhsDialog" title="小红书">
-    <div class="w-120 p-6 pt-0">
-      <div class="mb-4">
-        关注小红书后，您可以获得开发团队的最新动态和更新内容，反馈您的使用体验和建议，帮助我们改进产品，同时也能够及时了解我们的最新动态和更新内容。
-      </div>
-      <div class="text-center">
-        <img src="/xhs.png" alt="小红书二维码" class="w-60 rounded-lg">
-      </div>
-    </div>
-  </Dialog>
-
-  <Dialog v-model="showQQDialog" title="QQ 交流群">
-    <div class="w-120 p-6 pt-0">
-      <div class="mb-4">
-        <span>加入我们的用户社群后，您可以与我们的开发团队进行沟通，分享您的使用体验和建议，帮助我们改进产品，同时也能够及时了解我们的最新动态和更新内容。</span>
-      </div>
-      <div class="text-center">
-        <img src="/qq.jpg" alt="QQ群二维码" class="w-60 rounded-lg">
-      </div>
-    </div>
-  </Dialog>
-
 </template>
+
 <style scoped lang="scss">
 .stat-card {
   @apply text-center bg-gray-900/30 py-4 rounded-2xl;

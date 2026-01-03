@@ -1,12 +1,13 @@
 <script setup lang="ts">
-
-import { Article } from "@/types/types.ts";
-import BaseList from "@/components/list/BaseList.vue";
-import BaseInput from "@/components/base/BaseInput.vue";
+import { Article } from '@/types/types.ts'
+import BaseList from '@/components/list/BaseList.vue'
+import BaseInput from '@/components/base/BaseInput.vue'
+import { useArticleOptions } from '@/hooks/dict.ts'
+import BaseIcon from '@/components/BaseIcon.vue'
 
 interface IProps {
-  list: Article[];
-  showTranslate?: boolean;
+  list: Article[]
+  showTranslate?: boolean
 }
 
 const props = withDefaults(defineProps<IProps>(), {
@@ -15,8 +16,8 @@ const props = withDefaults(defineProps<IProps>(), {
 })
 
 const emit = defineEmits<{
-  click: [val: { item: Article, index: number }],
-  title: [val: { item: Article, index: number }],
+  click: [val: { item: Article; index: number }]
+  title: [val: { item: Article; index: number }]
 }>()
 
 let searchKey = $ref('')
@@ -24,10 +25,13 @@ let localList = $computed(() => {
   if (searchKey) {
     //把搜索内容，分词之后，判断是否有这个词，比单纯遍历包含体验更好
     let t = searchKey.toLowerCase()
-    let strings = t.split(' ').filter(v => v);
+    let strings = t.split(' ').filter(v => v)
     let res = props.list.filter((item: Article) => {
       return strings.some(value => {
-        return item.title.toLowerCase().includes(value) || item.titleTranslate.toLowerCase().includes(value)
+        return (
+          item.title.toLowerCase().includes(value) ||
+          item.titleTranslate.toLowerCase().includes(value)
+        )
       })
     })
     try {
@@ -38,16 +42,15 @@ let localList = $computed(() => {
           res.push(props.list[d - 1])
         }
       }
-    } catch (err) {
-    }
+    } catch (err) {}
     return res.sort((a: Article, b: Article) => {
       //使完整包含的条目更靠前
-      const aMatch = a.title.toLowerCase().includes(t);
-      const bMatch = b.title.toLowerCase().includes(t);
+      const aMatch = a.title.toLowerCase().includes(t)
+      const bMatch = b.title.toLowerCase().includes(t)
 
-      if (aMatch && !bMatch) return -1; // a 靠前
-      if (!aMatch && bMatch) return 1;  // b 靠前
-      return 0; // 都匹配或都不匹配，保持原顺序
+      if (aMatch && !bMatch) return -1 // a 靠前
+      if (!aMatch && bMatch) return 1 // b 靠前
+      return 0 // 都匹配或都不匹配，保持原顺序
     })
   } else {
     return props.list
@@ -63,9 +66,9 @@ function scrollToBottom() {
 function scrollToItem(index: number) {
   listRef?.scrollToItem(index)
 }
+const { isArticleCollect, toggleArticleCollect } = useArticleOptions()
 
 defineExpose({ scrollToBottom, scrollToItem })
-
 </script>
 
 <template>
@@ -77,23 +80,38 @@ defineExpose({ scrollToBottom, scrollToItem })
         </template>
       </BaseInput>
     </div>
-    <BaseList ref="listRef"
-              @click="(e: any) => emit('click', e)"
-              :list="localList"
-              v-bind="$attrs">
-      <template v-slot:prefix="{ item, index }">
-        <slot name="prefix" :item="item" :index="index"></slot>
-      </template>
-      <template v-slot="{ item, index }">
-        <div class="item-title">
-          <div class="name"> {{ `${searchKey ? '' : (index + 1) + '. '}${item.title}` }}</div>
+    <BaseList ref="listRef" @click="(e: any) => emit('click', e)" :list="localList" v-bind="$attrs">
+      <template v-slot="{ item, index, active }">
+        <div class="common-list-item" :class="{ active }">
+          <div class="left">
+            <div class="title-wrapper">
+              <div class="item-title">
+                <div class="name">
+                  <span class="text-sm text-gray-500" v-if="index != undefined && !searchKey">
+                    {{ index }}.
+                  </span>
+                  {{ item.title }}
+                </div>
+              </div>
+              <div class="item-sub-title" v-if="item.titleTranslate && showTranslate">
+                <div class="item-translate">{{ ` ${item.titleTranslate}` }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="right">
+            <BaseIcon
+              :class="!isArticleCollect(item) ? 'collect' : 'fill'"
+              @click.stop="toggleArticleCollect(item)"
+              :title="!isArticleCollect(item) ? '收藏' : '取消收藏'"
+            >
+              <IconFluentStar16Regular v-if="!isArticleCollect(item)" />
+              <IconFluentStar16Filled v-else />
+            </BaseIcon>
+            <BaseIcon title="可播放音频" v-if="item.audioSrc || item.audioFileId" noBg>
+              <IconBxVolumeFull class="opacity-100! color-gray" />
+            </BaseIcon>
+          </div>
         </div>
-        <div class="item-sub-title" v-if="item.titleTranslate && showTranslate">
-          <div class="item-translate"> {{ ` ${item.titleTranslate}` }}</div>
-        </div>
-      </template>
-      <template v-slot:suffix="{ item, index }">
-        <slot name="suffix" :item="item" :index="index"></slot>
       </template>
     </BaseList>
   </div>

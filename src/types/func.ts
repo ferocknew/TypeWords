@@ -46,7 +46,7 @@ export function getDefaultArticle(val: Partial<Article> = {}): Article {
     audioFileId: '',
     lrcPosition: [],
     questions: [],
-    nameList:[],
+    nameList: [],
     ...cloneDeep(val)
   }
 }
@@ -74,6 +74,7 @@ export function getDefaultDict(val: Partial<Dict> = {}): Dict {
     is_default: false,
     update: false,
     cover: '',
+    sync: false,
 
     ...val,
     words: shallowReactive(val.words ?? []),

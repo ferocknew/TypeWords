@@ -29,14 +29,15 @@ watch(() => model.value, (n) => {
 <template>
   <Dialog v-model="model" title="随机复习设置"
           :footer="true"
+          :padding="true"
           @ok="emit('ok',num)">
     <div class="target-modal color-main">
-      <div class="flex gap-4 items-end  mb-2">
+      <div class="flex gap-4 items-end mb-2">
         <span>随机复习：<span class="font-bold">{{ store.sdict.name }}</span></span>
-        <span class="text-3xl mx-2 lh">{{ num }}</span>个单词
+        <span class="text-3xl lh">{{ num }}</span>个单词
       </div>
       <div class="flex gap-space">
-        <span class="shrink-0">随机数量</span>
+        <span class="shrink-0">随机数量：</span>
         <Slider :min="min"
                 :step="10"
                 show-text
@@ -52,7 +53,6 @@ watch(() => model.value, (n) => {
 
 .target-modal {
   width: 30rem;
-  padding: 0 var(--space);
 
   .lh {
     color: rgb(176, 116, 211)

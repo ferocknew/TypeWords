@@ -7,7 +7,7 @@ import { PracticeData, ShortcutKey } from "@/types/types.ts";
 import BaseIcon from "@/components/BaseIcon.vue";
 import Tooltip from "@/components/base/Tooltip.vue";
 import Progress from '@/components/base/Progress.vue'
-import SettingDialog from "@/components/SettingDialog.vue";
+import SettingDialog from "@/components/setting/SettingDialog.vue";
 
 const statStore = usePracticeStore()
 const settingStore = useSettingStore()
@@ -109,15 +109,16 @@ const progress = $computed(() => {
             <div class="name">{{ status }}</div>
           </div>
           <div class="row">
+<!--            <div class="num">{{ statStore.spend }}分钟</div>-->
+            <div class="num">{{ Math.floor(statStore.spend / 1000 / 60) }}分钟</div>
+            <div class="line"></div>
+            <div class="name">时间</div>
+          </div>
+          <div class="row">
             <div class="num">{{ statStore.total }}</div>
             <div class="line"></div>
             <div class="name">单词总数</div>
           </div>
-<!--          <div class="row">-->
-<!--            <div class="num">{{ format(statStore.inputWordNumber, '', 0) }}</div>-->
-<!--            <div class="line"></div>-->
-<!--            <div class="name">总输入数</div>-->
-<!--          </div>-->
           <div class="row">
             <div class="num">{{ format(statStore.wrong, '', 0) }}</div>
             <div class="line"></div>

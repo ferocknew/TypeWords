@@ -384,6 +384,78 @@
     </style>
 
     <script>
+        if (
+            !location.href.includes('localhost')
+            && !location.href.includes('192.168')
+            && !location.href.includes('172.16')
+            && !location.href.includes('10.0')
+        ) {
+            //51.la
+            (function () {
+                window.LA = window.LA || {
+                    ids: [{id: "3OH8ITYRgwzo58L2", ck: "3OH8ITYRgwzo58L2"}],
+                    id: "3OH8ITYRgwzo58L2",
+                    ck: "3OH8ITYRgwzo58L2",
+                    hashMode: true
+                };
+                const script = document.createElement('script');
+                script.src = `https://typewords.cc/libs/51.js`;
+                document.head.appendChild(script);
+            })();
+
+            // Cloudflare
+            (function () {
+                var cf = document.createElement("script");
+                cf.src = 'https://static.cloudflareinsights.com/beacon.min.js'
+                cf.setAttribute("data-cf-beacon", '{"token": "e5119992696d4155814400dd69781d68"}');
+                document.head.appendChild(cf);
+            })();
+
+            // google
+            (function () {
+                var ana = document.createElement("script");
+                ana.src = 'https://www.googletagmanager.com/gtag/js?id=G-50T6DRD837'
+                ana.onload = function () {
+                    window.dataLayer = window.dataLayer || [];
+
+                    function gtag() {
+                        dataLayer.push(arguments);
+                    }
+
+                    gtag('js', new Date());
+                    gtag('config', 'G-50T6DRD837');
+                }
+                document.head.appendChild(ana);
+            })();
+
+
+            // baidu
+            var _hmt = _hmt || [];
+            (function () {
+                var hm = document.createElement("script");
+                hm.src = "https://hm.baidu.com/hm.js?3dae52fcd5375a19905462e4ad3eb54e";
+                document.head.appendChild(hm);
+            })();
+
+            // umami
+            // (function () {
+            //     var umami = document.createElement("script");
+            //     umami.src = 'https://typewords.cc/libs/s.js'
+            //     umami.setAttribute("data-website-id", "160308c9-7900-4b1d-a0b1-c3b25a9530f6");
+            // document.head.appendChild(umami);
+            // })();
+
+            // umami-saas
+            // (function () {
+            //     var umami2 = document.createElement("script");
+            //     umami2.src = 'https://stat.typewords.cc/script.js'
+            //     umami2.setAttribute("data-website-id", "4d728ae3-5393-4efe-81dc-30dcb4f33c00");
+            // document.head.appendChild(umami2);
+            // })();
+        }
+    </script>
+
+    <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('/service-worker.js').then(registration => {
